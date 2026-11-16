@@ -9,8 +9,8 @@ copyright: Slate, local-first notes
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/logo.svg
-  favicon: assets/logo.svg
+  logo: assets/logo.png
+  favicon: assets/logo.png
   font:
     text: Inter
     code: JetBrains Mono
