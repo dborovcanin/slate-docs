@@ -9,9 +9,9 @@ hide:
 
 <div class="slate-hero" markdown>
 
-<p class="slate-eyebrow"><img class="slate-eyebrow__logo" src="assets/logo.png" alt="" aria-hidden="true"> A little space to think</p>
+<p class="slate-eyebrow"><img class="slate-eyebrow__logo" src="assets/logo.png" alt="" aria-hidden="true"> <span>A little space to think</span> <a class="slate-eyebrow__permalink" href="#slate" aria-label="Link to this introduction">¶</a></p>
 
-# Your notes.<br>Where your<br>thoughts live. {#slate}
+# Your notes.<br>Where your thoughts live. {#slate}
 
 Write, calculate, and connect ideas without leaving your notebook.
 Slate brings plain Markdown to your desktop and terminal, with everything
@@ -32,7 +32,6 @@ stored on your computer.
 
 <div class="slate-network" data-slate-network>
   <div class="slate-network__label">Your knowledge, connected</div>
-  <button type="button" class="slate-network__reset" aria-label="Reset graph layout" title="Reset graph layout" hidden>↺</button>
   <a class="slate-network__fallback" href="links-and-graph/"><img src="media/graph-overview.png" alt="Connected notes, grouped by topic in Slate's graph"></a>
   <svg class="slate-network__canvas" viewBox="0 0 560 560" role="group" aria-label="Explore a sample notebook. Each note links to its guide." hidden></svg>
   <div class="slate-network__footer">

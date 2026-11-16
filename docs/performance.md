@@ -34,8 +34,8 @@ recordings.
 - **The graph scales.** Big graphs are split into communities and laid out
   on a background thread; when tens of thousands of notes are on screen, the
   desktop draws the most connected ones and adds detail as you zoom in.
-- **Native, not a web page.** The desktop app draws with the GPU through
-  GPUI (no browser engine inside), and the terminal app is a single small
+- **Native, not a web page.** The desktop app draws with the GPU
+  (no browser engine inside), and the terminal app is a single small
   binary, so both use little memory.
 
 ## If something feels slow

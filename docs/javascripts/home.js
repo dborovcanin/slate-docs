@@ -8,7 +8,6 @@
     const svg = root.querySelector("svg");
     const title = root.querySelector("[data-network-title]");
     const detail = root.querySelector("[data-network-detail]");
-    const reset = root.querySelector(".slate-network__reset");
     const events = new AbortController();
     const signal = events.signal;
     const motion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -62,7 +61,7 @@
       if (!index) create("circle", {class: "slate-network__halo", r: "19"}, element);
       create("circle", {class: "slate-network__dot", r: radius}, element);
       create("text", {y: radius + 19}, element).textContent = label;
-      return {label, x, y, initial: [x, y], vx: 0, vy: 0, seed: index * 1.4, element};
+      return {label, nx, ny, x, y, initial: [x, y], vx: 0, vy: 0, seed: index * 1.4, element};
     });
     let elapsed = 0;
     const draw = () => {
@@ -75,6 +74,23 @@
         edge.particle.setAttribute("cy", from.y + (to.y - from.y) * progress);
       });
     };
+    let width = 560, height = 560;
+    const resize = () => {
+      const bounds = root.getBoundingClientRect();
+      width = Math.max(bounds.width, 1);
+      height = Math.max(bounds.height, 1);
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      nodes.forEach(node => {
+        node.x = 40 + node.nx * Math.max(0, width - 80);
+        node.y = 55 + node.ny * Math.max(0, height - 125);
+        node.initial = [node.x, node.y];
+        node.vx = node.vy = 0;
+      });
+      draw();
+    };
+    const sizing = new ResizeObserver(resize);
+    sizing.observe(root);
+    resize();
     const select = index => {
       const related = new Set([index]);
       edges.forEach(edge => {
@@ -112,8 +128,8 @@
       if (Math.hypot(event.clientX - drag.x, event.clientY - drag.y) < 5 && !suppressClick) return;
       suppressClick = true;
       const point = new DOMPoint(event.clientX, event.clientY).matrixTransform(svg.getScreenCTM().inverse());
-      drag.node.x = Math.max(30, Math.min(530, point.x));
-      drag.node.y = Math.max(30, Math.min(530, point.y));
+      drag.node.x = Math.max(30, Math.min(width - 30, point.x));
+      drag.node.y = Math.max(30, Math.min(height - 30, point.y));
       drag.node.vx = drag.node.vy = 0;
       draw();
     }, {signal});
@@ -123,11 +139,6 @@
     svg.addEventListener("lostpointercapture", release, {signal});
     root.addEventListener("pointerleave", () => { if (!drag && !root.contains(document.activeElement)) select(-1); }, {signal});
     root.addEventListener("focusout", event => { if (!root.contains(event.relatedTarget)) select(-1); }, {signal});
-    reset.addEventListener("click", () => {
-      nodes.forEach(node => { [node.x, node.y] = node.initial; node.vx = node.vy = 0; });
-      draw();
-      select(-1);
-    }, {signal});
     let visible = false;
     let running = false;
     let frame = 0;
@@ -165,12 +176,12 @@
     draw();
     root.classList.add("is-enhanced");
     svg.removeAttribute("hidden");
-    reset.hidden = false;
     dispose = () => {
       running = false;
       cancelAnimationFrame(frame);
       events.abort();
       observer.disconnect();
+      sizing.disconnect();
       root.classList.remove("is-live");
     };
   };

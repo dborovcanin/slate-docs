@@ -188,6 +188,38 @@
 .md-nav__link--active {
   font-weight: 650;
 }
+/* Give guide groups and page selection a consistent shared left edge. */
+.md-nav--primary .md-nav__list { padding: 0; }
+.md-nav--primary .md-nav__item { padding: 0; }
+.md-nav--primary .md-nav__link {
+  position: relative;
+  margin: 0.12rem 0;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  line-height: 1.45;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.md-nav--primary a.md-nav__link:hover { background: var(--slate-tint); }
+.md-nav--primary a.md-nav__link--active {
+  color: var(--md-typeset-a-color);
+  background: var(--slate-tint);
+  font-weight: 650;
+  box-shadow: inset 3px 0 var(--md-typeset-a-color);
+}
+.md-nav--primary .md-nav__item--section > .md-nav__link {
+  margin-top: 0.65rem;
+  margin-bottom: 0.1rem;
+  color: var(--slate-muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.md-nav--primary .md-nav__title { padding-left: 0.65rem; }
+.md-nav--primary .md-nav__link:focus-visible {
+  outline: 2px solid var(--md-typeset-a-color);
+  outline-offset: -2px;
+}
+
 .md-typeset :is(pre > code, .admonition, details) {
   border-radius: 8px;
 }
