@@ -4,7 +4,13 @@ Tables are ordinary Markdown tables that keep themselves tidy: columns line
 up as you type, numbers align right when the column says so, and cells can
 hold formulas like a small spreadsheet.
 
-![A table of expenses: formula cells multiply quantity by price, and a new row sums the column](media/tables.gif)
+=== "Recording"
+
+    ![A table of expenses: formula cells multiply quantity by price, and a new row sums the column](media/tables.gif)
+
+=== "Screenshot"
+
+    [![A table of expenses: formula cells multiply quantity by price, and a new row sums the column](media/tables.png)](media/tables.png)
 
 ## Making a table
 

@@ -5,7 +5,13 @@ calculations, tables, links, search, browser, history, graph, encryption and
 AI features, driven entirely from the keyboard. It is a single small binary,
 starts instantly, and works over SSH.
 
-![The terminal app: the note switcher, the three-column browser and the graph](media/tui-tour.gif)
+=== "Recording"
+
+    ![The terminal app: the note switcher, the three-column browser and the graph](media/tui-tour.gif)
+
+=== "Screenshot"
+
+    [![The terminal app: the note switcher, the three-column browser and the graph](media/tui-tour.png)](media/tui-tour.png)
 
 ## Getting around
 

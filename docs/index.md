@@ -58,6 +58,26 @@ in one shows up in the other within a second. No accounts, no cloud.
 
 <div class="grid cards" markdown>
 
+-   __Everything within reach__
+
+    [![Slate's desktop workspace with note tabs, collections, calculations and the note inspector](media/desktop.png)](media/desktop.png)
+
+    Keep your notes, outline and connections beside what you're writing.
+
+    [:octicons-arrow-right-24: Find your way around](getting-started.md)
+
+-   __See the bigger picture__
+
+    [![A real Slate graph with five color groups connecting writing, research, numbers, design and projects](media/graph-overview.png)](media/graph-overview.png)
+
+    Follow a connection, or group related notes to see how your ideas fit together.
+
+    [:octicons-arrow-right-24: Explore the graph](links-and-graph.md#the-graph)
+
+</div>
+
+<div class="grid cards" markdown>
+
 -   :material-rocket-launch-outline:{ .lg .middle } __Getting started__
 
     ---
@@ -195,8 +215,12 @@ in one shows up in the other within a second. No accounts, no cloud.
 
 ## About the recordings
 
-The animations were recorded from the real apps on Linux, over a demo
-notebook of 25,000 generated notes, in the desktop app's Everforest Dark
-theme and the terminal app's Catppuccin Mocha scheme. They are made by
+The animations and screenshots were recorded from the current apps on Linux
+in a fullscreen 1600 × 1000 workspace. The GIFs retain that resolution;
+tap a recording to open it full-screen and zoom in for the details.
+
+The demo notebook has more than 25,000 notes, plus a small set of connected
+example notes for the graph. Most desktop recordings use Everforest Dark;
+the terminal recordings use Catppuccin Mocha. They are made by
 [`scripts/capture.py`](https://github.com/dborovcanin/slate-docs/blob/main/scripts/capture.py),
 so they can be recorded again whenever the apps change.

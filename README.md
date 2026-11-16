@@ -17,6 +17,7 @@ Built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
 | `mkdocs.yml` | Site config and navigation |
 | `VERSION` | The docs version that pushes to `main` publish |
 | `scripts/capture.py`, `scripts/scenarios.py` | Re-record the GIFs from the real apps |
+| `scripts/prepare_demo.py` | Add the small connected notebook used by graph demos |
 | `scripts/sync_reference.py` | Copy the reference pages from a slate checkout |
 
 ## Preview
@@ -61,11 +62,20 @@ python3 scripts/sync_reference.py --ref v1.0.0  # links into slate at a tag
 
 ## Recordings
 
-The GIFs are recorded from release builds of both apps on a virtual display,
-over a large demo notebook:
+The GIFs and PNG screenshots are recorded from release builds of both apps
+in an isolated, fullscreen 1600 × 1000 virtual display, over a large demo
+notebook. Action GIFs keep the native resolution at 15 fps with a 256-color
+palette; the theme gallery holds each still for 1.6 seconds.
+The terminal uses larger text for readability. The diagram demo enters its
+own fullscreen canvas with `F11`.
+
+Use a snapshot of the demo dataset when another app is open on it. Recording
+on a virtual display leaves the laptop's keyboard focus available, and a
+snapshot keeps recording notes and settings separate from the running app.
 
 ```sh
 make capture DATA=~/tst                          # every scenario
+python3 scripts/prepare_demo.py --data ~/tst     # before direct capture.py runs
 python3 scripts/capture.py --data ~/tst graph    # just one
 ```
 
@@ -73,3 +83,8 @@ Needs Xvfb, xdotool, xclip, ffmpeg, Alacritty, Mesa's lavapipe Vulkan driver,
 `pdftoppm` and Pillow. Scenarios create and edit notes in the data
 directory, so point `--data` at a test dataset, never at your own notes. The
 `ask` scenario makes a real Claude Code request.
+
+Lossless source videos stay in `.cache/capture/` for inspection and recuts;
+they are ignored by Git. Published GIFs and screenshots live in `docs/media/`.
+The guide offers **Recording** and **Screenshot** tabs for a closer, static
+view, and recordings open in the full-screen viewer when tapped.

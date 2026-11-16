@@ -41,7 +41,13 @@ Pinned items come first in the browser and pickers.
 browser, like a file manager: collections, the notes in the open collection,
 and a live preview.
 
-![The browser: walking the collections, opening sailing and searching its notes for "regatta"](media/browser.gif)
+=== "Recording"
+
+    ![The browser: walking the collections, opening sailing and searching its notes for "regatta"](media/browser.gif)
+
+=== "Screenshot"
+
+    [![The browser: walking the collections, opening sailing and searching its notes for "regatta"](media/browser.png)](media/browser.png)
 
 | Key | Does |
 | --- | --- |
@@ -75,7 +81,13 @@ Versions store only the lines that changed, so even large notes cost little.
 Old versions thin out over time: everything from the last day, then one per
 day for a month, then one per week.
 
-![Note history: a timeline of versions beside a comparison with the current text](media/history.gif)
+=== "Recording"
+
+    ![Note history: a timeline of versions beside a comparison with the current text](media/history.gif)
+
+=== "Screenshot"
+
+    [![Note history: a timeline of versions beside a comparison with the current text](media/history.png)](media/history.png)
 
 Open it with `:history`, `H` in the browser or `Ctrl+R` in the note switcher.
 Pick a version to see what restoring it would change (split or unified on
@@ -93,7 +105,13 @@ was created and last saved, and whether it is encrypted.
 a template. From the shell you can drop a line into it without opening
 Slate, which works well with scripts, cron jobs and key bindings:
 
-![Capturing two entries from the shell, then opening today's note](media/capture.gif)
+=== "Recording"
+
+    ![Capturing two entries from the shell, then opening today's note](media/capture.gif)
+
+=== "Screenshot"
+
+    [![Capturing two entries from the shell, then opening today's note](media/capture.png)](media/capture.png)
 
 ```sh
 slate capture call the bank about the card     # adds "- 20:37 call the bank…"

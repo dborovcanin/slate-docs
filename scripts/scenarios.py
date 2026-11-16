@@ -3,14 +3,18 @@
 Each scenario drives a real app with the keyboard (the mouse only where a
 gesture needs it) over the demo dataset, and records one GIF or still.
 """
+import json
+from pathlib import Path
 
 GUI = {
     "vim": False,
     "theme": "everforest_dark",
     "sidebar": False,
+    "inspector": False,
+    "open_tabs": [],
     "wrap": True,
     "proportional_prose": True,
-    "font_size": 17.0,
+    "font_size": 20.0,
     "ui_scale": 1.0,
 }
 VIM_GUI = {**GUI, "vim": True}
@@ -38,6 +42,7 @@ def command(s, text, pause=1.0):
 def new_note(s, title):
     s.key("ctrl+n", pause=1.0)
     s.type(title + "\n\n", delay=45, pause=0.4)
+    s.key("ctrl+s", pause=0.8)
 
 
 # -- desktop app ----------------------------------------------------------
@@ -179,6 +184,52 @@ def cross_note(s):
     s.stop("cross-note")
 
 
+def links(s):
+    """Insert a wiki link from completion, follow it, and return."""
+    s.gui(GUI)
+    new_note(s, "Reading trails")
+    s.record("links")
+    s.type("Start with ", delay=70)
+    s.type("[[", delay=160, pause=0.8)
+    s.type("research desk", delay=90, pause=1.2)
+    s.key("Tab", pause=0.7)
+    s.key("Escape", pause=0.5)
+    s.key("End", pause=0.4)
+    s.type(" and follow the connections.\n\n", delay=45, pause=0.8)
+    s.key("ctrl+s", pause=1)
+    s.still("links")
+    s.key("Up", "Up", "Home", pause=0.2)
+    for _ in range(14):
+        s.key("Right", pause=0.04)
+    s.key("ctrl+bracketright", pause=2)
+    s.key("alt+Left", pause=1.5)
+    s.stop("links", still=False)
+
+
+def images(s):
+    """Paste a local screenshot into a note as an inline image."""
+    s.gui(GUI)
+    new_note(s, "Visual notes")
+    s.type("Keep the picture beside the idea.\n\n", delay=50)
+    s.record("images")
+    s.paste_image(s.media("diagram-detail.png"), pause=2)
+    s.key("ctrl+s", pause=1)
+    s.key("ctrl+Home", "Down", pause=0.6)
+    s.wait(2)
+    s.stop("images")
+
+
+def desktop(s):
+    """A real desktop overview with the new sidebar, tabs, and inspector."""
+    demo = json.loads((Path(__file__).resolve().parents[1] / ".cache/capture/demo-notes.json").read_text())
+    s.gui({**GUI, "sidebar": True, "inspector": True,
+           "open_tabs": [demo[key]["id"] for key in ("home", "writing", "numbers")]},
+          ["--id", demo["home"]["id"]])
+    s.key("ctrl+Home", "Down", pause=1)
+    s.move(90, 950)
+    s.still("desktop")
+
+
 def tables(s):
     """A table with formula cells and a column total."""
     s.gui(GUI)
@@ -219,9 +270,10 @@ def search(s):
     s.key("Tab", pause=0.6)
     s.type("contains:mooring", delay=80, pause=2.0)
     s.type(" -#status/draft ", delay=80, pause=2.0)
+    s.still("search")
     s.key("Down", "Down", "Down", pause=0.5)
     s.key("Return", pause=2.5)
-    s.stop("search")
+    s.stop("search", still=False)
 
 
 def browser(s):
@@ -246,23 +298,37 @@ def browser(s):
 
 
 def graph(s):
-    """The link graph around a hub note, then a step out."""
-    s.gui(GUI)
-    open_note(s, "woodworking hub", settle=2.0)
-    # The first opening indexes every note's links once; do it off camera.
-    command(s, "graph", pause=50)
-    s.key("Escape", pause=1.5)
+    """Readable topic clusters, then keyboard navigation and graph search."""
+    demo = json.loads((Path(__file__).resolve().parents[1] / ".cache/capture/demo-notes.json").read_text())
+    settings = {**GUI, "graph": {
+        "filter": 'collection:"Slate demo"',
+        "groups": [{"query": f'collection:"{topic.title()}"', "color": {"Theme": color}}
+                   for topic, color in [("writing", 7), ("research", 0), ("numbers", 1), ("design", 2), ("projects", 6)]],
+        "node_size": 1.15, "link_width": 0.8, "text_fade": 0.0,
+    }}
+    s.gui(settings, ["--id", demo["home"]["id"]])
+    command(s, "graph", pause=35)
+    s.key("0", pause=2)
+    s.scroll(800, 500, up=False, clicks=1, pause=0.8)
+    s.move(80, 950)
+    s.still("graph-overview")
+    s.key("Escape", pause=0.8)
     s.record("graph")
     s.wait(0.8)
     command(s, "graph", pause=4.0)
-    for key in ("Right", "Right", "Down", "Down", "Left"):
+    for key in ("Right", "Down", "Tab", "Tab"):
         s.key(key, pause=0.7)
-    s.scroll(640, 420, up=True, clicks=4, pause=1.2)
-    s.scroll(640, 420, up=False, clicks=4, pause=1.0)
+    s.key("0", pause=1)
+    s.scroll(800, 500, up=False, clicks=1, pause=0.8)
+    s.still("graph-connections")
     s.key("slash", pause=0.5)
-    s.type("dovetail", delay=90, pause=1.5)
-    s.key("Return", pause=1.5)
-    s.stop("graph", width=880, fps=8, colors=96)
+    s.type("writing", delay=100, pause=1.5)
+    s.key("Return", pause=1)
+    s.still("graph-search")
+    s.key("n", pause=1)
+    s.key("f", pause=1.2)
+    s.still("graph-groups")
+    s.stop("graph")
 
 
 def history(s):
@@ -276,8 +342,9 @@ def history(s):
     s.key("Down", pause=1.8)
     s.key("Tab", pause=1.8)
     s.key("Tab", pause=1.5)
+    s.still("history")
     s.key("Escape", pause=1.0)
-    s.stop("history")
+    s.stop("history", still=False)
 
 
 def diagram(s):
@@ -287,6 +354,7 @@ def diagram(s):
     s.wait(0.8)
     new_note(s, "Service sketch")
     command(s, "diagram", pause=1.5)
+    s.key("F11", pause=1.0)
     s.move(420, 300)
     s.key("r", pause=0.5)
     s.key("Return", pause=0.3)
@@ -309,12 +377,14 @@ def diagram(s):
     s.drag(424, 356, 424, 556, pause=0.8)
     # Colour the shapes from the Style presets.
     s.click(380, 280, pause=0.5)
-    s.click(1184, 109, pause=0.8)
+    s.click(1562, 110, pause=0.8)
     s.click(760, 310, pause=0.5)
-    s.click(1243, 109, pause=0.8)
+    s.click(1505, 110, pause=0.8)
     s.click(424, 556, pause=0.5)
-    s.click(1128, 143, pause=0.8)
-    s.click(1070, 23, pause=2.0)
+    s.click(1390, 144, pause=0.8)
+    s.move(1100, 850, pause=0.5)
+    s.still("diagram-canvas")
+    s.still("diagram-detail", box=(260, 200, 720, 460))
     s.key("Escape", pause=0.6)
     s.key("Escape", pause=1.2)
     s.key("Escape", pause=0.6)
@@ -337,24 +407,20 @@ def encryption(s):
     s.type("correct horse", delay=90, pause=0.3)
     s.key("Return", pause=1.5)
     # A collection with its own password protects every note in it.
-    command(s, "collection create Private", pause=0.8)
-    command(s, "collection choose Private", pause=0.8)
+    command(s, "collection create A demo safe", pause=0.8)
+    command(s, "collection choose A demo safe", pause=0.8)
     new_note(s, "Travel documents")
     s.type("Passport 0123456, expires 2031", delay=40, pause=0.6)
     command(s, "browse", pause=1.8)
     s.key("Escape", pause=0.4)
-    s.key("Tab", pause=0.6)
-    # Down the collections to Private (sorted by name, after the 14 topics).
-    for _ in range(16):
-        s.key("Down", pause=0.1)
+    # The demo collection sorts first after All notes and Unsorted. Clicking
+    # it avoids depending on the count of collections in a live fixture.
+    s.click(100, 226, pause=0.8)
     s.key("e", pause=1.0)
     s.type("battery staple", delay=90, pause=0.3)
     s.key("Return", pause=0.8)
     s.type("battery staple", delay=90, pause=0.3)
     s.key("Return", pause=2.5)
-    s.key("Escape", pause=0.4)
-    s.key("Escape", pause=0.8)
-    command(s, "collection choose none", pause=1.5)
     s.stop("encryption")
 
 
@@ -368,10 +434,11 @@ def ask(s):
     s.type("What is left of the salary after rent and tax? One sentence.", delay=45, pause=0.4)
     s.key("Return", pause=1.0)
     s.wait(16)
+    s.still("ask")
     # Copy latest puts the answer on the clipboard (Insert latest writes it into the note).
     s.click(411, 707, pause=1.5)
     s.key("Escape", pause=1.5)
-    s.stop("ask")
+    s.stop("ask", still=False)
 
 
 def help_and_palette(s):
@@ -381,6 +448,7 @@ def help_and_palette(s):
     s.wait(0.8)
     s.key("F1", pause=1.5)
     s.type("table", delay=90, pause=1.8)
+    s.still("help")
     s.key("Escape", pause=0.4)
     s.key("Escape", pause=0.8)
     s.key("ctrl+shift+p", pause=1.0)
@@ -391,7 +459,7 @@ def help_and_palette(s):
     s.type("coll", delay=120, pause=1.5)
     s.key("Escape", pause=0.4)
     s.key("Escape", pause=0.8)
-    s.stop("help")
+    s.stop("help", still=False)
 
 
 THEMES = [
@@ -413,13 +481,12 @@ def themes(s):
     frames = []
     for name, theme in THEMES:
         s.gui({**GUI, "theme": theme})
-        open_note(s, "weekend in lisbon", settle=1.5)
-        s.key("ctrl+Home", pause=0.8)
+        open_note(s, 'title:"Weekend in Lisbon" -collection:"Slate demo"', settle=1.5)
+        s.key("ctrl+Home", "Down", pause=0.8)
         frames.append(s.grab())
         s.restart()
     out = s.media("themes.gif")
-    small = [f.resize((1024, 640), Image.LANCZOS) for f in frames]
-    small[0].save(out, save_all=True, append_images=small[1:], duration=1600, loop=0)
+    frames[0].save(out, save_all=True, append_images=frames[1:], duration=1600, loop=0)
     print(out)
 
 
@@ -433,7 +500,7 @@ def export_pdf(s):
     command(s, f"export pdf {pdf}", pause=4.0)
     out = s.media("export-pdf")
     subprocess.run(
-        ["pdftoppm", "-png", "-r", "80", "-f", "1", "-l", "1", "-singlefile", str(pdf), str(out)],
+            ["pdftoppm", "-png", "-r", "160", "-f", "1", "-l", "1", "-singlefile", str(pdf), str(out)],
         check=True,
     )
     print(f"{out}.png")
@@ -533,6 +600,9 @@ SCENARIOS = {
     "graph": graph,
     "history": history,
     "diagram": diagram,
+    "links": links,
+    "images": images,
+    "desktop": desktop,
     "encryption": encryption,
     "ask": ask,
     "help": help_and_palette,

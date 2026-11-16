@@ -4,7 +4,13 @@ Slate notes are plain Markdown. There is no separate preview: headings,
 emphasis, lists and the rest are styled right where you type them, and the
 raw Markdown shows again on the line you are editing.
 
-![Typing a note: headings, bold and italic, a checklist that reorders itself, a numbered list and a quote](media/writing.gif)
+=== "Recording"
+
+    ![Typing a note: headings, bold and italic, a checklist that reorders itself, a numbered list and a quote](media/writing.gif)
+
+=== "Screenshot"
+
+    [![Typing a note: headings, bold and italic, a checklist that reorders itself, a numbered list and a quote](media/writing.png)](media/writing.png)
 
 ## Markdown as you type
 
@@ -64,6 +70,8 @@ Beyond undo, Slate keeps older versions of every note; see
   updates it after you change headings.
 
 ## Images
+
+![Pasting a screenshot from the clipboard into a note, where it renders inline](media/images.gif)
 
 `![alt text](./assets/photo.png)` shows the image. On the desktop a line with
 only an image is drawn as the picture. In the terminal it shows as

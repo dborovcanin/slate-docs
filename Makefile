@@ -42,4 +42,5 @@ publish: setup
 
 capture:
 	@test -n "$(DATA)" || { echo "set DATA=<demo data dir>, e.g. DATA=~/tst"; exit 1; }
+	$(PYTHON) scripts/prepare_demo.py --data $(DATA) --slate $(SLATE)/target/release/slate
 	$(PYTHON) scripts/capture.py --slate $(SLATE) --data $(DATA)

@@ -6,6 +6,8 @@ Type `[[` and a note picker opens. Type part of a title, then `Tab` or
 `Enter` to pick a note. Slate then offers that note's headings; pick one to
 link straight to it, or press `Esc` to link the whole note.
 
+![Inserting a link with the note picker, following it to the research desk, and returning](media/links.gif)
+
 Away from the cursor a link shows the note's title, underlined. Underneath it
 stores the note's id (`[[01M7JWK8RMTRJ4X6RC7Y9CYH6E]]`), so renaming the
 other note never breaks the link.
@@ -33,11 +35,17 @@ Ordinary web links, `[text](https://…)`, are styled too.
 as lines, starting from the open note and the notes within two links of it,
 in both directions.
 
-![The graph around a hub note in a 25,000-note notebook: moving between notes, zooming, and finding notes by title](media/graph.gif)
+=== "Recording"
 
-*The recording: a hub note in the demo notebook, 25,000 notes and 130,000
-links. Large graphs are grouped into communities that lay out as their own
-clusters.*
+    ![The graph around a hub note in a 25,000-note notebook: moving between notes, zooming, and finding notes by title](media/graph.gif)
+
+=== "Screenshot"
+
+    [![The graph around a hub note in a 25,000-note notebook: moving between notes, zooming, and finding notes by title](media/graph-overview.png)](media/graph-overview.png)
+
+*The recording follows 26 example notes inside the larger demo notebook.
+Writing, research, numbers, design and projects each have their own color
+group. Selecting a note highlights its connections.*
 
 | Key | Does |
 | --- | --- |
@@ -64,6 +72,11 @@ neighbours while everything else fades. `f` or the gear button opens
 - **Display** adds arrows, and scales dots, lines and labels.
 
 Filters, groups and display options are remembered.
+
+[![The graph's Filters panel with five collection-based color groups and display controls](media/graph-groups.png)](media/graph-groups.png)
+
+*Color groups can use the same queries as search. Here, each collection gets
+its own region, making related notes easy to spot.*
 
 In the terminal the graph is drawn with characters: `◆` is the centre note,
 `◉` the selection and `○` a link to a missing note. `]` and `[` zoom,

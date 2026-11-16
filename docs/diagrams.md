@@ -5,7 +5,13 @@ short block of text in the note, so it is searched, versioned, exported and
 synced like everything else, and the desktop app gives you a canvas to draw
 it with the mouse.
 
-![Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note](media/diagram.gif)
+=== "Recording"
+
+    ![Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note](media/diagram.gif)
+
+=== "Screenshot"
+
+    [![Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note](media/diagram-canvas.png)](media/diagram-canvas.png)
 
 ## Drawing on the canvas (desktop)
 

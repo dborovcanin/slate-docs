@@ -22,7 +22,13 @@ fuzzily and in order: `photo 116` finds *Photometry project 11681*. The
 switcher shows each note's collections and tags, and the best match comes
 first.
 
-![Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line](media/search.gif)
+=== "Recording"
+
+    ![Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line](media/search.gif)
+
+=== "Screenshot"
+
+    [![Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line](media/search.png)](media/search.png)
 
 Add fields to narrow it down:
 

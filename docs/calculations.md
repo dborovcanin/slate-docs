@@ -4,7 +4,13 @@ Every line in Slate can be a calculator. Type something that adds up and
 the answer appears, faintly, to the right of the line. Lines that are just
 text stay quiet.
 
-![Typing calculations: arithmetic, a percentage, unit conversions and clock times](media/calc.gif)
+=== "Recording"
+
+    ![Typing calculations: arithmetic, a percentage, unit conversions and clock times](media/calc.gif)
+
+=== "Screenshot"
+
+    [![Typing calculations: arithmetic, a percentage, unit conversions and clock times](media/calc.png)](media/calc.png)
 
 ## Calculations
 
@@ -50,7 +56,13 @@ when it needs to. Words after a calculation are a label.
 
 Convert between currencies the same way you convert units:
 
-![Currency conversions with cached exchange rates](media/currency.gif)
+=== "Recording"
+
+    ![Currency conversions with cached exchange rates](media/currency.gif)
+
+=== "Screenshot"
+
+    [![Currency conversions with cached exchange rates](media/currency.png)](media/currency.png)
 
 ```text
 100 USD to EUR             approx. 90.6621601529 EUR
@@ -77,7 +89,13 @@ in the same JSON shape works; see [Currency rates](reference/scripting.md#curren
 
 Give a value a name with `:=` and use the name anywhere in the note:
 
-![A trip budget: changing the number of nights updates everything that depends on it](media/variables.gif)
+=== "Recording"
+
+    ![A trip budget: changing the number of nights updates everything that depends on it](media/variables.gif)
+
+=== "Screenshot"
+
+    [![A trip budget: changing the number of nights updates everything that depends on it](media/variables.png)](media/variables.png)
 
 ```text
 nights := 3
@@ -109,7 +127,13 @@ dot, and the variable's name. Type `[[`, pick the note (Slate writes its id
 into the link and shows its title), press `Esc` to skip choosing a heading,
 then type `.`: Slate lists that note's variables.
 
-![Using another note's total, then following the link to it and back](media/cross-note.gif)
+=== "Recording"
+
+    ![Using another note's total, then following the link to it and back](media/cross-note.gif)
+
+=== "Screenshot"
+
+    [![Using another note's total, then following the link to it and back](media/cross-note.png)](media/cross-note.png)
 
 ```text
 trips := [[01M7JWK8RMTRJ4X6RC7Y9CYH6E]].total * 3    3299.4

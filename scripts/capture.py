@@ -16,6 +16,7 @@ import argparse
 import json
 import os
 import pathlib
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -23,7 +24,7 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MEDIA = ROOT / "docs/media"
-WIDTH, HEIGHT = 1280, 800
+WIDTH, HEIGHT = 1600, 1000
 
 
 class Session:
@@ -138,6 +139,13 @@ class Session:
         subprocess.run(["xclip", "-selection", "clipboard"], input=text.encode(), env=self.env)
         self.key("ctrl+v", pause=pause)
 
+    def paste_image(self, path, pause=1.5):
+        subprocess.run(
+            ["xclip", "-selection", "clipboard", "-t", "image/png", "-i", str(path)],
+            env=self.env, check=True,
+        )
+        self.key("ctrl+v", pause=pause)
+
     def click(self, x, y, button="1", pause=0.5):
         self.x("mousemove", str(x), str(y))
         self.x("click", button)
@@ -186,9 +194,12 @@ class Session:
         )
         time.sleep(0.8)
 
-    def stop(self, name, width=1024, fps=12, colors=192):
-        time.sleep(0.6)
+    def stop(self, name, width=WIDTH, fps=15, colors=256, still=True):
+        self.key("ctrl+s", pause=1.5)
         self.recorder.communicate(b"q")
+        self.recorder = None
+        if still:
+            self.still(name)
         MEDIA.mkdir(parents=True, exist_ok=True)
         gif = MEDIA / f"{name}.gif"
         graph = (
@@ -201,8 +212,12 @@ class Session:
              "-vf", graph, "-loop", "0", str(gif)],
             check=True,
         )
-        self.clip.unlink()
-        print(f"{gif.relative_to(ROOT)}: {gif.stat().st_size / 1e6:.1f} MB")
+        # Retain the lossless source outside the published site for recuts and
+        # sharp screenshots, without checking large intermediates into Git.
+        sources = ROOT / ".cache/capture"
+        sources.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(self.clip), sources / f"{name}.mkv")
+        print(f"{gif.relative_to(ROOT)}: {gif.stat().st_size / 1e6:.1f} MB", flush=True)
 
     def still(self, name, box=None):
         """A PNG of the screen, optionally cropped to (x, y, w, h)."""
@@ -285,6 +300,9 @@ def main():
     settings = data / "slate/gui-settings.json"
     saved = settings.read_bytes() if settings.exists() else None
     names = args.names or list(scenarios.SCENARIOS)
+    unknown = set(names) - scenarios.SCENARIOS.keys()
+    if unknown:
+        parser.error(f"unknown scenarios: {', '.join(sorted(unknown))}")
     try:
         for name in names:
             session = Session(args.slate.resolve(), data, config, args.display)
