@@ -1,0 +1,44 @@
+name: Publish docs
+
+# Every push to main republishes the version named in VERSION (and moves the
+# `latest` alias to it). The site lives on the gh-pages branch, one folder
+# per version, managed by mike; GitHub Pages serves that branch.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-docs
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install MkDocs
+        run: pip install -r requirements.txt
+
+      - name: Check the site builds without broken links
+        run: mkdocs build --strict
+
+      - name: Publish the version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages --depth=1 || true
+          version="$(cat VERSION)"
+          mike deploy --push --update-aliases "$version" latest
+          mike set-default --push "$version"

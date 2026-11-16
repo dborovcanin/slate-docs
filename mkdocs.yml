@@ -1,0 +1,125 @@
+site_name: Slate
+site_description: Fast, keyboard-first notes for the desktop and the terminal
+site_url: https://dborovcanin.github.io/slate-docs/
+repo_url: https://github.com/dborovcanin/slate
+repo_name: dborovcanin/slate
+edit_uri: https://github.com/dborovcanin/slate-docs/edit/main/docs/
+copyright: Slate, local-first notes
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Dark theme
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Light theme
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  version:
+    provider: mike
+    default: v1.0.0
+    alias: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dborovcanin/slate
+
+plugins:
+  - search
+  - mike:
+      canonical_version: latest
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+nav:
+  - Home: index.md
+  - Guide:
+      - Start here:
+          - getting-started.md
+          - writing.md
+      - Working with numbers:
+          - calculations.md
+          - tables.md
+      - Finding and connecting:
+          - links-and-graph.md
+          - search.md
+          - organizing.md
+      - Making things:
+          - diagrams.md
+          - export-backup-email.md
+      - Going further:
+          - vim-and-scripts.md
+          - ai.md
+          - encryption.md
+          - themes-and-config.md
+          - performance.md
+          - terminal-app.md
+  - Reference:
+      - reference/features.md
+      - reference/keymaps.md
+      - reference/command-reference.md
+      - reference/configuration.md
+      - reference/variables.md
+      - reference/export.md
+      - reference/scripting.md
+      - reference/mcp.md
+      - reference/agent.md
