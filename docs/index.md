@@ -5,18 +5,20 @@ hide:
   - toc
 ---
 
+<div class="slate-intro" markdown>
+
 <div class="slate-hero" markdown>
 
 <p class="slate-eyebrow"><img class="slate-eyebrow__logo" src="assets/logo.png" alt="" aria-hidden="true"> A little space to think</p>
 
-# Your notes.<br>Where your thoughts live. {#slate}
+# Your notes.<br>Where your<br>thoughts live. {#slate}
 
 Write, calculate, and connect ideas without leaving your notebook.
 Slate brings plain Markdown to your desktop and terminal, with everything
 stored on your computer.
 
 [Start with Slate :octicons-arrow-right-24:](getting-started.md){ .md-button .md-button--primary }
-[Explore the features](reference/features.md){ .md-button }
+[Explore the features](#see-slate-at-work){ .md-button }
 
 <div class="slate-traits" markdown="span">
 
@@ -25,6 +27,87 @@ stored on your computer.
 <span>:material-harddisk:{ aria-hidden="true" } Local by default</span>
 
 </div>
+
+</div>
+
+<div class="slate-network" data-slate-network>
+  <div class="slate-network__label">Your knowledge, connected</div>
+  <button type="button" class="slate-network__reset" aria-label="Reset graph layout" title="Reset graph layout" hidden>↺</button>
+  <a class="slate-network__fallback" href="links-and-graph/"><img src="media/graph-overview.png" alt="Connected notes, grouped by topic in Slate's graph"></a>
+  <svg class="slate-network__canvas" viewBox="0 0 560 560" role="group" aria-label="Explore a sample notebook. Each note links to its guide." hidden></svg>
+  <div class="slate-network__footer">
+    <div><strong data-network-title>Ideas &amp; connections</strong><span data-network-detail>Hover a node to explore</span></div>
+  </div>
+  <span class="slate-network__hint" aria-hidden="true">↗ Drag nodes to explore</span>
+</div>
+
+</div>
+
+<div class="slate-feature-tabs" markdown>
+
+## See Slate at work
+
+Choose a feature. Follow it from a first keystroke to a finished idea.
+
+=== ":material-link-variant: Connected notes<br><small>Follow an idea</small>"
+
+    ### One thought leads to another.
+
+    Type `[[` to find a note, follow the link, then pick up where you left off.
+
+    ![Inserting a wiki link, following it to another note, and returning](media/links.gif){ loading=lazy }
+
+    [Explore links and the graph :octicons-arrow-right-24:](links-and-graph.md)
+
+=== ":material-pencil-outline: Writing<br><small>Make room for the words</small>"
+
+    ### Write in the moment.
+
+    Headings, checklists, emphasis and quotes take shape as you type. Your notes stay Markdown.
+
+    ![Writing a trip note with headings, emphasis, a checklist and a quote](media/writing.gif){ loading=lazy }
+
+    [Find your writing flow :octicons-arrow-right-24:](writing.md)
+
+=== ":material-calculator-variant-outline: Calculations<br><small>Think with numbers</small>"
+
+    ### Let the notebook do the arithmetic.
+
+    Name a value, build a budget, and change your mind. Everything that depends on it updates.
+
+    ![Changing the number of nights updates a trip budget and its currency conversion](media/variables.gif){ loading=lazy }
+
+    [Try calculations and variables :octicons-arrow-right-24:](calculations.md)
+
+=== ":material-table: Tables<br><small>A little structure</small>"
+
+    ### Small tables. Useful answers.
+
+    Paste your rows, add a formula, and let the totals take care of themselves.
+
+    ![Building an expense table with formula cells and a column total](media/tables.gif){ loading=lazy }
+
+    [Work with tables :octicons-arrow-right-24:](tables.md)
+
+=== ":material-vector-square: Diagrams<br><small>Sketch the connection</small>"
+
+    ### Draw the shape of an idea.
+
+    Connect shapes on a fullscreen canvas. The diagram stays text inside your note.
+
+    ![Drawing, connecting and coloring shapes on Slate's fullscreen diagram canvas](media/diagram.gif){ loading=lazy }
+
+    [Open the diagram guide :octicons-arrow-right-24:](diagrams.md)
+
+=== ":material-console: Terminal<br><small>Same notebook. Different view.</small>"
+
+    ### Take your notebook to the terminal.
+
+    The same notes, search, collections and graph, with your hands on the keyboard—even over SSH.
+
+    ![Finding notes, browsing collections and exploring the graph in the terminal app](media/tui-tour.gif){ loading=lazy }
+
+    [Meet the terminal app :octicons-arrow-right-24:](terminal-app.md)
 
 </div>
 
