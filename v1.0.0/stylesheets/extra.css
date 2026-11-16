@@ -1,0 +1,70 @@
+/* Everforest-inspired colours, matching the desktop app's default theme. */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #5c6a72;
+  --md-primary-fg-color--light: #829181;
+  --md-primary-fg-color--dark: #4b565c;
+  --md-accent-fg-color: #8da101;
+  --md-typeset-a-color: #3a94c5;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 200;
+  --md-default-bg-color: #2d353b;
+  --md-default-bg-color--light: #343f44;
+  --md-code-bg-color: #343f44;
+  --md-footer-bg-color: #232a2e;
+  --md-footer-bg-color--dark: #1e2326;
+  --md-primary-fg-color: #232a2e;
+  --md-primary-fg-color--light: #343f44;
+  --md-primary-fg-color--dark: #1e2326;
+  --md-accent-fg-color: #a7c080;
+  --md-typeset-a-color: #a7c080;
+  --md-default-fg-color: rgba(211, 198, 170, 0.92);
+  --md-default-fg-color--light: rgba(211, 198, 170, 0.68);
+  --md-typeset-color: #d3c6aa;
+}
+
+/* Recordings: framed, rounded, and never wider than the column. */
+.md-typeset img[src$=".gif"],
+.md-typeset img[src$=".png"]:not(.md-logo img) {
+  display: block;
+  margin: 1.2em auto 0.4em;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+}
+
+/* The italic line after a recording reads as its caption. */
+.md-typeset p > img + em,
+.md-typeset p:has(> img) + p > em:only-child {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+/* Home page hero. */
+.slate-hero {
+  text-align: center;
+  padding: 1.2rem 0 0.4rem;
+}
+.slate-hero h1 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 0.3rem;
+}
+.slate-hero p {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  max-width: 38rem;
+  margin: 0 auto 1rem;
+}
+.slate-hero .md-button {
+  margin: 0.2rem;
+}
+
+/* Tables of keys read better a little tighter. */
+.md-typeset table:not([class]) {
+  font-size: 0.74rem;
+}

@@ -1,0 +1,4143 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fast, keyboard-first notes for the desktop and the terminal">
+      
+      
+      
+        <link rel="canonical" href="https://dborovcanin.github.io/slate-docs/latest/reference/features/">
+      
+      
+        <link rel="prev" href="../../terminal-app/">
+      
+      
+        <link rel="next" href="../keymaps/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Feature Guide - Slate</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#feature-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Slate" class="md-header__button md-logo" aria-label="Slate" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Slate
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Feature Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dborovcanin/slate" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dborovcanin/slate
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Slate" class="md-nav__button md-logo" aria-label="Slate" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Slate
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dborovcanin/slate" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dborovcanin/slate
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with numbers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Working with numbers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calculations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculations, variables and currencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Finding and connecting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Finding and connecting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links-and-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links and the graph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../organizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organizing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Making things
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Making things
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export-backup-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Export, backup and email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Going further
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Going further
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vim-and-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim mode, macros and scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI: ask an agent, connect assistants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../themes-and-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Themes and configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The terminal app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-switching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and switching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background activity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saving
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Saving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-entry-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line entry points
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daily-notes-capture-and-pipe-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily notes, capture and pipe append
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-and-markdown-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing and markdown helpers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inline-formatting-and-list-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline formatting and list commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vim mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Macros
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queries-across-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries across notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiki-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiki links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images-and-image-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Images and image preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inline-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline calculations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inline calculations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clock-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clock times
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-and-cross-note-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables and cross-note variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Folding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dates-and-reminders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dates and reminders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lookup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ask-the-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask the agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clipboard-and-clip-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clipboard and clip-watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collection-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collection browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-note-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-note modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-and-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export and backup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imap-email-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMAP email sync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#themes-wrap-and-other-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Themes, wrap and other settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of contents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generated-toc-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generated TOC sections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note graph
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-captions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram captions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keymaps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keymaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Export Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts and shortcuts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ask the Agent (:ask)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-and-switching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes and switching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background activity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saving
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Saving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-entry-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line entry points
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daily-notes-capture-and-pipe-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily notes, capture and pipe append
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-and-markdown-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing and markdown helpers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inline-formatting-and-list-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline formatting and list commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vim mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Macros
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queries-across-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries across notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiki-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiki links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images-and-image-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Images and image preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inline-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline calculations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inline calculations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clock-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clock times
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-and-cross-note-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables and cross-note variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Folding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dates-and-reminders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dates and reminders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lookup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ask-the-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask the agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clipboard-and-clip-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clipboard and clip-watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collection-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collection browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-note-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-note modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-and-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export and backup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imap-email-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IMAP email sync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#themes-wrap-and-other-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Themes, wrap and other settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of contents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generated-toc-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generated TOC sections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note graph
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-captions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram captions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dborovcanin/slate-docs/edit/main/docs/reference/features.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="feature-guide">Feature Guide<a class="headerlink" href="#feature-guide" title="Permanent link">&para;</a></h1>
+<p>Every Slate feature in one place, grouped by area, with the keys and commands that drive it.</p>
+<p>Conventions:</p>
+<ul>
+<li><strong>Insert</strong> is the text-editing mode (also the only mode when you never press <code>Esc</code>). <strong>Normal</strong> is vim normal mode.</li>
+<li>Commands are typed in the bottom bar: <code>:</code> in Normal/Visual, <code>Ctrl+E</code> in Insert or Normal. F1 provides command and keyboard discovery.</li>
+<li><strong>TUI:</strong> commands stay in the bottom bar, with bracketed word completions such as <code>:export  [md  pdf  txt]</code>. Tab/Shift+Tab select completions; Enter or Ctrl+Left fills the selected word, then a later Enter executes. Otherwise Ctrl+Left/Right move by word. Up/Down recall history, and Esc closes the bar immediately. F1 opens the command catalogue.</li>
+<li><strong>GUI:</strong> a compact popup shows up to six recent or contextual suggestions. The bar shows only typed text and a faint completion suffix. Nothing is highlighted automatically. Down or Tab selects; Enter or Ctrl+Left fills the selection, then a later Enter executes. Up recalls history when no suggestion is selected. Esc hides suggestions first, then closes the bar. <code>[editor] command_popup = false</code> keeps the quiet bar with Tab word completion.</li>
+<li>Full alias lists: <a href="../command-reference/">Command Reference</a>. Key tables by mode: <a href="../keymaps/">Keymaps</a>.</li>
+</ul>
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#feature-guide">Feature Guide</a></li>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#notes-and-switching">Notes and switching</a></li>
+<li><a href="#saving">Saving</a><ul>
+<li><a href="#note-history">Note history</a></li>
+</ul>
+</li>
+<li><a href="#command-line-entry-points">Command line entry points</a></li>
+<li><a href="#daily-notes-capture-and-pipe-append">Daily notes, capture and pipe append</a></li>
+<li><a href="#editing-and-markdown-helpers">Editing and markdown helpers</a></li>
+<li><a href="#inline-formatting-and-list-commands">Inline formatting and list commands</a></li>
+<li><a href="#vim-mode">Vim mode</a></li>
+<li><a href="#macros">Macros</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#wiki-links">Wiki links</a></li>
+<li><a href="#images-and-image-preview">Images and image preview</a></li>
+<li><a href="#diagrams">Diagrams</a></li>
+<li><a href="#inline-calculations">Inline calculations</a></li>
+<li><a href="#variables-and-cross-note-variables">Variables and cross-note variables</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#folding">Folding</a></li>
+<li><a href="#dates-and-reminders">Dates and reminders</a></li>
+<li><a href="#lookup">Lookup</a></li>
+<li><a href="#ask-the-agent">Ask the agent</a></li>
+<li><a href="#clipboard-and-clip-watch">Clipboard and clip-watch</a></li>
+<li><a href="#collections">Collections</a><ul>
+<li><a href="#collection-browser">Collection browser</a></li>
+</ul>
+</li>
+<li><a href="#per-note-modules">Per-note modules</a></li>
+<li><a href="#note-security">Note security</a></li>
+<li><a href="#export-and-backup">Export and backup</a></li>
+<li><a href="#imap-email-sync">IMAP email sync</a></li>
+<li><a href="#mcp-server">MCP server</a></li>
+<li><a href="#themes-wrap-and-other-settings">Themes, wrap and other settings</a></li>
+<li><a href="#diagnostics">Diagnostics</a></li>
+</ul>
+<h2 id="notes-and-switching">Notes and switching<a class="headerlink" href="#notes-and-switching" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Notes live in SQLite (<code>~/.local/share/slate/notes.db</code>, WAL mode). The last-open note is restored on start.</li>
+<li>A note's title is its first non-empty line (heading markers dropped) until you rename it in the browser (<code>r</code>); a renamed title stays put like a file name, and an empty name makes it follow the first line again. Encrypting a note keeps its title visible.</li>
+<li>Markdown files open directly: <code>slate path/to/file.md</code> or <code>slate-gui path/to/file.md</code> (<code>.md</code>, <code>.markdown</code>, <code>.mdown</code>, <code>.mkd</code>); edits are saved back to the file.</li>
+<li>Terminal colors follow <code>TERM</code>/<code>COLORTERM</code>: true color when advertised or when <code>TERM</code> names a truecolor terminal family (kitty, alacritty, foot, wezterm, ghostty, …) whose <code>COLORTERM</code> was dropped by ssh or sudo, otherwise 256 or basic 16 colors. A nonempty <code>NO_COLOR</code> (or <code>TERM=dumb</code>) uses terminal-default colors with monochrome emphasis for highlighted backgrounds. Capability detection happens once at startup.</li>
+<li>The terminal app names the open note in the terminal's window title (<code>Note - Slate</code>) and puts the terminal's own title back on exit. Encrypted notes show only <code>Slate</code> there, since the title stays visible in tab bars and window lists.</li>
+</ul>
+<p>The note switcher and collection picker are popups styled like the <a href="#collection-browser">collection browser</a>: a search bar over a list with icons, ages or match lines, and key hints at the bottom. One <code>Ctrl+P</code> query searches titles, tags, collections and note text; use <code>contains:</code> for body text. A collection name appears in the title when the search is scoped to one.</p>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+N</code> (Insert, switcher)</td>
+<td>New note (in the working collection, if one is set)</td>
+</tr>
+<tr>
+<td><code>Ctrl+P</code></td>
+<td>Search notes with one structured query</td>
+</tr>
+<tr>
+<td><code>Tab</code> in the switcher</td>
+<td>Accept a field or value completion, if available</td>
+</tr>
+<tr>
+<td><code>Enter</code> in the switcher</td>
+<td>Open the highlighted note (the best match unless you picked one), at the matching line</td>
+</tr>
+<tr>
+<td><code>Ctrl+L</code> in the switcher</td>
+<td>Toggle between the working collection and all notes</td>
+</tr>
+<tr>
+<td><code>Ctrl+R</code> in the switcher</td>
+<td><a href="#note-history">History</a> of the selected note</td>
+</tr>
+<tr>
+<td><code>Delete</code> in the switcher</td>
+<td>Delete the selected note (confirm with <code>y</code>/<code>Enter</code>; protected notes ask for the password)</td>
+</tr>
+<tr>
+<td><code>Ctrl+W</code>, <code>Ctrl+Backspace</code> in the switcher</td>
+<td>Delete the last word of the query</td>
+</tr>
+<tr>
+<td><code>Esc</code> / <code>Ctrl+P</code> in the switcher</td>
+<td>Close it</td>
+</tr>
+<tr>
+<td><code>Ctrl+Q</code></td>
+<td>Quit (from any mode)</td>
+</tr>
+<tr>
+<td><code>F1</code>, <code>:help</code> (<code>:h</code>), <code>?</code> (Normal)</td>
+<td>Help: keyboard shortcuts with how each works, then every command; type to filter, <code>Enter</code> puts a command in the command bar</td>
+</tr>
+</tbody>
+</table>
+<p>In either collection browser, press <code>P</code> (Shift+P), or choose <strong>Pin note</strong> / <strong>Pin collection</strong> from the actions menu, to toggle a persistent list pin. Matching pinned items appear first in the browsers and pickers; the normal sort or search ranking applies within each group. Use <code>:note pin</code> or <code>:note unpin</code> in the editor to pin or unpin the current stored note without changing its text. Pins never override search, tag or collection filters. Desktop rows show a pin icon; terminal rows show <code>*</code> beside the age or count. “All notes” and “Unsorted” remain navigation entries above collections.</p>
+<p>The note switcher, collection picker and collection browser fetch lists in pages of 100 as you navigate. Title filters search the entire scope in the background, including notes and collections outside the loaded pages. Changing the scope, filter or sort starts a fresh list. Browser End and Select All can load all matching pages.</p>
+<p>Encrypted notes ask for their password (or their collection's) before opening. Content search only indexes unprotected notes.</p>
+<h2 id="background-activity">Background activity<a class="headerlink" href="#background-activity" title="Permanent link">&para;</a></h2>
+<p>Both apps show background work that lasts longer than a second, such as saving,
+backups or exchange-rate updates, in the status bar with a small spinner.</p>
+<p>Slate opens databases with its current schema, and upgrades ones from an
+older release after keeping a copy (<code>notes.db.before-upgrade-v&lt;N&gt;</code>). A
+database or backup from a pre-release version (schemas 2 to 6, Slate 0.8.0
+and older) is refused with an error and left untouched. To keep its notes,
+open it with Slate 0.8.0, run <code>:backup export md &lt;directory&gt;</code>, then
+<code>:backup load &lt;directory&gt;</code> in this version.</p>
+<h2 id="saving">Saving<a class="headerlink" href="#saving" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autosave (<code>[editor] autosave = true</code>, default)</td>
+<td>Saves after a short idle pause on a background thread, and before switching notes or quitting</td>
+</tr>
+<tr>
+<td><code>Ctrl+S</code></td>
+<td>Save now (in Insert only while autosave is on; otherwise use <code>:w</code>)</td>
+</tr>
+<tr>
+<td><code>:w</code> / <code>:w!</code></td>
+<td>Write / force write (overwrites a newer revision on disk)</td>
+</tr>
+<tr>
+<td><code>:wq</code> / <code>:wq!</code></td>
+<td>Write and quit</td>
+</tr>
+<tr>
+<td><code>:q</code> / <code>:q!</code></td>
+<td>Quit / quit without saving</td>
+</tr>
+</tbody>
+</table>
+<p><code>[editor] format_on_save = true</code> runs <code>:format</code> before every save. If the note changed elsewhere since it was loaded, a save stops with <code>note changed since last load; use :w! to force save</code>.</p>
+<p>While idle (unless <code>[editor] reload_outside_changes = false</code>), Slate checks about once a second whether the open note changed elsewhere (<code>slate mcp</code>, <code>slate append</code>, <code>slate capture</code>, IMAP sync, another Slate, an edited markdown file). Without unsaved changes the new text is loaded in place as one undoable edit, with the cursor and reminders kept on their lines (<code>note changed outside Slate; reloaded (u undoes)</code>). With unsaved changes your text is kept and the status line says so: <code>:e!</code> loads the stored note, <code>:w!</code> keeps your version.</p>
+<h3 id="note-info">Note info<a class="headerlink" href="#note-info" title="Permanent link">&para;</a></h3>
+<p>Press <code>F4</code> in the editor, or run <code>:info</code>, to inspect the current note in either front end. The desktop app also has <strong>File → Note info</strong>. The dialog shows its title, ID, source, tags, collections, creation and last saved update times, encryption, lock state, and unsaved edits. It fits short content and scrolls long metadata lists; long names wrap in both front ends. Opening it does not save or change the note. File-backed notes use filesystem timestamps; unavailable creation dates show “Unknown”.</p>
+<p>Use arrows or Page Up/Down to scroll long lists; Home/End jump to the beginning/end. Escape, Enter, or F4 closes the dialog and preserves the editing mode, cursor and selection. Ctrl+I keeps its existing behavior.</p>
+<h3 id="note-history">Note history<a class="headerlink" href="#note-history" title="Permanent link">&para;</a></h3>
+<p>Slate keeps older versions of every stored note. Saves less than five minutes apart form one editing session, and each session keeps the text from before it as a version (a session longer than half an hour is split). Versions are stored as the line changes between them, with an occasional full copy, so a small edit to a large note costs a few bytes; the history of an encrypted note is encrypted with it. File-backed notes (<code>slate file.md</code>) keep no history.</p>
+<p>Old versions are thinned out when a new one is added: every version of the last day stays, then the newest of each day for a month, then the newest of each week, up to 500 versions per note.</p>
+<p><code>:history</code> (or <code>:versions</code>), <code>H</code> on a note in the browser, or <code>Ctrl+R</code> in the note switcher opens the history in the browser: the current text first, then each version with its time and the lines its session added and removed. The preview shows what restoring would change (<code>-</code> current lines, <code>+</code> lines of the version), or the version's text.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>j</code> / <code>k</code>, arrows, <code>gg</code> / <code>G</code>, <code>Ctrl+D</code> / <code>Ctrl+U</code></td>
+<td>Move between the current text and older versions</td>
+</tr>
+<tr>
+<td><code>Tab</code>, <code>t</code></td>
+<td>Preview what restoring would change, or the version's full text</td>
+</tr>
+<tr>
+<td><code>Enter</code>, <code>l</code></td>
+<td>Restore the version (<code>y</code> confirms); the text before it is kept as a version</td>
+</tr>
+<tr>
+<td><code>h</code>, <code>-</code>, <code>Esc</code></td>
+<td>Back to the notes</td>
+</tr>
+<tr>
+<td><code>q</code>, <code>Ctrl+B</code></td>
+<td>Close the browser</td>
+</tr>
+</tbody>
+</table>
+<h2 id="command-line-entry-points">Command line entry points<a class="headerlink" href="#command-line-entry-points" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>slate                        open the last note
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>slate --new | -n             create and open a new note
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>slate --id &lt;note-id&gt;         open a specific note
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>slate --list | -l            list notes and exit (works without a TTY)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>slate &lt;file.md&gt;              open a markdown file as a note
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>slate today                  open today's daily note
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>slate capture [text...]      add a timestamped entry to today's daily note and exit
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>cmd | slate capture          capture piped stdin
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>cmd | slate append [--id &lt;note-id&gt;]   append stdin to a note and exit
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>slate imap-sync              pull new mail once and exit
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>slate mcp                    serve notes to MCP clients over stdio (needs [mcp] enabled = true)
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>slate --help | -h
+</code></pre></div>
+<h2 id="daily-notes-capture-and-pipe-append">Daily notes, capture and pipe append<a class="headerlink" href="#daily-notes-capture-and-pipe-append" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Daily notes</strong>: <code>slate today</code> or <code>:today</code> (alias <code>:daily</code>) opens today's note, creating it from the <code>[daily]</code> template (<code>note_prefix</code>, default <code>daily</code>; <code>template</code>, default <code>"# {date}\n\n"</code>). The cursor lands at the end, ready to type.</li>
+<li><strong>Quick capture</strong>: <code>slate capture buy milk</code> appends a <code>- HH:MM buy milk</code> line to today's daily note without opening the editor. With no text it reads piped stdin, so any command output can be captured:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>slate<span class="w"> </span>capture<span class="w"> </span>call<span class="w"> </span>the<span class="w"> </span>bank<span class="w"> </span>at<span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span>--oneline<span class="w"> </span><span class="p">|</span><span class="w"> </span>slate<span class="w"> </span>capture
+</code></pre></div>
+<ul>
+<li><strong>Pipe append</strong>: <code>cmd | slate append</code> appends stdin verbatim to the most recently edited note (email inbox notes are skipped); <code>--id &lt;note-id&gt;</code> picks the target note.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>wttr.in/?format<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>slate<span class="w"> </span>append
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>make<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>slate<span class="w"> </span>append<span class="w"> </span>--id<span class="w"> </span>01HX4VHR...
+</code></pre></div>
+<h2 id="editing-and-markdown-helpers">Editing and markdown helpers<a class="headerlink" href="#editing-and-markdown-helpers" title="Permanent link">&para;</a></h2>
+<p>Markdown stays raw text; styling is drawn in place (no preview pane).</p>
+<ul>
+<li>live styling for headings, quotes, lists, checklists, inline code, code fences, bold/italic/strike, markdown links and wiki links</li>
+<li>a <code>---</code>, <code>***</code> or <code>___</code> line is drawn as a full-width divider; the Markdown shows again while the cursor is on it</li>
+<li>list continuation on <code>Enter</code> (bullets, numbers, checklists)</li>
+<li>checklists <code>- [ ]</code> / <code>- [x]</code>; a trailing <code>/x</code> toggles an item; with <code>[editor] checklist_auto_reorder = true</code> checked items move below unchecked ones</li>
+<li>markdown table autoformat and alignment while typing (see <a href="#tables">Tables</a>)</li>
+<li>soft wrap for prose (<code>[editor] wrap = true</code>); tables and code keep horizontal scrolling</li>
+<li>undo/redo with cursor restore</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action (Insert)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enter</code></td>
+<td>New line / continue list / accept popup selection</td>
+</tr>
+<tr>
+<td><code>Tab</code> / <code>Shift+Tab</code></td>
+<td>Accept completion, else apply calc result, else next/previous table cell, else indent/outdent list item, else insert two spaces</td>
+</tr>
+<tr>
+<td><code>Ctrl+W</code>, <code>Ctrl+Backspace</code></td>
+<td>Delete word before the cursor (table-aware)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Delete</code></td>
+<td>Delete forward (table-aware)</td>
+</tr>
+<tr>
+<td><code>Ctrl+ArrowLeft</code> / <code>Ctrl+ArrowRight</code></td>
+<td>Previous / next word (previous / next cell in tables)</td>
+</tr>
+<tr>
+<td><code>Home</code> / <code>End</code>, <code>PageUp</code> / <code>PageDown</code></td>
+<td>Line start / end, page up / down</td>
+</tr>
+<tr>
+<td><code>ArrowUp</code> / <code>ArrowDown</code></td>
+<td>Move by screen row on wrapped lines; move popup selection when a popup is open</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Close popup, else switch to Normal mode</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inline-formatting-and-list-commands">Inline formatting and list commands<a class="headerlink" href="#inline-formatting-and-list-commands" title="Permanent link">&para;</a></h2>
+<p>Select text first (<code>v</code> / <code>V</code>, then <code>:</code>); the command applies to the selection.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Aliases</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format bold</code></td>
+<td><code>bold</code></td>
+<td>Toggle <code>**bold**</code></td>
+</tr>
+<tr>
+<td><code>format italic</code></td>
+<td><code>italic</code></td>
+<td>Toggle <code>*italic*</code></td>
+</tr>
+<tr>
+<td><code>format strike</code></td>
+<td><code>strike</code>, <code>strikethrough</code></td>
+<td>Toggle <code>~~strike~~</code></td>
+</tr>
+<tr>
+<td><code>format code</code></td>
+<td><code>icode</code>, <code>inline-code</code></td>
+<td>Toggle <code>`code`</code></td>
+</tr>
+<tr>
+<td><code>format clear</code></td>
+<td><code>clear-format</code>, <code>unformat</code>, <code>plain</code></td>
+<td>Strip inline formatting</td>
+</tr>
+<tr>
+<td><code>format heading-1</code></td>
+<td><code>title</code>, <code>h1</code>, <code>heading 1</code>, <code>format title</code>, <code>format h1</code>, <code>format heading</code></td>
+<td>Turn lines into a heading</td>
+</tr>
+<tr>
+<td><code>format heading-2</code></td>
+<td><code>h2</code>, <code>heading 2</code>, <code>format h2</code></td>
+<td>Turn lines into a level 2 heading</td>
+</tr>
+<tr>
+<td><code>format heading-3</code></td>
+<td><code>h3</code>, <code>heading 3</code>, <code>format h3</code></td>
+<td>Turn lines into a level 3 heading</td>
+</tr>
+<tr>
+<td><code>format text</code></td>
+<td><code>normal text</code>, <code>format normal</code></td>
+<td>Back to plain text</td>
+</tr>
+<tr>
+<td><code>checklist toggle</code></td>
+<td><code>toggle</code>, <code>check</code>, <code>tick</code></td>
+<td>Tick or untick checkboxes</td>
+</tr>
+<tr>
+<td><code>format checklist</code></td>
+<td><code>clist</code>, <code>checklist</code>, <code>checkbox</code>, <code>checkboxes</code>, <code>todo</code>, <code>format clist</code></td>
+<td>Turn lines into a checklist</td>
+</tr>
+<tr>
+<td><code>format unordered-list</code></td>
+<td><code>ulist</code>, <code>unordered-list</code>, <code>unordered</code>, <code>format bulleted-list</code>, <code>format unordered</code>, <code>format ulist</code></td>
+<td>Turn lines into a bullet list</td>
+</tr>
+<tr>
+<td><code>format ordered-list</code></td>
+<td><code>olist</code>, <code>ordered-list</code>, <code>ordered</code>, <code>format ordered</code>, <code>format olist</code></td>
+<td>Turn lines into a numbered list</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>fmt</code></td>
+<td>Format the whole markdown document</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vim-mode">Vim mode<a class="headerlink" href="#vim-mode" title="Permanent link">&para;</a></h2>
+<p>Slate is modal: <code>Esc</code> leaves Insert for Normal mode. <code>[editor] vim_mode = true</code> starts in Normal mode instead of Insert.</p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code> <code>j</code> <code>k</code> <code>l</code>, arrows</td>
+<td>Move (with counts)</td>
+</tr>
+<tr>
+<td><code>w</code> / <code>b</code>, <code>e</code></td>
+<td>Next / previous word, end of word</td>
+</tr>
+<tr>
+<td><code>0</code> / <code>$</code> (<code>Home</code> / <code>End</code>), <code>^</code></td>
+<td>Line start / end, first non-blank character</td>
+</tr>
+<tr>
+<td><code>f{c}</code> <code>F{c}</code> <code>t{c}</code> <code>T{c}</code>, <code>;</code> <code>,</code></td>
+<td>Find a character on the line (onto / till, forward / back); repeat the find</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Jump to the bracket matching the next one on the line</td>
+</tr>
+<tr>
+<td><code>gg</code> / <code>G</code>, <code>{n}G</code> / <code>{n}gg</code></td>
+<td>First / last line, line <code>n</code></td>
+</tr>
+<tr>
+<td><code>gj</code> / <code>gk</code></td>
+<td>Down / up one screen row on wrapped lines</td>
+</tr>
+<tr>
+<td><code>i</code> <code>a</code> <code>I</code> <code>A</code> <code>o</code> <code>O</code></td>
+<td>Enter Insert (before, after, line start, line end, new line below/above)</td>
+</tr>
+<tr>
+<td><code>x</code>, <code>s</code>, <code>S</code></td>
+<td>Delete character; substitute character / line text and enter Insert</td>
+</tr>
+<tr>
+<td><code>D</code>, <code>J</code></td>
+<td>Delete to line end; join lines</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>Repeat the last change, including the text typed with it</td>
+</tr>
+<tr>
+<td><code>dd</code> <code>yy</code> <code>cc</code></td>
+<td>Delete / yank / change line (<code>3dd</code>, <code>2yy</code>)</td>
+</tr>
+<tr>
+<td><code>d</code> <code>y</code> <code>c</code> + <code>w</code> <code>b</code> <code>e</code> <code>0</code> <code>$</code> <code>^</code> <code>%</code></td>
+<td>Operator + motion (<code>d2w</code>, <code>y$</code>, <code>d%</code>); <code>cw</code> changes to the end of the word, as in Vim</td>
+</tr>
+<tr>
+<td><code>d</code> <code>y</code> <code>c</code> + <code>f</code> <code>F</code> <code>t</code> <code>T</code> <code>{c}</code></td>
+<td>Operator + find (<code>df,</code>, <code>ct)</code>, <code>yT(</code>)</td>
+</tr>
+<tr>
+<td><code>diw</code> <code>daw</code> <code>yiw</code> <code>yaw</code> <code>ciw</code> <code>caw</code></td>
+<td>Word text objects</td>
+</tr>
+<tr>
+<td><code>di\|</code> <code>da\|</code> <code>yi\|</code> <code>ya\|</code> <code>ci\|</code></td>
+<td>Table cell text objects</td>
+</tr>
+<tr>
+<td><code>di(</code> <code>di[</code> <code>di{</code> <code>di"</code> <code>di`</code> <code>di*</code> <code>di~</code> <code>di_</code> (and <code>da</code>, <code>ci</code>, <code>ca</code>)</td>
+<td>Delimiter text objects</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Change to line end</td>
+</tr>
+<tr>
+<td><code>p</code> / <code>P</code></td>
+<td>Paste after / before</td>
+</tr>
+<tr>
+<td><code>u</code> / <code>Ctrl+R</code></td>
+<td>Undo / redo</td>
+</tr>
+<tr>
+<td><code>v</code> / <code>V</code></td>
+<td>Visual / visual-line mode; then <code>y</code> yank, <code>d</code>/<code>x</code> delete, <code>c</code> change, <code>:</code> command</td>
+</tr>
+<tr>
+<td><code>/</code>, <code>Ctrl+F</code></td>
+<td>Search in note (see <a href="#search">Search</a>)</td>
+</tr>
+<tr>
+<td><code>:</code> / <code>Ctrl+E</code></td>
+<td>Command bar</td>
+</tr>
+<tr>
+<td><code>za</code></td>
+<td>Toggle fold</td>
+</tr>
+<tr>
+<td><code>gd</code>, <code>Ctrl+]</code></td>
+<td>Follow wiki link; <code>gd</code> on a variable goes to its definition</td>
+</tr>
+<tr>
+<td><code>K</code></td>
+<td>Preview linked note</td>
+</tr>
+<tr>
+<td><code>gx</code></td>
+<td>Preview image at cursor</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>Keyboard shortcuts (help)</td>
+</tr>
+</tbody>
+</table>
+<p>Yanks are copied to the system clipboard as well as the register.</p>
+<h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h2>
+<p>Macros record Normal-mode actions and Insert-mode typing, and replay them.</p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>q{r}</code></td>
+<td>Start recording into register <code>r</code> (<code>a</code>-<code>z</code>, <code>0</code>-<code>9</code>; case-insensitive)</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>Stop recording (status shows <code>recorded @r (N steps)</code>)</td>
+</tr>
+<tr>
+<td><code>@{r}</code></td>
+<td>Replay register <code>r</code></td>
+</tr>
+<tr>
+<td><code>{n}@{r}</code></td>
+<td>Replay <code>n</code> times (<code>3@a</code>)</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancel a pending <code>q</code> / <code>@</code> before the register key</td>
+</tr>
+</tbody>
+</table>
+<p>Replays are capped at 10,000 steps; a longer replay stops with <code>replay aborted: step budget exceeded</code>.</p>
+<h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h2>
+<p>In-note search (<code>/</code> or <code>Ctrl+F</code>) is case-insensitive and highlights every match.</p>
+<p>In large notes, previews update after a brief typing pause and matching runs in
+the background. Enter starts the search immediately; <code>n</code>/<code>N</code> pressed while it
+is running are applied when the results arrive. Escape cancels the preview and
+restores the original cursor and scroll position.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>Jump to the nearest match below the start position</td>
+</tr>
+<tr>
+<td><code>Tab</code> / <code>ArrowDown</code> / <code>Ctrl+N</code></td>
+<td>Next match</td>
+</tr>
+<tr>
+<td><code>Shift+Tab</code> / <code>ArrowUp</code> / <code>Ctrl+P</code></td>
+<td>Previous match</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>Keep the position (status shows <code>/query (i/n)</code>)</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancel and restore the original cursor and scroll</td>
+</tr>
+<tr>
+<td><code>n</code> / <code>N</code> (Normal)</td>
+<td>Next / previous match after <code>Enter</code></td>
+</tr>
+</tbody>
+</table>
+<p>Across notes: <code>Ctrl+P</code> with <code>contains:</code> shows matching snippets; see <a href="#notes-and-switching">Notes and switching</a>.</p>
+<h3 id="queries-across-notes">Queries across notes<a class="headerlink" href="#queries-across-notes" title="Permanent link">&para;</a></h3>
+<p>The note switcher (<code>Ctrl+P</code>), browser note filter (<code>Ctrl+B</code>) and graph search (<code>/</code> in the graph) accept the same query syntax. Enter title, text, tag, and collection terms in the same search bar. The graph searches when you press Enter in the terminal and as you type on the desktop. Plain words in the title switcher and browser keep ordered fuzzy title matching: <code>cat dog</code> looks for those letters in order. <code>cat AND dog</code> checks each word independently.</p>
+<p>At the end of a note-search input, <code>Ctrl+Right</code> completes a field name or a matching tag or collection name. Typing <code>tag:</code>, <code>#</code>, <code>coll:</code> or <code>collection:</code> opens label suggestions immediately, with no minimum prefix length. Up/Down select a suggestion; Tab or Enter accepts it and quotes spaces automatically. Escape dismisses suggestions before closing the search. The TUI also supports Page Up/Down; the GUI supports scrolling the suggestions. Labels are fetched in pages of 100, with eight visible rows, and typing fetches matches for the new prefix. An exact label leaves Enter available to open a note.</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Example</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title:</code></td>
+<td><code>title:"daily log"</code></td>
+<td>Title contains the phrase, ignoring case</td>
+</tr>
+<tr>
+<td><code>tag:</code> or <code>#</code></td>
+<td><code>#work</code></td>
+<td>Exact tag name, ignoring case</td>
+</tr>
+<tr>
+<td><code>coll:</code> or <code>collection:</code></td>
+<td><code>coll:"Work notes"</code></td>
+<td>Exact collection name, ignoring case</td>
+</tr>
+<tr>
+<td><code>contains:</code> or <code>text:</code></td>
+<td><code>contains:"release date"</code></td>
+<td>Literal phrase in indexed note text</td>
+</tr>
+<tr>
+<td><code>AND</code>, <code>OR</code>, <code>NOT</code>, <code>-</code>, parentheses</td>
+<td><code>(tag:work OR #home) AND -title:draft</code></td>
+<td>Boolean combinations; AND binds tighter than OR</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the desktop shows field glyphs and the terminal dims typed field prefixes (<code>tag:</code>, <code>title:</code>, <code>contains:</code>, <code>coll:</code>). Set <code>[search] beautiful = false</code> in <code>config.toml</code> to show the literal query without these decorations in both apps. The query language and results stay the same.</p>
+<p>Operator words are case-insensitive, so <code>and</code>, <code>or</code> and <code>not</code> work like their uppercase forms. Spaces between terms mean AND, and redundant whitespace is ignored while evaluating the query. Double quotes keep spaces inside a value; <code>\"</code> and <code>\\</code> escape a quote and backslash. Multiple tags selected with the browser's <code>T</code> control become <code>tag:</code> terms joined with AND in the effective query. Collection scope still applies alongside the query.</p>
+<p>In note lists, bare title matches rank by fuzzy score, <code>contains:</code> matches by full-text relevance, and field-only queries show newer notes first. Graph match cycling follows link degree. <code>contains:</code> reads only unprotected notes; a protected note can still match by its title, tags or collections. Consequently, <code>-contains:secret</code> includes protected notes because their bodies are absent from the index. Parse errors show a position and leave the previous result list visible. Bare words match titles in every search view, including the terminal's <code>Ctrl+P</code> picker, the browser's <code>Ctrl+F</code> view, sidebar search, and MCP <code>search_notes</code>. An unfinished <code>contains:rel</code> matches indexed words beginning with <code>rel</code>; a space or a following query term finishes the word and requires an exact match. In <code>Ctrl+P</code> in both apps, the best match is highlighted until you pick another row, and Enter opens the highlighted result, even while a word is unfinished; Tab accepts a suggestion. In the terminal browser's <code>Ctrl+F</code> view, Enter finishes the word. Quotes (<code>contains:"rel"</code>) also require an exact token. Quoted bare text such as <code>"cat dog"</code> matches that literal title phrase, while <code>cat dog</code> keeps ordered fuzzy matching. Snippet and matching-line views include only unprotected notes.</p>
+<h2 id="wiki-links">Wiki links<a class="headerlink" href="#wiki-links" title="Permanent link">&para;</a></h2>
+<p>Syntax: <code>[[ID]]</code>, <code>[[ID#Heading]]</code>, <code>[[ID|Title]]</code>, <code>[[ID#Heading|Title]]</code>. <code>ID</code> is the exact full target note ID (ULID or <code>daily-YYYY-MM-DD</code>), inserted by autocomplete. IDs are case-sensitive; short prefixes do not resolve. Heading and title do not change target identity.</p>
+<ul>
+<li>Links render collapsed (title only) until the cursor enters them; broken links render distinctly and resolve when the note appears.</li>
+<li>Without a custom label, a missing target shows <code>ID (no such note)</code> in both apps, retaining any <code>#Heading</code> before the diagnostic. While note titles are still loading after startup, links show their target without it.</li>
+<li>Typing <code>[[</code> auto-closes to <code>[[]]</code> and opens a note picker; typing <code>#</code> inside a link suggests the target note's headings.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[[</code></td>
+<td>Insert link and open note autocomplete</td>
+</tr>
+<tr>
+<td><code>ArrowUp</code> / <code>ArrowDown</code>, <code>Enter</code> / <code>Tab</code>, <code>Esc</code></td>
+<td>Pick, accept, cancel a suggestion</td>
+</tr>
+<tr>
+<td><code>Ctrl+]</code> (any editing mode), <code>gd</code> (Normal)</td>
+<td>Open the linked note</td>
+</tr>
+<tr>
+<td><code>K</code> (Normal)</td>
+<td>Toggle a preview popup of the linked note; moving the cursor closes it</td>
+</tr>
+</tbody>
+</table>
+<p>Markdown links <code>[text](url)</code> are styled in place.</p>
+<h2 id="images-and-image-preview">Images and image preview<a class="headerlink" href="#images-and-image-preview" title="Permanent link">&para;</a></h2>
+<p>Syntax: <code>![alt](./assets/image.png)</code>. In the editor an image shows as a compact <code>[image: alt]</code> placeholder; the raw markdown appears while the cursor is inside it.</p>
+<ul>
+<li>Pasting an image file path imports the image into the note's assets and inserts a relative image link.</li>
+<li>An image itself on the clipboard (a screenshot tool's copy) never reaches the terminal as a paste: <code>p</code> / <code>P</code> with an empty register import it, as does <code>:paste-image</code>. Reading it needs <code>wl-paste</code> (Wayland) or <code>xclip</code> (X11).</li>
+<li>The preview opens in a bounded dialog using sixel, kitty or iTerm2 graphics (half-blocks as fallback); decoding happens off the input thread and is cached. Inside tmux, passthrough is used when <code>allow-passthrough</code> is on.</li>
+<li>Remote (<code>http://...</code>) images are never fetched.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gx</code> (Normal), <code>Ctrl+O</code> (Insert, vim mode off)</td>
+<td>Preview the image at the cursor</td>
+</tr>
+<tr>
+<td><code>o</code> in the preview</td>
+<td>Open the image in the system viewer</td>
+</tr>
+<tr>
+<td><code>Esc</code> in the preview</td>
+<td>Close it</td>
+</tr>
+</tbody>
+</table>
+<p>Config (<code>[terminal]</code>): <code>images = "auto" | "sixel" | "kitty" | "iterm2" | "halfblocks" | "off"</code> (<code>off</code> opens the external viewer directly) and <code>image_max_rows</code> (1-100, default 15).</p>
+<h2 id="diagrams">Diagrams<a class="headerlink" href="#diagrams" title="Permanent link">&para;</a></h2>
+<p>A fenced <code>diagram</code> block describes boxes and connectors, one element per line.
+It stays plain Markdown text: undo, history, search, sync and export treat it
+like any other code block.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sb">```diagram</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="s">node api rect 0 0 140 60 "API server" fill=#dae8fc stroke=#6c8ebf</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s">node db cylinder 260 0 110 80 "Postgres"</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s">node q rhombus 40 140 120 80 "Cached?"</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s">edge e1 api db "SQL"</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s">edge e2 api q route=orthogonal points=100,120</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="sb">```</span>
+</code></pre></div>
+<ul>
+<li><code>node &lt;id&gt; &lt;shape&gt; &lt;x&gt; &lt;y&gt; &lt;w&gt; &lt;h&gt; ["label"] [key=value | flag]...</code></li>
+<li><code>edge &lt;id&gt; &lt;from&gt; &lt;to&gt; ["label"] [key=value | flag]...</code>; each end is a
+  node identifier or a free point <code>@x,y</code> (<code>edge e1 api @300,40</code>)</li>
+<li>Shapes: <code>rect</code>, <code>rounded</code>, <code>ellipse</code>, <code>rhombus</code>, <code>text</code>, <code>cylinder</code>, <code>callout</code>,
+  <code>hexagon</code>, <code>clipped</code>, <code>triangle</code>, <code>actor</code>, <code>document</code>, <code>cloud</code>, <code>gear</code>, <code>arrow</code>. Other
+  names draw as <code>rect</code> and keep their name.</li>
+<li>Keys: <code>fill</code>, <code>stroke</code> and <code>text</code> take <code>#rgb</code>, <code>#rrggbb</code>, <code>#rrggbbaa</code>
+  (with opacity) or <code>none</code> (no fill, no outline or no label); <code>dashed</code> and
+  <code>dotted</code> select the outline pattern; <code>stroke_width=</code> sets connector and
+  outline thickness from 0.5 to 12 (default 1.5).
+  <code>route=straight|orthogonal|curved</code>; <code>arrow=none|end|both</code>; <code>points=x,y;x,y</code>
+  (waypoints). Unknown keys are kept and ignored.</li>
+<li>Coordinates are whole numbers within ±1,000,000; sizes are positive.
+  Labels escape <code>\"</code>, <code>\\</code> and <code>\n</code>; <code>size=</code> (6 to 96, default 13),
+  <code>align=left|center|right</code> and <code>valign=top|middle|bottom</code> set size and placement.
+  <code>bold</code>, <code>italic</code> and <code>underline</code> format node and connector labels.
+  <code>text_bg=#RRGGBB[AA]</code> gives labels a background; <code>text_bg=none</code> removes it,
+  including the default on-screen connector label background.
+  A node's label
+  wraps to its width and is cut with … when it does not fit its height.</li>
+<li>Identifiers (<code>[A-Za-z_][A-Za-z0-9_-]*</code>) are unique per block and shared by
+  nodes and edges.</li>
+</ul>
+<p>Unreadable lines are kept exactly as written and are not drawn; the picture
+shows how many there are. An edge to a missing node is not drawn; a free end is drawn where it is, and moves with a group move or paste when its edge is selected. A repeated
+identifier keeps its first definition and makes the block read-only on the
+canvas until the source is fixed. Blocks over 256 KiB or 2,000 elements show
+their source with a "too large to draw" note; lines over 4 KiB and labels over
+1 KiB are unreadable.</p>
+<p>In the desktop app a block away from the cursor is drawn as one picture.
+With the cursor or a selection in it, the block shows its source with the
+picture under it, so edits show as they are typed. A folded block shows its
+opening line. The terminal shows the source.</p>
+<p>On desktop, <code>:diagram</code> opens the diagram at the cursor; outside a diagram, it
+inserts an empty block and opens its canvas. Clicking a picture also opens the
+canvas. In the terminal, <code>:diagram</code> inserts an empty diagram block; inside an
+existing block it reports that the canvas is desktop-only and changes nothing:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drag a node / several selected nodes</td>
+<td>Move: snaps to a 10-unit grid and lines up with other shapes' edges and centres, with guides shown; Shift moves freely</td>
+</tr>
+<tr>
+<td>Arrow keys (Shift: one unit)</td>
+<td>Nudge the selection by a grid step</td>
+</tr>
+<tr>
+<td><code>Ctrl+Z</code>, <code>Ctrl+Shift+Z</code> / <code>Ctrl+Y</code></td>
+<td>Undo and redo, one gesture at a time, through the note's history</td>
+</tr>
+<tr>
+<td>Drag empty space</td>
+<td>Select with a box (Shift adds to the selection)</td>
+</tr>
+<tr>
+<td>Shift+click</td>
+<td>Add or remove an element</td>
+</tr>
+<tr>
+<td>Ctrl+drag, middle-drag / scroll</td>
+<td>Pan / zoom (eased unless <code>[gui] animations = false</code>)</td>
+</tr>
+<tr>
+<td>Drag a port (dots on a hovered node) to another node, or to empty space</td>
+<td>Connect, or draw a line with a free end</td>
+</tr>
+<tr>
+<td>Drag an end of the selected edge</td>
+<td>Attach it to the node it is dropped on, or leave it free</td>
+</tr>
+<tr>
+<td>Drag a corner of the selected node</td>
+<td>Resize; a live width × height badge shows diagram units</td>
+</tr>
+<tr>
+<td>Select an edge, drag its handles</td>
+<td>Bend through waypoints; double-click a waypoint removes it</td>
+</tr>
+<tr>
+<td>Shapes panel (left; its header collapses it): click, or drag onto the canvas; <code>r</code> <code>o</code> <code>e</code> <code>d</code> <code>t</code> <code>c</code>; double-click empty space</td>
+<td>Add rect, rounded, ellipse, rhombus, text, cylinder</td>
+</tr>
+<tr>
+<td>Lines panel: click, or drag onto the canvas</td>
+<td>Add a free line (plain, arrow, double arrow, orthogonal, curved, dashed); new connections use the last one picked</td>
+</tr>
+<tr>
+<td><code>g</code> or Grid</td>
+<td>Show or hide the alignment grid</td>
+</tr>
+<tr>
+<td>Fullscreen icon or <code>F11</code></td>
+<td>Toggle fullscreen; Esc exits fullscreen before closing the canvas</td>
+</tr>
+<tr>
+<td><code>Enter</code>, <code>F2</code> or double-click an element</td>
+<td>Edit its label in place (Shift+Enter breaks the line; Enter or a click elsewhere keeps, Esc cancels)</td>
+</tr>
+<tr>
+<td>Properties panel (right)</td>
+<td><strong>Style</strong>: preset fill/line pairs, fill and line colour (the colour picker used by graph groups, with an opacity track; None removes the colour, Theme default resets it), keyboard-editable line width (0.5–12, with half-point steps) beside solid, dashed and dotted previews, and for lines route (straight, elbow, curved) and arrows (none, end, both). <strong>Text</strong>: keyboard-editable size (6–96 pt; Enter applies, Esc cancels), bold/italic/underline, horizontal and vertical alignment, text and background colour. Choose Background → None to remove connector label boxes. <strong>Arrange</strong>: X, Y, width and height of one selected shape. Each change, pick or drag is one undo step</td>
+</tr>
+<tr>
+<td><code>Ctrl+C</code> / <code>Ctrl+X</code> / <code>Ctrl+V</code> / <code>Ctrl+D</code></td>
+<td>Copy, cut, paste at the pointer, duplicate</td>
+</tr>
+<tr>
+<td><code>Ctrl+S</code></td>
+<td>Save the note</td>
+</tr>
+<tr>
+<td><code>Delete</code>, <code>Backspace</code>, <code>x</code></td>
+<td>Delete (a node's edges go with it)</td>
+</tr>
+<tr>
+<td><code>f</code>, <code>+</code>, <code>-</code></td>
+<td>Fit, zoom in, zoom out</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancel the drag in progress, or close</td>
+</tr>
+</tbody>
+</table>
+<p>Fixed connections use <code>from_port=top|right|bottom|left</code> and
+<code>to_port=top|right|bottom|left</code>. Dragging from or onto a side port fixes the
+attachment; dropping on a node body uses automatic attachment. Free endpoints
+ignore port attributes. The Connector properties expose each attached end's
+Auto or fixed side. Fixed ports follow node movement and resizing.</p>
+<p>Arrange provides alignment to selection edges/centres, equal-gap distribution
+of three or more nodes, and matching width/height to the first selected node.
+Edges are excluded from arrangement calculations. Click X/Y/Width/Height values
+to enter whole numbers directly; Enter keeps a valid value, Escape cancels.
+Invalid values stay open on Enter and are discarded when another gesture starts.
+Each arrangement is atomic, including range and serialized-size checks.</p>
+<p>Create next (Arrange) adds a same-sized, same-styled neighbour with a 40-unit
+gap in the chosen direction, connects fixed facing ports, and opens its blank
+label. Creation and connection form one undo step; label editing is separate.
+Copy style/Paste style apply supported styling to elements of the same kind,
+without copying geometry, labels, endpoints, waypoints, or unknown attributes.
+The style clipboard lasts until the canvas closes.</p>
+<p>The canvas toolbar's sidebar icons at the left and right independently hide
+or show their panels, with arrows and hover labels indicating the action.
+The fullscreen icon beside the right sidebar toggle (or <code>F11</code>) fills the
+screen; closing the canvas restores the window. <strong>Grid</strong> and <strong>Fit</strong> control the view.</p>
+<p>Open <strong>Export…</strong> for background, PNG scale and output actions. <strong>Export SVG</strong>
+and <strong>Export PNG</strong> save standalone images through the native save dialog.
+<strong>Copy PNG</strong> places an image on the clipboard, with progress and completion
+shown at the bottom of the canvas. Choose transparent or white background and
+<strong>PNG scale: 1×</strong>, <strong>2×</strong>, or <strong>3×</strong> (output resolution, not canvas zoom). Export uses the
+current diagram snapshot, preserving fixed ports, curves, styles and clipped
+labels; unreadable lines or missing endpoints must be fixed before exporting.
+The note itself is unchanged.</p>
+<p>An exported SVG also carries a draw.io copy of the diagram, so draw.io opens
+it for editing (File &gt; Open, or name it <code>*.drawio.svg</code>). The copy is one-way
+and lossy: positions, labels, colours, line styles, ports and waypoints carry
+over; <code>clipped</code>, <code>document</code>, <code>actor</code> and <code>callout</code> use their nearest draw.io
+shapes, <code>gear</code> becomes an ellipse, and draw.io redraws curves its own way.
+Edits made in draw.io do not come back to the note.</p>
+<p>PDF export renders diagram blocks as images on white backgrounds. If a block
+cannot be rendered or exceeds the image budget, the PDF includes its source and
+an explanation. Markdown export keeps the editable fenced source.</p>
+<p>Each finished gesture changes only the lines it touches and is one undo step
+in the note. A gesture whose block changed meanwhile (moved, edited, or no
+longer a diagram) is refused and the canvas reloads.</p>
+<h2 id="inline-calculations">Inline calculations<a class="headerlink" href="#inline-calculations" title="Permanent link">&para;</a></h2>
+<p>Lines that evaluate show a ghost result on the right; non-math lines stay quiet.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>200 * 1.19              → 238
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>50 kg to lbs            → 110.231 lb
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sqrt(144) + 3^2         → 21
+</code></pre></div>
+<ul>
+<li>Arithmetic, percentages, unit conversions and everything <a href="https://github.com/printfn/fend">fend</a> evaluates.</li>
+<li>Works on plain lines, list/checklist bodies, and table formula cells.</li>
+<li>Date-like lines (<code>2026-09-29</code>, <code>29.09.2026</code>, <code>09/29/2026</code>) are ignored.</li>
+<li>Clock times and ranges, see below.</li>
+<li>Large notes compute only the visible region and fill values in off the input thread.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tab</code> (Insert)</td>
+<td>Replace the expression with its result (after any open completion popup)</td>
+</tr>
+<tr>
+<td><code>:sum</code> / <code>:avg</code></td>
+<td>Sum / average the selection, or the whole note without one</td>
+</tr>
+</tbody>
+</table>
+<p><code>:sum</code> and <code>:avg</code> count each variable, formula and formula cell as its computed value, other table cells as their own expression (units kept), and other text as the numbers in it, skipping list markers. The result is inserted after the selection (at the cursor without one) and copied.</p>
+<p>The terminal status bar shows sum, average and count only while text or table
+cells are selected. These live statistics extract numeric literals, skip list
+markers and digits belonging to names such as <code>usteda_13</code>, and do not replace
+the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindented decimal such as
+<code>3434.5 kg</code> is a number, not nested list numbering; nested numbering such as
+<code>2.1</code> is recognized on indented lines.</p>
+<h3 id="clock-times">Clock times<a class="headerlink" href="#clock-times" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>09:10-11:45                → 2h 35min
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>09:10-11:45 + 13:00-17:30  → 7h 5min
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>11:45 - 09:10              → 2h 35min
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>09:10 + 2h 30min           → 11:40
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>9am-5pm - 30min            → 7h 30min
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>22:00-02:00                → 4h
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>(17:00 - 09:00) / 3        → 2h 40min
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>10:30-11:00 standup        → 30min
+</code></pre></div>
+<ul>
+<li>Clock times: <code>09:10</code>, <code>9:10:30</code>, <code>9:10pm</code> / <code>9:10 pm</code>, <code>9am</code> (a bare hour needs <code>am</code>/<code>pm</code> attached, so <code>5 pm</code> stays picometres), <code>24:00</code>.</li>
+<li>A range is two clock times joined by <code>-</code> with no spaces; it runs forward, past midnight if it ends before it starts (<code>00:00-24:00</code> is a whole day). With spaces, <code>-</code> subtracts.</li>
+<li>Clock time - clock time is a duration and clock time ± duration a clock time; adding, multiplying or dividing clock times gives no result.</li>
+<li>Results read as <code>2h 35min</code> and <code>11:10</code>, so <code>Tab</code> and variables keep them: <code>start := 09:10</code>, <code>lunch := 12:00-12:45</code>, then <code>17:30 - start - lunch</code>.</li>
+<li>A clock time on its own (<code>meeting at 10:30</code>) shows no result. Words after a calculation are a label (<code>11:45 - 09:10 work</code> → <code>2h 35min</code>), but a line with more times or arithmetic after its words shows nothing (<code>9:00-17:00 office, 12:00-12:30 lunch</code>): put each range on its own line. <code>to</code> / <code>in</code> converts a duration as usual: <code>(17:00 - 09:00) to min</code>; a clock time does not convert.</li>
+<li>A variable holding a clock time or duration is not offered to other notes yet. Durations written directly (<code>lunch := 45min</code>) keep only their number, like other units in variables.</li>
+<li><code>:sum</code> / <code>:avg</code> do not add up ranges yet.</li>
+</ul>
+<h2 id="variables-and-cross-note-variables">Variables and cross-note variables<a class="headerlink" href="#variables-and-cross-note-variables" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Assign with <code>name := expression</code>; reference by name anywhere in the note. Names are case-insensitive and may contain spaces.</li>
+<li>Dependents update as definitions change; conversions store numeric values (<code>len := 3 m to km</code>).</li>
+<li><code>gd</code> (Normal) on a variable jumps to its definition (the last assignment, the one in effect). On <code>[[id]].name</code> it opens the other note at that definition.</li>
+<li>Variable names are highlighted; an autocomplete popup appears after <code>[editor] variable_autocomplete_min_chars</code> (default 3) characters.</li>
+<li>Another note's variable: <code>[[ID]].name</code> (needs the <code>cross_note</code> module); typing <code>[[ID]].</code> suggests that note's variables.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ArrowUp</code> / <code>ArrowDown</code></td>
+<td>Move in the variable popup</td>
+</tr>
+<tr>
+<td><code>Tab</code> / <code>Enter</code></td>
+<td>Accept the suggestion</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Close the popup</td>
+</tr>
+</tbody>
+</table>
+<p>Full rules: <a href="../variables/">Variables Specification</a>.</p>
+<h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h2>
+<p>Markdown tables align as you type, and the cursor moves by cell.</p>
+<ul>
+<li>Formula cells start with <code>:=</code>: <code>:=sum_col()</code>, <code>:=avg_row() * 2</code>, <code>:=tax_rate * subtotal</code>, <code>:=(1,2) + (2,2)</code> (1-based data-row references).</li>
+<li>Helpers: <code>sum_row()</code>, <code>sum_col()</code>, <code>avg_row()</code>, <code>avg_col()</code>. Typing a helper name in a formula cell (<code>sum</code>, <code>avg_</code>) offers them in the autocomplete popup, with matching variables after.</li>
+<li>Reference errors render as <code>!ERROR#out_of_bounds</code>, <code>!ERROR#non_numeric</code>, <code>!ERROR#self_reference</code>, <code>!ERROR#cycle</code>.</li>
+<li>Multiline cells use continuation rows starting with <code>|&gt;</code>.</li>
+<li>Pasting CSV or TSV (cells copied from a spreadsheet) makes a table, the first row its header: on a blank line in its place, otherwise below the cursor's line; <code>p</code> / <code>P</code> from the system clipboard paste it as whole lines. TSV needs the same number of tabs on every row; CSV (<code>,</code> or <code>;</code>, <code>"</code>-quoted fields) also needs no space after a delimiter, so prose like <code>Hello, world</code> stays text. Inside a code block or a table, or with the table module off, the paste stays text.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key (Insert)</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\|</code></td>
+<td>Start a row / add a column where applicable</td>
+</tr>
+<tr>
+<td><code>Tab</code> / <code>Shift+Tab</code></td>
+<td>Next / previous cell</td>
+</tr>
+<tr>
+<td><code>Ctrl+ArrowLeft</code> / <code>Ctrl+ArrowRight</code></td>
+<td>Previous / next cell</td>
+</tr>
+<tr>
+<td><code>ArrowLeft</code> / <code>ArrowRight</code></td>
+<td>Move within the cell, then cross into the next</td>
+</tr>
+<tr>
+<td><code>ArrowUp</code> / <code>ArrowDown</code></td>
+<td>Same column, previous / next row</td>
+</tr>
+<tr>
+<td><code>Shift+Enter</code></td>
+<td>Split the cell into a <code>\|&gt;</code> continuation row</td>
+</tr>
+<tr>
+<td><code>Backspace</code> / <code>Delete</code></td>
+<td>Cell-aware delete at cell boundaries</td>
+</tr>
+<tr>
+<td><code>Ctrl+Backspace</code> / <code>Ctrl+Delete</code> / <code>Ctrl+W</code></td>
+<td>Structural edit: merge cells or delete a column from the header</td>
+</tr>
+</tbody>
+</table>
+<p>Vim: <code>di|</code>, <code>ci|</code>, <code>yi|</code>, <code>da|</code> work on cells. Select rows and <code>:sum</code> / <code>:avg</code> to aggregate them.</p>
+<h2 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h2>
+<p>Fold and unfold the block at the cursor.</p>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>za</code> (Normal)</td>
+<td>Toggle fold at cursor</td>
+</tr>
+<tr>
+<td><code>:fold</code> (<code>:zc</code>, <code>:closefold</code>)</td>
+<td>Fold</td>
+</tr>
+<tr>
+<td><code>:unfold</code> (<code>:zo</code>, <code>:openfold</code>)</td>
+<td>Unfold</td>
+</tr>
+<tr>
+<td><code>:fold-toggle</code> (<code>:za</code>)</td>
+<td>Toggle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dates-and-reminders">Dates and reminders<a class="headerlink" href="#dates-and-reminders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:date</code></td>
+<td>Pick a date and insert it (<code>[editor] date_format</code>; <code>date_time_format</code> with time)</td>
+</tr>
+<tr>
+<td><code>:remind</code> (<code>:alarm</code>)</td>
+<td>Set a reminder on the current line (date + time)</td>
+</tr>
+<tr>
+<td><code>:remind toggle</code></td>
+<td>Remove the line's reminder, or set one if there is none</td>
+</tr>
+<tr>
+<td><code>:today</code> (<code>:daily</code>)</td>
+<td>Open today's daily note</td>
+</tr>
+</tbody>
+</table>
+<p>Date picker: type <code>tomorrow</code>, <code>next friday 10 pm</code>, or <code>in 3 weeks</code> in its input. Left/right arrows move the input caret. <code>Tab</code> switches focus between the input and calendar. With calendar focus, arrows move by day/week, <code>PageUp</code>/<code>PageDown</code> (or <code>Ctrl+ArrowLeft</code>/<code>Ctrl+ArrowRight</code>) by month, <code>Alt+ArrowLeft</code>/<code>Alt+ArrowRight</code> by hour, and <code>Alt+ArrowUp</code>/<code>Alt+ArrowDown</code> by one minute. <code>Ctrl+T</code> toggles time, <code>Enter</code> confirms, and <code>Esc</code> cancels. Typed dates and the calendar share the configured formats.</p>
+<p>Reminders show as a ghost on their line and fire a desktop notification (<code>notify-send</code>) when due; setting and removing them is undoable.</p>
+<h2 id="lookup">Lookup<a class="headerlink" href="#lookup" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:lookup [query]</code></td>
+<td>Open the lookup overlay (runs the query if given)</td>
+</tr>
+<tr>
+<td>type, <code>Enter</code></td>
+<td>Run the search</td>
+</tr>
+<tr>
+<td><code>ArrowUp</code> / <code>ArrowDown</code></td>
+<td>Select a result</td>
+</tr>
+<tr>
+<td><code>Enter</code> on a result</td>
+<td>Open it in the browser (HTTP(S) only)</td>
+</tr>
+<tr>
+<td><code>Shift+Enter</code> on a result</td>
+<td>Insert it as a markdown link at the cursor</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Close</td>
+</tr>
+</tbody>
+</table>
+<p>Config <code>[web_search]</code>: <code>provider = "auto" | "brave" | "google" | "duckduckgo"</code>, <code>api_key</code>, <code>search_engine_id</code>, <code>max_results</code> (1-10). Keyed providers fall back to DuckDuckGo on failure.</p>
+<h2 id="ask-the-agent">Ask the agent<a class="headerlink" href="#ask-the-agent" title="Permanent link">&para;</a></h2>
+<p>Off by default; see <a href="../agent/">Ask the Agent</a> for setup, what is sent and what the agent can reach.</p>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:ask [prompt]</code></td>
+<td>Ask the local agent (Claude Code, Codex or a custom command)</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancel a running request, or close</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>Insert the answer at the cursor</td>
+</tr>
+<tr>
+<td><code>ArrowUp</code> / <code>ArrowDown</code></td>
+<td>Scroll the answer</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Ask again</td>
+</tr>
+</tbody>
+</table>
+<p>The note is saved first. Edits the agent makes to the open note arrive as one undo step.</p>
+<h2 id="clipboard-and-clip-watch">Clipboard and clip-watch<a class="headerlink" href="#clipboard-and-clip-watch" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vim yanks and <code>:export markdown</code> / <code>:export text</code> without a path go to the system clipboard (status shows the backend used): through <code>wl-copy</code>, <code>xclip</code>, <code>xsel</code>, <code>pbcopy</code>, <code>clip.exe</code> or tmux, otherwise OSC 52. With <code>[terminal] clipboard = "osc52"</code> copies go only through OSC 52, so the terminal holds them: they outlive slate and work over SSH, but a terminal without OSC 52 support drops them silently.</li>
+<li>Clipboard text is read natively (Wayland data-control or X11), with the same tools as a fallback.</li>
+<li>Pasted text is inserted as-is (no autoformat pass).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:clip-watch on</code> (<code>start</code>)</td>
+<td>Watch the clipboard and paste each new text at the cursor</td>
+</tr>
+<tr>
+<td><code>:clip-watch off</code> (<code>stop</code>)</td>
+<td>Stop watching</td>
+</tr>
+<tr>
+<td><code>:paste-image</code></td>
+<td>Paste the image on the clipboard at the cursor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h2>
+<p>Collections group notes; the working collection is session-scoped and applies to new notes and the <code>Ctrl+P</code> switcher.</p>
+<table>
+<thead>
+<tr>
+<th>Key / command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+G</code></td>
+<td>Collection picker (type to filter, <code>Enter</code> set working collection, <code>Ctrl+E</code> edit, <code>Esc</code> close)</td>
+</tr>
+<tr>
+<td><code>:collection create &lt;name&gt;</code></td>
+<td>Create</td>
+</tr>
+<tr>
+<td><code>:collection choose [name]</code> / <code>choose none</code> / <code>clear</code></td>
+<td>Set / clear the working collection; omit the name to open the picker</td>
+</tr>
+<tr>
+<td><code>:collection join [name]</code> / <code>leave [name]</code></td>
+<td>Add / remove the current note; without a name, open its Organize dialog on collections</td>
+</tr>
+<tr>
+<td><code>:collection update &lt;name&gt;</code></td>
+<td>Edit name, description and default tags (<code>Tab</code> between fields, <code>Enter</code> save)</td>
+</tr>
+<tr>
+<td><code>:collection delete &lt;name&gt;</code></td>
+<td>Delete the collection only</td>
+</tr>
+<tr>
+<td><code>:collection purge &lt;name&gt;</code></td>
+<td>Delete the collection and its notes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="collection-browser">Collection browser<a class="headerlink" href="#collection-browser" title="Permanent link">&para;</a></h3>
+<p>The browser footer shows only the main actions. Press <code>a</code> for <strong>Actions</strong> or <code>?</code> for contextual shortcuts: choose with Up/Down (or j/k), run with Enter, and close with Esc. Existing direct shortcuts still work. The popup follows the focused note or collection, exposes batch actions when notes are selected, and keeps deletion behind its existing confirmation.</p>
+<p><code>Ctrl+B</code>, <code>-</code> in Normal mode, or <code>:browse</code> (<code>:explore</code>, <code>:files</code>) opens a full-screen browser in three columns, like the yazi file manager: collections on the left, the notes of the open collection in the middle and a preview of the hovered note (title, age, collections, tags and the start of the body) on the right. <code>All notes</code> and <code>Unsorted</code> (notes in no collection) sit above the collections. It opens on the working collection with the current note hovered and title search focused. Type to filter immediately, or press <code>Esc</code> to navigate.</p>
+<p><code>Ctrl+F</code> (or <code>Ctrl+/</code>) searches note text inside the open collection. Hits show the line they matched on, the preview scrolls to that line with the search terms highlighted, and <code>Enter</code> opens the note there. Title filtering, text search, and tag filtering use the same bordered input style above the results.</p>
+<p>Tags classify notes across collections (for example <code>meeting</code> or <code>idea</code>); collections provide the workspace and defaults for new notes. On the terminal notes list, <code>t</code> edits the hovered note's comma-separated tags: <code>Enter</code> replaces its tags, an empty input removes them all, and <code>Esc</code> cancels. Marked notes are unaffected. Tags are saved immediately as metadata, independently of note text and its undo history. The terminal preview wraps tags across at most three lines, with an additional overflow indicator when needed, while reserving space for the note text.</p>
+<p>From the editor, <code>:tag add work</code> and <code>:tag remove work</code> add or remove one tag on the open note (names match in any case; spaces are part of the name, commas are refused). Without a name, both open the note's Organize dialog, as do <code>:tag</code> and <code>:organize</code>, <em>Organize…</em> in the GUI note header, or clicking a tag or the collections label there. The dialog lists the note's tags (or, after Tab, its collections) first and marked, then every other one; typing searches and offers to create a new tag, Enter adds or removes the highlighted row, and Esc returns to the note. File-backed notes have no tags.</p>
+<p><code>T</code> accepts comma-separated exact tags (for example <code>work, urgent</code>), requiring every tag to match (AND). Matching ignores letter case, including Unicode and surrounding spaces; spaces within a tag are preserved. The tag filter combines with the open collection, <code>/</code> title filtering, and <code>Ctrl+F</code> text search. The header shows <code>tags: work AND urgent</code>; an unknown tag gives an empty list. Set an empty tag filter or press <code>Esc</code> after clearing any selection and title filter or leaving text search to clear it. The filter survives changing collections, and resets when the browser closes. Collection counts still show total membership. New notes receive collection default tags, not the active browser filter.</p>
+<p>A note can belong to several collections, so notes are copied into collections rather than moved like files: <code>y</code> then <code>p</code> adds a note to another collection, <code>x</code> then <code>p</code> moves it out of the collection it was cut from, and <code>d</code> removes it from the open collection without deleting it. <code>u</code> undoes the last of these.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>j</code> / <code>k</code>, arrows, <code>gg</code> / <code>G</code>, <code>Ctrl+D</code> / <code>Ctrl+U</code></td>
+<td>Move</td>
+</tr>
+<tr>
+<td><code>o</code>, <code>l</code>, <code>Enter</code></td>
+<td>Open the collection or note (asks for the password of a locked note or encrypted collection)</td>
+</tr>
+<tr>
+<td><code>h</code>, <code>-</code>, <code>Backspace</code></td>
+<td>Back to the collections list</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Filter the list (fuzzy); <code>Esc</code> clears it</td>
+</tr>
+<tr>
+<td><code>t</code> / <code>T</code></td>
+<td>Edit the hovered note's tags / set a single tag filter (empty input clears)</td>
+</tr>
+<tr>
+<td><code>Ctrl+F</code>, <code>Ctrl+/</code></td>
+<td>Search note text in the open collection (or the hovered one): type to search, <code>↑</code> <code>↓</code> / <code>Ctrl+N</code> <code>Ctrl+P</code> move, <code>Enter</code> opens the note at the match, <code>Esc</code> goes back</td>
+</tr>
+<tr>
+<td><code>Space</code> / <code>Ctrl+A</code></td>
+<td>Mark the note and move down / mark all</td>
+</tr>
+<tr>
+<td><code>y</code> / <code>x</code></td>
+<td>Yank / cut the marked (or hovered) notes</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>Paste into the open or hovered collection: copy adds the notes to it, cut moves them</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>Leave: take the notes out of the open collection (the notes stay)</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>Undo the last paste or remove</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>Delete the notes, or the hovered collection (its notes stay); <code>y</code> confirms, and a protected note asks for its password instead</td>
+</tr>
+<tr>
+<td><code>n</code> / <code>r</code></td>
+<td>New note (in the open collection) or collection / rename the hovered one (a note keeps the name; empty follows its first line)</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Encrypt the hovered collection, or decrypt an encrypted one</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Sort notes by modification time or title</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Make the collection the working collection (<code>All notes</code> clears it)</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>Reload</td>
+</tr>
+<tr>
+<td><code>q</code>, <code>Esc</code>, <code>Ctrl+B</code></td>
+<td>Close</td>
+</tr>
+</tbody>
+</table>
+<p>Icons use Nerd Font glyphs by default; set <code>[theme] icons = "unicode"</code> or <code>"ascii"</code> for other fonts.</p>
+<h2 id="per-note-modules">Per-note modules<a class="headerlink" href="#per-note-modules" title="Permanent link">&para;</a></h2>
+<p>Each note stores its own module switches; <code>[editor.modules]</code> sets defaults for new notes.</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>math</code></td>
+<td>Master calc switch</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td>Table formulas</td>
+</tr>
+<tr>
+<td><code>variables</code></td>
+<td>Variable assignments, references, autocomplete</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Markdown styling helpers</td>
+</tr>
+<tr>
+<td><code>cross_note</code></td>
+<td><code>[[ID]].name</code> references</td>
+</tr>
+</tbody>
+</table>
+<p>Commands: <code>:module status</code> (<code>:modules</code>), <code>:module &lt;name&gt; on|off|toggle</code> (also <code>:module on &lt;name&gt;</code>).</p>
+<h2 id="note-security">Note security<a class="headerlink" href="#note-security" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:note encrypt</code></td>
+<td>Encrypt the note with its own password; on an unlocked encrypted note, change its password</td>
+</tr>
+<tr>
+<td><code>:note decrypt</code></td>
+<td>Store it unencrypted again</td>
+</tr>
+</tbody>
+</table>
+<p>Both ask for the password in a masked dialog, and encrypting asks for it twice.</p>
+<p>An encrypted note's text and history are sealed with its own random key, and the password only unlocks that key, so changing a password does not rewrite the note. Its title stays visible (encrypting pins it; rename it to something vaguer, or clear it to show "Encrypted note"). Renaming an encrypted note asks for its password first. Opening one asks for the password and keeps it unlocked for 15 minutes of inactivity.</p>
+<p><strong>Encrypted collections.</strong> <code>e</code> on a collection in the browser encrypts it with a password (asked twice): its notes are encrypted with the collection's key, with their titles pinned, and notes created in it, pasted into it or added with <code>:collection join</code> are encrypted too. Entering the collection or opening any of its notes asks for its password once and unlocks all of them. While a note belongs to the collection it cannot be decrypted on its own or given its own password (<code>:note decrypt</code> and <code>:note encrypt</code> are refused); remove it from the collection or decrypt the collection instead. A note that leaves the collection stays encrypted with the collection's password until the collection is decrypted (<code>e</code> again), and can then also be decrypted or given its own password; a collection that still protects notes cannot be deleted. Notes that were locked, or belong to another encrypted collection, keep their own protection.</p>
+<p>Reminder text and images attached to encrypted notes are still stored unencrypted.</p>
+<p><code>[editor.security] encrypt_notes = true</code> encrypts new notes by default using the password in <code>password_env</code>. Not available for file-backed notes.</p>
+<h2 id="export-and-backup">Export and backup<a class="headerlink" href="#export-and-backup" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:export pdf &lt;path&gt;</code></td>
+<td>Markdown-aware PDF (headings, lists, code, tables, images, checklists)</td>
+</tr>
+<tr>
+<td><code>:export markdown [path]</code></td>
+<td>Markdown to a file, or the clipboard without a path</td>
+</tr>
+<tr>
+<td><code>:export text [path]</code></td>
+<td>Plain text to a file, or the clipboard</td>
+</tr>
+<tr>
+<td><code>:backup export &lt;path.zip&gt;</code></td>
+<td>Back up the whole notes database (runs in the background)</td>
+</tr>
+<tr>
+<td><code>:backup export md &lt;directory&gt;</code></td>
+<td>Export Markdown files in collection folders; write each note once</td>
+</tr>
+<tr>
+<td><code>:backup load &lt;path&gt;</code></td>
+<td>Detect a Slate ZIP backup or a Markdown directory/ZIP; restore or add notes accordingly</td>
+</tr>
+</tbody>
+</table>
+<p>Details: <a href="../export/">Export Reference</a>.</p>
+<h2 id="imap-email-sync">IMAP email sync<a class="headerlink" href="#imap-email-sync" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>slate imap-sync</code> pulls new messages once; <code>[imap] auto_sync_on_startup = true</code> polls in the background while Slate runs.</li>
+<li>Messages are appended to daily inbox notes (<code>inbox-email-YYYY-MM-DD</code> by default), newest first, with UID checkpoints so nothing is imported twice.</li>
+<li>First sync only takes recent mail (<code>initial_sync_past_days</code>, default 1). New mail triggers a desktop notification.</li>
+<li>Any IMAP-over-TLS provider works; the password comes from <code>password_env</code>. Build without IMAP: <code>cargo build -p slate --no-default-features</code>.</li>
+</ul>
+<h2 id="mcp-server">MCP server<a class="headerlink" href="#mcp-server" title="Permanent link">&para;</a></h2>
+<p><code>slate mcp</code> lets AI assistants and bots (Claude Code, Codex, opencode, any MCP client) list, search, read, create and edit notes over stdio. It is off until <code>[mcp] enabled = true</code>. Clients can also rename notes, manage collection membership and archive notes. Writes are checked against the revision the client read, encrypted and file-backed notes stay closed, and deleting is off unless <code>[mcp] allow_delete = true</code>. Setup for each client and the tool list: <a href="../mcp/">MCP Server</a>.</p>
+<h2 id="themes-wrap-and-other-settings">Themes, wrap and other settings<a class="headerlink" href="#themes-wrap-and-other-settings" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>[theme] color_scheme</code> (14 schemes, default <code>gruvbox-light</code>) and <code>accent</code>; config changes reload live.</li>
+<li><code>[theme.colors]</code> replaces single colours with exact hex, or <code>none</code> for the terminal's own (e.g. a transparent background); see <a href="../configuration/#themecolors">configuration</a>.</li>
+<li><code>[editor] wrap</code>, <code>markdown_autoformat</code>, <code>checklist_auto_reorder</code>, <code>autosave</code>, <code>format_on_save</code>, <code>vim_mode</code>, <code>date_format</code>, <code>date_time_format</code>, <code>variable_autocomplete_min_chars</code>.</li>
+</ul>
+<p>All keys: <a href="../configuration/">Configuration</a>.</p>
+<h2 id="diagnostics">Diagnostics<a class="headerlink" href="#diagnostics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:perf status</code></td>
+<td>Show perf tracing state</td>
+</tr>
+<tr>
+<td><code>:perf toggle</code> / <code>on</code> / <code>off</code></td>
+<td>Toggle tracing</td>
+</tr>
+<tr>
+<td><code>:perf dump [top]</code></td>
+<td>Write the slowest buckets to the perf log</td>
+</tr>
+<tr>
+<td><code>:perf where</code></td>
+<td>Show the log path</td>
+</tr>
+<tr>
+<td><code>:perf cap &lt;n&gt;</code></td>
+<td>Samples kept per bucket</td>
+</tr>
+</tbody>
+</table>
+<p>Planned features: <a href="https://github.com/dborovcanin/slate/blob/main/roadmap/features.md"><code>roadmap/features.md</code></a>.</p>
+<h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<p><code>:toc</code> (or <code>:outline</code>) opens a heading picker for the current note in the terminal and desktop apps. Headings appear in document order, indented by level, with their line numbers. Duplicate titles remain separate; headings inside fenced code blocks are excluded.</p>
+<p>Type to filter headings with case-insensitive fuzzy matching. Use Up/Down or <code>Ctrl+N</code>/<code>Ctrl+P</code> to choose, Page Up/Down to move ten headings, and Enter to jump. Left/Right, Home/End, Backspace, and Delete edit the query. Escape closes without moving. The picker starts on the section containing the cursor and reveals enclosing folds when jumping. In the desktop app, click a heading to jump. Opening the picker again reads the current text; it never inserts or changes note content.</p>
+<h3 id="generated-toc-sections">Generated TOC sections<a class="headerlink" href="#generated-toc-sections" title="Permanent link">&para;</a></h3>
+<p><code>:toc insert</code> inserts a generated section above the cursor's line, keeping the cursor on the original text. Move outside code blocks, lists, and tables before inserting:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">```toc</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">**Table of contents**</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">- [Introduction](#introduction)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">  - [Setup](#setup)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">- [Usage](#usage)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sb">```</span>
+</code></pre></div>
+<p>The contents render as Markdown in both apps. Headings inside code fences are excluded; duplicate headings receive distinct link anchors. Use <code>gd</code> in Vim mode or <code>Ctrl+]</code> on an entry to jump to its heading, revealing enclosing folds.</p>
+<p><code>:toc refresh</code> regenerates every existing <code>toc</code> section in the current note, replacing only the text between its fences. Each insert or refresh is one undoable change. Heading edits do not update a TOC automatically; refresh when needed. An unchanged refresh does not add an undo entry. To remove a TOC, delete its fenced section.</p>
+<p>You can also write a closed, empty <code>toc</code> fence yourself and run <code>:toc refresh</code>. Unfinished TOC fences must be closed first. Ordinary code examples containing a <code>toc</code> fence are left alone. The generated text and fences are saved with the note. Exports unwrap closed TOC fences: PDF shows a formatted heading list, and Markdown/text exports contain the stored TOC body without its fences. Export does not regenerate stale entries; run <code>:toc refresh</code> first when needed.</p>
+<h2 id="note-graph">Note graph<a class="headerlink" href="#note-graph" title="Permanent link">&para;</a></h2>
+<p><code>:graph</code> shows how notes link to each other through <code>[[id]]</code> wiki links, in the terminal and desktop apps. It fills the view in both apps, hiding the note and editor controls until you close it. It opens on the current note and the notes within two link hops of it, following links in both directions. Links inside code blocks and inline code do not count, and notes that are encrypted contribute no links.</p>
+<p>Nodes are laid out by a force simulation: linked notes pull together, unrelated ones push apart. The layout is the same every time for the same links. <code>◆</code> marks the centre note, <code>◉</code> the selection, and <code>○</code> a link to a note that no longer exists. The arrow keys or <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code> move the selection to the nearest node in that direction, and Tab/Shift+Tab step through all nodes. Enter opens the selected note. <code>c</code> (or Space) recentres the graph on it, <code>+</code>/<code>-</code> change the number of hops (1 to 4), and <code>w</code> toggles between the local graph and every note. Neither view limits the number of nodes. Escape closes the view.</p>
+<p>The desktop advances graphs of up to 2,000 nodes one layout step per frame on the UI thread; larger graphs animate snapshots from a worker. While dragging a node in a graph with more than 2,000 nodes, only that node moves; settling resumes after release. Smaller graphs keep settling around the pinned node during the drag. The terminal settles graphs of up to 1,000 nodes immediately; larger graphs use a worker and show a loading panel until settled. Closing or rebuilding a view cancels its old layout work. Views with more than 2,000 on-screen nodes omit ordinary labels, keeping the selection's label (and the hovered node's on desktop); zooming into a sparse cluster restores ordinary labels. Only visible background edges count toward drawing budgets, and every visible link touching the focused node is kept. These drawing reductions do not change which notes and links are in the graph or available to navigation and search.</p>
+<p>In the terminal, <code>/</code> finds notes in the graph by title: Enter selects the best match, and <code>n</code>/<code>N</code> step through the others. <code>]</code> and <code>[</code> zoom in and out, Shift+<code>H</code>/<code>J</code>/<code>K</code>/<code>L</code> pan, and <code>0</code> shows the whole graph again; when zoomed in, the view follows the selection.</p>
+<p>The link index refreshes in the background each time the graph opens, rescanning only notes edited or renamed since the last time. The first open reads every note once and shows its progress ("Indexing links…") until it finishes; later opens show the graph at once and update it if anything changed.</p>
+<p>Note text containing embedded NUL characters is rejected on save because SQLite text operations cannot reliably preserve its search locations. Existing note data is not rewritten.</p>
+<p>Search accepts unquoted URLs, times such as <code>10:30</code>, and ordinary titles such as <code>Re: meeting</code> as bare title terms. Known fields still take precedence (<code>title:10:30</code>); close field-name typos such as <code>titel:daily</code> report an error.</p>
+<p>A positive <code>contains:</code> query shows matching body excerpts in paged note lists as well as the matching-snippet view. The browser preview highlights and focuses the body hit. Opening a result with a body hit places the cursor on that source line, in either app. Title-only and metadata-only results keep normal opening behavior.</p>
+<h3 id="diagram-captions">Diagram captions<a class="headerlink" href="#diagram-captions" title="Permanent link">&para;</a></h3>
+<p>Add plain text after the opening fence language, for example
+<code>```diagram System overview</code>. It appears as a centered caption below the
+inline diagram and in PDF exports, including source fallback. Captions wrap
+within the preview width and add no source line or separate line number.
+Markdown keeps the opening fence; standalone SVG and PNG images omit captions.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../terminal-app/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The terminal app">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The terminal app
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../keymaps/" class="md-footer__link md-footer__link--next" aria-label="Next: Keymaps">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Keymaps
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Slate, local-first notes
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/dborovcanin/slate" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "v1.0.0", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
