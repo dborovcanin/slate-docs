@@ -1705,13 +1705,16 @@ it with the mouse.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note" src="../media/diagram.gif" /></p>
+<p><img alt="Building a community garden day plan with preparation, activities, a weather decision and a shared picnic" src="../media/diagram.gif" /></p>
 </div>
 <div class="tabbed-block">
-<p><a href="../media/diagram-canvas.png"><img alt="Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note" src="../media/diagram-canvas.png" /></a></p>
+<p><a href="../media/diagram-canvas.png"><img alt="The completed garden-day plan, with sixteen colored shapes and branching connections" src="../media/diagram-canvas.png" /></a></p>
 </div>
 </div>
 </div>
+<p><em>A day in the community garden: get ready, welcome the neighbours, choose an
+activity, and plan for the weather. The build plays at a brisk pace, then
+pauses on the finished plan. Tap the recording to expand it and zoom in.</em></p>
 <h2 id="drawing-on-the-canvas-desktop">Drawing on the canvas (desktop)<a class="headerlink" href="#drawing-on-the-canvas-desktop" title="Permanent link">&para;</a></h2>
 <p>Run <code>:diagram</code> to insert a new diagram and open its canvas, or click a
 diagram in a note to edit it.</p>
@@ -1800,13 +1803,15 @@ draw.io stay in draw.io; they don't come back into the note.</p>
 <p>PDF export draws diagrams as pictures; Markdown export keeps their text.</p>
 <h2 id="the-text-behind-a-diagram">The text behind a diagram<a class="headerlink" href="#the-text-behind-a-diagram" title="Permanent link">&para;</a></h2>
 <p>Each diagram is a fenced <code>diagram</code> block, one line per shape or connection:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sb">```diagram</span><span class="w"> </span>Service sketch
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s">node api rect 0 0 140 60 "API" fill=#dae8fc stroke=#6c8ebf</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s">node db cylinder 260 0 110 80 "Postgres" fill=#d5e8d4</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s">node q rhombus 40 140 120 80 "Cached?"</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s">edge e1 api db "SQL"</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s">edge e2 api q route=orthogonal</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="sb">```</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sb">```diagram</span><span class="w"> </span>Garden day
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s">node welcome rounded 0 40 150 60 "Welcome, neighbours!" fill=#d5e8d4</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s">node weather rhombus 220 20 120 80 "Dry forecast?" fill=#fff2cc</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s">node outside rounded 440 0 150 60 "Picnic outdoors" fill=#d5e8d4</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s">node inside rounded 440 120 150 60 "In the greenhouse" fill=#e1d5e7</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s">edge e1 welcome weather</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s">edge e2 weather outside "Yes"</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s">edge e3 weather inside "No" route=orthogonal</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="sb">```</span>
 </code></pre></div>
 <ul>
 <li><code>node &lt;id&gt; &lt;shape&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; ["label"] [options]</code></li>
