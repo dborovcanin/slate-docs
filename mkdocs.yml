@@ -8,8 +8,9 @@ copyright: Slate, local-first notes
 
 theme:
   name: material
-  logo: assets/logo.png
-  favicon: assets/logo.png
+  custom_dir: overrides
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   font:
     text: Inter
     code: JetBrains Mono
@@ -48,6 +49,9 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/interactions.js
 
 extra:
   version:

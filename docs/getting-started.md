@@ -1,22 +1,5 @@
 # Getting started
 
-## Install
-
-Slate builds from source with a stable Rust toolchain. Linux is the main
-platform; macOS works too.
-
-```sh
-make install    # the terminal app: ~/.local/bin/slate, desktop entry and icon
-make ui         # the desktop app: slate-gui, desktop entry and icons
-```
-
-On Arch Linux, the AUR has `slate-git` (built from source) and `slate-bin`
-(a prebuilt binary).
-
-Optional extras: `notify-send` shows reminder and new-mail notifications, and
-`wl-copy`/`wl-paste` (Wayland) or `xclip` (X11) let the terminal app use the
-system clipboard.
-
 ## Start Slate
 
 | To | Desktop | Terminal |

@@ -7,14 +7,33 @@ hide:
 
 <div class="slate-hero" markdown>
 
-# Slate
+<p class="slate-eyebrow" markdown>:material-leaf:{ aria-hidden="true" } A little space to think</p>
 
-Fast, keyboard-first notes for your desktop and your terminal. Plain
-Markdown, styled as you type. Every line can calculate, tables hold
-formulas, notes link to each other, and everything stays on your computer.
+# Your notes.<br>Your train of thought. {#slate}
 
-[Get started](getting-started.md){ .md-button .md-button--primary }
-[See all features](reference/features.md){ .md-button }
+Write, calculate, and connect ideas without leaving your notebook.
+Slate brings plain Markdown to your desktop and terminal, with everything
+stored on your computer.
+
+[Start with Slate :octicons-arrow-right-24:](getting-started.md){ .md-button .md-button--primary }
+[Explore the features](reference/features.md){ .md-button }
+
+<div class="slate-traits" markdown="span">
+
+<span>:material-file-document-outline:{ aria-hidden="true" } Plain Markdown</span>
+<span>:material-keyboard-outline:{ aria-hidden="true" } Keyboard first</span>
+<span>:material-harddisk:{ aria-hidden="true" } Local by default</span>
+
+</div>
+
+</div>
+
+<div class="slate-showcase" markdown>
+
+<div class="slate-showcase-bar" markdown="span">
+
+<span>:material-monitor:{ aria-hidden="true" } Slate in motion</span>
+<span>25,000 notes. One notebook.</span>
 
 </div>
 
@@ -23,6 +42,8 @@ formulas, notes link to each other, and everything stays on your computer.
 *The desktop app on a notebook of 25,000 notes (4 GB): it finds a note from a
 few letters of its title, opens a 6 MB note of almost 800,000 words, scrolls
 it and searches inside it.*
+
+</div>
 
 ## Two apps, one notebook
 
@@ -41,7 +62,7 @@ in one shows up in the other within a second. No accounts, no cloud.
 
     ---
 
-    Install, write your first note, find commands and help.
+    Open Slate, write your first note, find commands and help.
 
     [:octicons-arrow-right-24: Getting started](getting-started.md)
 
