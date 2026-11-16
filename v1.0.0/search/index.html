@@ -1819,9 +1819,12 @@ quick find inside the open note.</p>
 </tbody>
 </table>
 <h2 id="the-note-switcher">The note switcher<a class="headerlink" href="#the-note-switcher" title="Permanent link">&para;</a></h2>
-<p><code>Ctrl+P</code>, type a few letters, <code>Enter</code>. Plain words match titles fuzzily and
-in order: <code>photo 116</code> finds <em>Photometry project 11681</em>. The switcher shows
-each note's collections and tags, and the best match comes first.</p>
+<p><code>Ctrl+P</code>, type a few letters, then <code>Enter</code> twice: the first moves from the
+search box to the results with the best match picked, the second opens it
+(or use <code>Down</code>/<code>Up</code> to pick another first). Plain words match titles
+fuzzily and in order: <code>photo 116</code> finds <em>Photometry project 11681</em>. The
+switcher shows each note's collections and tags, and the best match comes
+first.</p>
 <p><img alt="Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line" src="../media/search.gif" /></p>
 <p>Add fields to narrow it down:</p>
 <table>
@@ -1864,6 +1867,9 @@ under each note with the words highlighted, and opening the note puts the
 cursor on that line.</p>
 <p>The query in the recording, <code>#topic/sailing contains:mooring -#status/draft</code>,
 finds sailing notes that mention mooring and are not drafts.</p>
+<p>In the search box, <code>Up</code> and <code>Down</code> bring back earlier searches. In the
+results, <code>Up</code> from the first row, <code>Tab</code> or <code>Esc</code> go back to the search box,
+and typing edits the query again.</p>
 <p>More switcher keys: <code>Ctrl+L</code> switches between the working collection and all
 notes, <code>Ctrl+N</code> creates a note, <code>Ctrl+R</code> opens the selected note's history and
 <code>Delete</code> deletes it (after asking).</p>

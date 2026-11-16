@@ -2646,11 +2646,15 @@
 </tr>
 <tr>
 <td><code>Tab</code> in the switcher</td>
-<td>Accept a field or value completion, if available</td>
+<td>Accept a field or value completion, if available; otherwise move to the results</td>
 </tr>
 <tr>
 <td><code>Enter</code> in the switcher</td>
-<td>Open the highlighted note (the best match unless you picked one), at the matching line</td>
+<td>In the query, move to the results with the best match picked; in the results, open the picked note at the matching line</td>
+</tr>
+<tr>
+<td><code>Up</code> / <code>Down</code> in the switcher query</td>
+<td>Recall earlier searches; <code>Down</code> past the newest moves to the results</td>
 </tr>
 <tr>
 <td><code>Ctrl+L</code> in the switcher</td>
@@ -3168,7 +3172,7 @@ restores the original cursor and scroll position.</p>
 </table>
 <p>By default, the desktop shows field glyphs and the terminal dims typed field prefixes (<code>tag:</code>, <code>title:</code>, <code>contains:</code>, <code>coll:</code>). Set <code>[search] beautiful = false</code> in <code>config.toml</code> to show the literal query without these decorations in both apps. The query language and results stay the same.</p>
 <p>Operator words are case-insensitive, so <code>and</code>, <code>or</code> and <code>not</code> work like their uppercase forms. Spaces between terms mean AND, and redundant whitespace is ignored while evaluating the query. Double quotes keep spaces inside a value; <code>\"</code> and <code>\\</code> escape a quote and backslash. Multiple tags selected with the browser's <code>T</code> control become <code>tag:</code> terms joined with AND in the effective query. Collection scope still applies alongside the query.</p>
-<p>In note lists, bare title matches rank by fuzzy score, <code>contains:</code> matches by full-text relevance, and field-only queries show newer notes first. Graph match cycling follows link degree. <code>contains:</code> reads only unprotected notes; a protected note can still match by its title, tags or collections. Consequently, <code>-contains:secret</code> includes protected notes because their bodies are absent from the index. Parse errors show a position and leave the previous result list visible. Bare words match titles in every search view, including the terminal's <code>Ctrl+P</code> picker, the browser's <code>Ctrl+F</code> view, sidebar search, and MCP <code>search_notes</code>. An unfinished <code>contains:rel</code> matches indexed words beginning with <code>rel</code>; a space or a following query term finishes the word and requires an exact match. In <code>Ctrl+P</code> in both apps, the best match is highlighted until you pick another row, and Enter opens the highlighted result, even while a word is unfinished; Tab accepts a suggestion. In the terminal browser's <code>Ctrl+F</code> view, Enter finishes the word. Quotes (<code>contains:"rel"</code>) also require an exact token. Quoted bare text such as <code>"cat dog"</code> matches that literal title phrase, while <code>cat dog</code> keeps ordered fuzzy matching. Snippet and matching-line views include only unprotected notes.</p>
+<p>In note lists, bare title matches rank by fuzzy score, <code>contains:</code> matches by full-text relevance, and field-only queries show newer notes first. Graph match cycling follows link degree. <code>contains:</code> reads only unprotected notes; a protected note can still match by its title, tags or collections. Consequently, <code>-contains:secret</code> includes protected notes because their bodies are absent from the index. Parse errors show a position and leave the previous result list visible. Bare words match titles in every search view, including the terminal's <code>Ctrl+P</code> picker, the browser's <code>Ctrl+F</code> view, sidebar search, and MCP <code>search_notes</code>. An unfinished <code>contains:rel</code> matches indexed words beginning with <code>rel</code>; a space or a following query term finishes the word and requires an exact match. In <code>Ctrl+P</code> in both apps, Enter (or Tab without a suggestion) moves from the query to the results with the best match picked, and a second Enter opens it, even while a word is unfinished; Up from the first result, Tab or Esc return to the query, and typing edits it again. In the terminal browser's <code>Ctrl+F</code> view, Enter finishes the word. Quotes (<code>contains:"rel"</code>) also require an exact token. Quoted bare text such as <code>"cat dog"</code> matches that literal title phrase, while <code>cat dog</code> keeps ordered fuzzy matching. Snippet and matching-line views include only unprotected notes.</p>
 <h2 id="wiki-links">Wiki links<a class="headerlink" href="#wiki-links" title="Permanent link">&para;</a></h2>
 <p>Syntax: <code>[[ID]]</code>, <code>[[ID#Heading]]</code>, <code>[[ID|Title]]</code>, <code>[[ID#Heading|Title]]</code>. <code>ID</code> is the exact full target note ID (ULID or <code>daily-YYYY-MM-DD</code>), inserted by autocomplete. IDs are case-sensitive; short prefixes do not resolve. Heading and title do not change target identity.</p>
 <ul>

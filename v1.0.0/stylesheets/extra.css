@@ -1,9 +1,11 @@
 /* Everforest-inspired colours, matching the desktop app's default theme. */
 :root,
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #5c6a72;
-  --md-primary-fg-color--light: #829181;
-  --md-primary-fg-color--dark: #4b565c;
+  --md-primary-fg-color: #a7c080;
+  --md-primary-fg-color--light: #b8cf96;
+  --md-primary-fg-color--dark: #8da86a;
+  --md-primary-bg-color: #232a2e;
+  --md-primary-bg-color--light: rgba(35, 42, 46, 0.7);
   --md-accent-fg-color: #8da101;
   --md-typeset-a-color: #3a94c5;
 }
@@ -15,9 +17,6 @@
   --md-code-bg-color: #343f44;
   --md-footer-bg-color: #232a2e;
   --md-footer-bg-color--dark: #1e2326;
-  --md-primary-fg-color: #232a2e;
-  --md-primary-fg-color--light: #343f44;
-  --md-primary-fg-color--dark: #1e2326;
   --md-accent-fg-color: #a7c080;
   --md-typeset-a-color: #a7c080;
   --md-default-fg-color: rgba(211, 198, 170, 0.92);

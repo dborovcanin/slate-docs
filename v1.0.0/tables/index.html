@@ -1738,7 +1738,8 @@ hold formulas like a small spreadsheet.</p>
 <li><strong>Terminal:</strong> type the header row with pipes (<code>| Item | Qty |</code>); <code>|</code>
   starts a row or adds a column.</li>
 <li><strong>Paste from a spreadsheet:</strong> copy cells from a spreadsheet (tab-separated)
-  or CSV text and paste on an empty line; Slate turns them into a table.</li>
+  or CSV text and paste outside a table; Slate turns them into a table whose
+  first row is the header (on an empty line, or below the cursor's line).</li>
 <li>Or paste or type Markdown table text: <code>| --- |</code> under the first row makes
   it the header, and <code>---:</code> aligns a column to the right.</li>
 </ul>
