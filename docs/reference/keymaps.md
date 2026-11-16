@@ -119,9 +119,11 @@ Popup with one query bar for titles, tags, collections and note text; the title 
 | Key                        | Action                                                           |
 | -------------------------- | ---------------------------------------------------------------- |
 | type                       | Search titles; use `contains:` for note text                    |
-| `ArrowUp` / `ArrowDown`    | Move selection                                                   |
-| `Enter`                    | Open note at the matching line (asks for password if protected)  |
-| `Tab`                      | Accept a field or value completion                               |
+| `Enter`, `Tab` (query)     | Move to the results, best match picked (`Tab` first accepts a completion) |
+| `ArrowUp` / `ArrowDown` (query) | Recall earlier searches; `Down` past the newest moves to the results |
+| `ArrowUp` / `ArrowDown` (results) | Move selection; `Up` from the first row returns to the query |
+| `Enter` (results)          | Open note at the matching line (asks for password if protected)  |
+| `Tab`, `Esc`, typing (results) | Back to the query                                            |
 | `Ctrl+L`                   | Toggle working collection / all notes                            |
 | `Ctrl+N`                   | New note                                                         |
 | `Ctrl+G`                   | Collection picker                                                |

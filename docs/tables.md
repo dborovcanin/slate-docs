@@ -14,7 +14,8 @@ hold formulas like a small spreadsheet.
 - **Terminal:** type the header row with pipes (`| Item | Qty |`); `|`
   starts a row or adds a column.
 - **Paste from a spreadsheet:** copy cells from a spreadsheet (tab-separated)
-  or CSV text and paste on an empty line; Slate turns them into a table.
+  or CSV text and paste outside a table; Slate turns them into a table whose
+  first row is the header (on an empty line, or below the cursor's line).
 - Or paste or type Markdown table text: `| --- |` under the first row makes
   it the header, and `---:` aligns a column to the right.
 

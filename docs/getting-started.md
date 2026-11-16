@@ -49,7 +49,7 @@ A few keys get you almost everywhere:
 
 | Key | What it opens |
 | --- | --- |
-| `Ctrl+P` | The note switcher: type part of a title to jump to a note |
+| `Ctrl+P` | The note switcher: type part of a title, then `Enter` twice to jump to the best match |
 | `Ctrl+N` | A new note |
 | `Ctrl+E` | The command bar (`:` does the same in vim's Normal mode) |
 | `Ctrl+B` | The browser: collections, notes and a preview (desktop Standard mode: `Ctrl+Shift+B`) |
@@ -78,6 +78,7 @@ command in help puts it in the command bar for you.
 The desktop app has two editing modes, switched in **View › Editing mode**:
 
 - **Standard** works like any other editor: `Shift`+arrows select,
+  `Ctrl+Home`/`Ctrl+End` go to the start or end of the note,
   `Ctrl+C`/`X`/`V` copy, cut and paste, `Ctrl+B`/`Ctrl+I` make text bold or
   italic, `Ctrl+Z` undoes.
 - **Vim** is modal editing with motions, operators, text objects, registers,

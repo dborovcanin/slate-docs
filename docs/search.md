@@ -15,9 +15,12 @@ quick find inside the open note.
 
 ## The note switcher
 
-`Ctrl+P`, type a few letters, `Enter`. Plain words match titles fuzzily and
-in order: `photo 116` finds *Photometry project 11681*. The switcher shows
-each note's collections and tags, and the best match comes first.
+`Ctrl+P`, type a few letters, then `Enter` twice: the first moves from the
+search box to the results with the best match picked, the second opens it
+(or use `Down`/`Up` to pick another first). Plain words match titles
+fuzzily and in order: `photo 116` finds *Photometry project 11681*. The
+switcher shows each note's collections and tags, and the best match comes
+first.
 
 ![Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line](media/search.gif)
 
@@ -39,6 +42,10 @@ cursor on that line.
 
 The query in the recording, `#topic/sailing contains:mooring -#status/draft`,
 finds sailing notes that mention mooring and are not drafts.
+
+In the search box, `Up` and `Down` bring back earlier searches. In the
+results, `Up` from the first row, `Tab` or `Esc` go back to the search box,
+and typing edits the query again.
 
 More switcher keys: `Ctrl+L` switches between the working collection and all
 notes, `Ctrl+N` creates a note, `Ctrl+R` opens the selected note's history and
