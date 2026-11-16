@@ -1,0 +1,31 @@
+# Slate config used while recording the docs (see capture.py).
+# `@RATES@` is replaced with a command that prints the dataset's cached rates,
+# so currency conversions work without a network fetch.
+
+[theme]
+color_scheme = "catppuccin-mocha"
+accent = "auto"
+icons = "nerd"
+
+[editor]
+vim_mode = false
+wrap = true
+autosave = true
+status_hints = true
+variable_autocomplete_min_chars = 2
+
+[mcp]
+enabled = true
+
+[agent]
+enabled = true
+preset = "claude"
+context = "note"
+notes = "read"
+
+[startup]
+background_tasks_enabled = true
+
+[currency]
+argv = @RATES@
+timeout_seconds = 10
