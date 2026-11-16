@@ -68,6 +68,8 @@ notebook. Action GIFs keep the native resolution at 15 fps with a 256-color
 palette; the theme gallery holds each still for 1.6 seconds.
 The terminal uses larger text for readability. The diagram demo enters its
 own fullscreen canvas with `F11`.
+Its garden-day plan builds at 2.2× speed, with a three-second final hold so
+the finished connections are easy to read.
 
 Use a snapshot of the demo dataset when another app is open on it. Recording
 on a virtual display leaves the laptop's keyboard focus available, and a

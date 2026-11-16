@@ -348,50 +348,102 @@ def history(s):
 
 
 def diagram(s):
-    """Draw a diagram on the canvas; it stays Markdown text in the note."""
+    """Build a colourful garden-day plan, briskly, using the actual canvas."""
     s.gui(GUI)
+    new_note(s, "A day in the community garden")
+    command(s, "diagram", pause=0.6)
+    s.key("F11", pause=0.4)
+    s.click(30, 24, pause=0.2)  # Hide the shape palette; keep the style presets.
+    s.key("F6", pause=0.1)  # Return keyboard focus from the toolbar to the canvas.
+    s.key("minus", "minus", "minus", pause=0.12)  # Fixed 1.024x view while building.
+
+    # name, shape shortcut, label, screen centre, preset colour. The canvas
+    # remains fixed until the final Fit so the build is easy to follow.
+    nodes = [
+        ("day", "o", "Garden day", 650, 130, "green"),
+        ("before", "o", "Before the day", 270, 270, "blue"),
+        ("welcome", "o", "Welcome, neighbours!", 650, 270, "green"),
+        ("weather", "d", "Dry forecast?", 1100, 270, "yellow"),
+        ("tools", "r", "Seeds & tools", 100, 430, "blue"),
+        ("invite", "r", "Invite neighbours", 270, 430, "blue"),
+        ("food", "r", "Plan the picnic", 440, 430, "blue"),
+        ("choose", "o", "Pick an activity", 650, 430, "purple"),
+        ("outside", "e", "Picnic outdoors", 990, 430, "green"),
+        ("inside", "o", "In the greenhouse", 1220, 430, "yellow"),
+        ("herbs", "r", "Plant herbs", 470, 620, "purple"),
+        ("feeders", "r", "Make bird feeders", 650, 620, "purple"),
+        ("pots", "r", "Paint plant pots", 830, 620, "purple"),
+        ("picnic", "o", "A shared picnic", 650, 810, "rose"),
+        ("stories", "e", "Swap seeds & stories", 1070, 810, "yellow"),
+        ("thanks", "o", "Photos & thank-yous", 270, 810, "green"),
+    ]
+    presets = {
+        "blue": ((1505, 110), (218, 232, 252)),
+        "green": ((1562, 110), (213, 232, 212)),
+        "yellow": ((1448, 144), (255, 242, 204)),
+        "purple": ((1562, 144), (225, 213, 231)),
+        "rose": ((1505, 144), (248, 206, 204)),
+    }
     s.record("diagram")
-    s.wait(0.8)
-    new_note(s, "Service sketch")
-    command(s, "diagram", pause=1.5)
-    s.key("F11", pause=1.0)
-    s.move(420, 300)
-    s.key("r", pause=0.5)
-    s.key("Return", pause=0.3)
-    s.type("API", delay=80)
-    s.key("Return", pause=0.5)
-    s.move(800, 300)
-    s.key("c", pause=0.5)
-    s.key("Return", pause=0.3)
-    s.type("Postgres", delay=80)
-    s.key("Return", pause=0.5)
-    s.move(420, 560)
-    s.key("d", pause=0.5)
-    s.key("Return", pause=0.3)
-    s.type("Cached?", delay=80)
-    s.key("Return", pause=0.5)
-    # Connect: drag from a side port (shown on hover) to another shape.
-    s.move(430, 300, pause=0.6)
-    s.drag(544, 296, 804, 300, pause=0.8)
-    s.move(430, 300, pause=0.6)
-    s.drag(424, 356, 424, 556, pause=0.8)
-    # Colour the shapes from the Style presets.
-    s.click(380, 280, pause=0.5)
-    s.click(1562, 110, pause=0.8)
-    s.click(760, 310, pause=0.5)
-    s.click(1505, 110, pause=0.8)
-    s.click(424, 556, pause=0.5)
-    s.click(1390, 144, pause=0.8)
-    s.move(1100, 850, pause=0.5)
+    for name, shape, label, x, y, colour in nodes:
+        s.click(x, y, pause=0.04)
+        s.key(shape, "Return", pause=0.06)
+        s.type(label, delay=8, pause=0.04)
+        s.key("Return", pause=0.06)
+        s.click(*presets[colour][0], pause=0.10)
+        s.key("F6", pause=0.06)
+
+    # Read actual painted bounds after grid snapping. This avoids missing a
+    # connector port by a few pixels at fractional zoom and UI scale.
+    frame = s.grab()
+    bounds = {}
+    for name, _, _, x, y, colour in nodes:
+        rgb = presets[colour][1]
+        pixels = [(px, py) for py in range(y - 65, y + 65)
+                  for px in range(x - 78, x + 78)
+                  if all(abs(a - b) <= 2 for a, b in zip(frame.getpixel((px, py)), rgb))]
+        if not pixels:
+            raise RuntimeError(f"diagram: {name} did not appear with the expected colour")
+        xs, ys = zip(*pixels)
+        bounds[name] = (min(xs), min(ys), max(xs), max(ys))
+
+    connections = [
+        ("day", "before", "bottom", False), ("day", "welcome", "bottom", False),
+        ("day", "weather", "bottom", False),
+        ("before", "tools", "bottom", False), ("before", "invite", "bottom", False),
+        ("before", "food", "bottom", False), ("welcome", "choose", "bottom", False),
+        ("weather", "outside", "bottom", False), ("weather", "inside", "bottom", False),
+        ("choose", "herbs", "bottom", False), ("choose", "feeders", "bottom", False),
+        ("choose", "pots", "bottom", False),
+        ("herbs", "picnic", "bottom", False), ("feeders", "picnic", "bottom", False),
+        ("pots", "picnic", "bottom", False),
+        ("outside", "picnic", "bottom", True), ("inside", "picnic", "bottom", True),
+        ("picnic", "stories", "right", False), ("picnic", "thanks", "left", False),
+    ]
+    for source, target, port, elbow in connections:
+        # Clear the previous edge's endpoint handles before reusing a port.
+        s.click(1275, 900, pause=0.04)
+        left, top, right, bottom = bounds[source]
+        cx, cy = (left + right) // 2, (top + bottom) // 2
+        start = {"bottom": (cx, bottom + 1), "right": (right + 1, cy), "left": (left - 1, cy)}[port]
+        left, top, right, bottom = bounds[target]
+        end = ((left + right) // 2, (top + bottom) // 2)
+        s.move(cx, cy, pause=0.05)
+        s.drag(*start, *end, steps=5, pause=0.05)
+        if source == "weather":
+            s.key("Return", pause=0.08)
+            s.type("Yes" if target == "outside" else "No", delay=15, pause=0.05)
+            s.key("Return", pause=0.08)
+        if elbow:
+            s.click(1470, 437, pause=0.08)
+
+    s.click(1275, 900, pause=0.15)
+    s.click(1293, 24, pause=0.5)  # Fit the finished plan.
+    s.move(40, 940, pause=0.1)
     s.still("diagram-canvas")
-    s.still("diagram-detail", box=(260, 200, 720, 460))
-    s.key("Escape", pause=0.6)
-    s.key("Escape", pause=1.2)
-    s.key("Escape", pause=0.6)
-    s.key("ctrl+Home", pause=0.2)
-    s.key("Up", "Up", "Up", "Up", pause=0.1)
-    s.wait(2.0)
-    s.stop("diagram")
+    s.still("diagram-detail", box=(925, 190, 400, 300))
+    # Speed up construction, then hold the finished diagram long enough to read.
+    s.stop("diagram", speed=2.2, hold=3)
 
 
 def encryption(s):

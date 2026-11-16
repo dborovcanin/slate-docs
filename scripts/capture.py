@@ -194,7 +194,7 @@ class Session:
         )
         time.sleep(0.8)
 
-    def stop(self, name, width=WIDTH, fps=15, colors=256, still=True):
+    def stop(self, name, width=WIDTH, fps=15, colors=256, still=True, speed=1.0, hold=0):
         self.key("ctrl+s", pause=1.5)
         self.recorder.communicate(b"q")
         self.recorder = None
@@ -202,8 +202,10 @@ class Session:
             self.still(name)
         MEDIA.mkdir(parents=True, exist_ok=True)
         gif = MEDIA / f"{name}.gif"
+        timing = f"setpts=(PTS-STARTPTS)/{speed}," if speed != 1.0 else ""
+        ending = f"tpad=stop_mode=clone:stop_duration={hold}," if hold else ""
         graph = (
-            f"fps={fps},scale={width}:-1:flags=lanczos,split[a][b];"
+            f"{timing}fps={fps},scale={width}:-1:flags=lanczos,{ending}split[a][b];"
             f"[a]palettegen=max_colors={colors}:stats_mode=diff[p];"
             "[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle"
         )

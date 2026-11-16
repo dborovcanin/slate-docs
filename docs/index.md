@@ -95,7 +95,7 @@ Choose a feature. Follow it from a first keystroke to a finished idea.
 
     Connect shapes on a fullscreen canvas. The diagram stays text inside your note.
 
-    ![Drawing, connecting and coloring shapes on Slate's fullscreen diagram canvas](media/diagram.gif){ loading=lazy }
+    ![Quickly building a garden-day plan with activities, a weather decision and a shared picnic](media/diagram.gif){ loading=lazy }
 
     [Open the diagram guide :octicons-arrow-right-24:](diagrams.md)
 

@@ -7,11 +7,15 @@ it with the mouse.
 
 === "Recording"
 
-    ![Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note](media/diagram.gif)
+    ![Building a community garden day plan with preparation, activities, a weather decision and a shared picnic](media/diagram.gif)
 
 === "Screenshot"
 
-    [![Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note](media/diagram-canvas.png)](media/diagram-canvas.png)
+    [![The completed garden-day plan, with sixteen colored shapes and branching connections](media/diagram-canvas.png)](media/diagram-canvas.png)
+
+*A day in the community garden: get ready, welcome the neighbours, choose an
+activity, and plan for the weather. The build plays at a brisk pace, then
+pauses on the finished plan. Tap the recording to expand it and zoom in.*
 
 ## Drawing on the canvas (desktop)
 
@@ -63,12 +67,14 @@ PDF export draws diagrams as pictures; Markdown export keeps their text.
 Each diagram is a fenced `diagram` block, one line per shape or connection:
 
 ````markdown
-```diagram Service sketch
-node api rect 0 0 140 60 "API" fill=#dae8fc stroke=#6c8ebf
-node db cylinder 260 0 110 80 "Postgres" fill=#d5e8d4
-node q rhombus 40 140 120 80 "Cached?"
-edge e1 api db "SQL"
-edge e2 api q route=orthogonal
+```diagram Garden day
+node welcome rounded 0 40 150 60 "Welcome, neighbours!" fill=#d5e8d4
+node weather rhombus 220 20 120 80 "Dry forecast?" fill=#fff2cc
+node outside rounded 440 0 150 60 "Picnic outdoors" fill=#d5e8d4
+node inside rounded 440 120 150 60 "In the greenhouse" fill=#e1d5e7
+edge e1 welcome weather
+edge e2 weather outside "Yes"
+edge e3 weather inside "No" route=orthogonal
 ```
 ````
 
