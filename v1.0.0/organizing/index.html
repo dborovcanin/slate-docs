@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/home.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1845,7 +1847,16 @@ Pinned items come first in the browser and pickers.</p>
 <p><code>Ctrl+B</code> (desktop Standard mode: <code>Ctrl+Shift+B</code>) opens a three-column
 browser, like a file manager: collections, the notes in the open collection,
 and a live preview.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="The browser: walking the collections, opening sailing and searching its notes for &quot;regatta&quot;" src="../media/browser.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/browser.png"><img alt="The browser: walking the collections, opening sailing and searching its notes for &quot;regatta&quot;" src="../media/browser.png" /></a></p>
+</div>
+</div>
+</div>
 <table>
 <thead>
 <tr>
@@ -1936,7 +1947,16 @@ apart count as one session, and each session keeps the text from before it.
 Versions store only the lines that changed, so even large notes cost little.
 Old versions thin out over time: everything from the last day, then one per
 day for a month, then one per week.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Recording</label><label for="__tabbed_2_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Note history: a timeline of versions beside a comparison with the current text" src="../media/history.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/history.png"><img alt="Note history: a timeline of versions beside a comparison with the current text" src="../media/history.png" /></a></p>
+</div>
+</div>
+</div>
 <p>Open it with <code>:history</code>, <code>H</code> in the browser or <code>Ctrl+R</code> in the note switcher.
 Pick a version to see what restoring it would change (split or unified on
 the desktop), <code>Tab</code> shows the version's text, and <code>Enter</code> restores it after
@@ -1948,7 +1968,16 @@ was created and last saved, and whether it is encrypted.</p>
 <p><code>:today</code> (or <code>slate today</code> from a shell) opens today's note, creating it from
 a template. From the shell you can drop a line into it without opening
 Slate, which works well with scripts, cron jobs and key bindings:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Recording</label><label for="__tabbed_3_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Capturing two entries from the shell, then opening today's note" src="../media/capture.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/capture.png"><img alt="Capturing two entries from the shell, then opening today's note" src="../media/capture.png" /></a></p>
+</div>
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>slate<span class="w"> </span>capture<span class="w"> </span>call<span class="w"> </span>the<span class="w"> </span>bank<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>card<span class="w">     </span><span class="c1"># adds "- 20:37 call the bank…"</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"deploy 4.2 finished"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>slate<span class="w"> </span>capture<span class="w">     </span><span class="c1"># captures piped text</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>make<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>slate<span class="w"> </span>append<span class="w">                  </span><span class="c1"># appends output to the last edited note</span>
@@ -2083,6 +2112,8 @@ Slate, which works well with scripts, cron jobs and key bindings:</p>
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../javascripts/interactions.js"></script>
+      
+        <script src="../javascripts/home.js"></script>
       
     
   </body>

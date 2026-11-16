@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/home.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1809,7 +1811,16 @@
 <p>Slate notes are plain Markdown. There is no separate preview: headings,
 emphasis, lists and the rest are styled right where you type them, and the
 raw Markdown shows again on the line you are editing.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Typing a note: headings, bold and italic, a checklist that reorders itself, a numbered list and a quote" src="../media/writing.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/writing.png"><img alt="Typing a note: headings, bold and italic, a checklist that reorders itself, a numbered list and a quote" src="../media/writing.png" /></a></p>
+</div>
+</div>
+</div>
 <h2 id="markdown-as-you-type">Markdown as you type<a class="headerlink" href="#markdown-as-you-type" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1921,6 +1932,7 @@ Beyond undo, Slate keeps older versions of every note; see
   updates it after you change headings.</li>
 </ul>
 <h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h2>
+<p><img alt="Pasting a screenshot from the clipboard into a note, where it renders inline" src="../media/images.gif" /></p>
 <p><code>![alt text](./assets/photo.png)</code> shows the image. On the desktop a line with
 only an image is drawn as the picture. In the terminal it shows as
 <code>[image: alt text]</code>; <code>gx</code> previews it in the terminal (sixel, kitty or iTerm2
@@ -2070,6 +2082,8 @@ you: <code>:w!</code> keeps your version, <code>:e!</code> loads the other one.<
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../javascripts/interactions.js"></script>
+      
+        <script src="../javascripts/home.js"></script>
       
     
   </body>

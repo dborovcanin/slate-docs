@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/home.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1765,7 +1767,16 @@
 <p>Every line in Slate can be a calculator. Type something that adds up and
 the answer appears, faintly, to the right of the line. Lines that are just
 text stay quiet.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Typing calculations: arithmetic, a percentage, unit conversions and clock times" src="../media/calc.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/calc.png"><img alt="Typing calculations: arithmetic, a percentage, unit conversions and clock times" src="../media/calc.png" /></a></p>
+</div>
+</div>
+</div>
 <h2 id="calculations">Calculations<a class="headerlink" href="#calculations" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>200 * 1.19                 238
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>15% of 240                 36
@@ -1797,7 +1808,16 @@ selection (or the whole note), insert the result and copy it.</p>
 when it needs to. Words after a calculation are a label.</p>
 <h2 id="currencies">Currencies<a class="headerlink" href="#currencies" title="Permanent link">&para;</a></h2>
 <p>Convert between currencies the same way you convert units:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Recording</label><label for="__tabbed_2_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Currency conversions with cached exchange rates" src="../media/currency.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/currency.png"><img alt="Currency conversions with cached exchange rates" src="../media/currency.png" /></a></p>
+</div>
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>100 USD to EUR             approx. 90.6621601529 EUR
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$10 + 5 EUR                $15.51498
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2000 RSD to EUR            approx. 17.0045908229 EUR
@@ -1815,7 +1835,16 @@ status bar says when the rates were updated. Any program that prints rates
 in the same JSON shape works; see <a href="../reference/scripting/#currency-rates">Currency rates</a>.</p>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <p>Give a value a name with <code>:=</code> and use the name anywhere in the note:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Recording</label><label for="__tabbed_3_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="A trip budget: changing the number of nights updates everything that depends on it" src="../media/variables.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/variables.png"><img alt="A trip budget: changing the number of nights updates everything that depends on it" src="../media/variables.png" /></a></p>
+</div>
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nights := 3
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>hotel := nights * 74                 222
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>flights := 2 * 189.90                379.8
@@ -1842,7 +1871,16 @@ in the same JSON shape works; see <a href="../reference/scripting/#currency-rate
 dot, and the variable's name. Type <code>[[</code>, pick the note (Slate writes its id
 into the link and shows its title), press <code>Esc</code> to skip choosing a heading,
 then type <code>.</code>: Slate lists that note's variables.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Recording</label><label for="__tabbed_4_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Using another note's total, then following the link to it and back" src="../media/cross-note.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/cross-note.png"><img alt="Using another note's total, then following the link to it and back" src="../media/cross-note.png" /></a></p>
+</div>
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>trips := [[01M7JWK8RMTRJ4X6RC7Y9CYH6E]].total * 3    3299.4
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>monthly := trips / 12                                 274.95
 </code></pre></div>
@@ -1980,6 +2018,8 @@ config.</p>
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../javascripts/interactions.js"></script>
+      
+        <script src="../javascripts/home.js"></script>
       
     
   </body>

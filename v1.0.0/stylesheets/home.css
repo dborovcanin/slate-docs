@@ -1,0 +1,229 @@
+/* The home page pairs a small interactive notebook with real app recordings. */
+.slate-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 2.5rem;
+}
+.slate-intro .slate-hero { text-align: left; padding: 1.5rem 0; }
+.slate-intro .slate-hero::before { inset: -1rem; }
+.slate-intro .slate-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); }
+.slate-intro .slate-hero p { margin-left: 0; font-size: 0.85rem; }
+.slate-intro .slate-eyebrow { justify-content: flex-start; font-size: 0.6rem; }
+.slate-intro .slate-traits { justify-content: flex-start; gap: 0.6rem 1rem; }
+
+.slate-network {
+  position: relative;
+  --network-green: var(--md-typeset-a-color);
+  --network-amber: #94682e;
+  --network-purple: #8460a3;
+  --network-blue: #397d86;
+  min-width: 0;
+  padding: 1rem 0;
+  background: radial-gradient(ellipse, var(--slate-tint), transparent 70%);
+}
+[data-md-color-scheme="slate"] .slate-network {
+  --network-amber: #d5b982;
+  --network-purple: #b29bcd;
+  --network-blue: #83bdbe;
+}
+.slate-network__label {
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  color: var(--slate-muted);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.slate-network__canvas { width: 100%; height: auto; overflow: visible; }
+.slate-network.is-enhanced .slate-network__fallback { display: none; }
+.slate-network__edge { stroke: var(--network-green); stroke-width: 1; opacity: 0.25; }
+.slate-network__node { cursor: grab; touch-action: none; }
+.slate-network__node:active { cursor: grabbing; }
+.md-typeset .slate-network__node:focus { outline: none; }
+.slate-network__node circle { fill: var(--node-color); }
+.slate-network__node .slate-network__focus-ring {
+  fill: none;
+  stroke: var(--node-color);
+  stroke-width: 1.5;
+  opacity: 0;
+  pointer-events: none;
+}
+.slate-network__node:focus-visible .slate-network__focus-ring { opacity: 1; }
+.slate-network__node .slate-network__hit { fill: transparent; }
+.slate-network__node .slate-network__halo { fill: none; stroke: var(--node-color); opacity: 0.2; }
+.slate-network__node .slate-network__glow {
+  fill: url(#slate-network-glow);
+  opacity: 0;
+  pointer-events: none;
+}
+.slate-network__node--main .slate-network__glow,
+.slate-network__node.is-active .slate-network__glow { opacity: 1; }
+.slate-network__node text {
+  fill: var(--slate-muted);
+  font-family: var(--md-text-font-family);
+  font-size: 11px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+.slate-network__node .slate-network__dot {
+  stroke: var(--md-default-bg-color);
+  stroke-width: 2;
+  transition: transform 180ms ease;
+}
+.slate-network__node--main text { font-size: 13px; font-weight: 600; }
+.slate-network__node:is(:hover, :focus-visible) .slate-network__dot { transform: scale(1.17); }
+.slate-network__node:is(:hover, :focus-visible) text { fill: var(--md-default-fg-color); }
+.slate-network__edge.is-related { opacity: 0.75; stroke-width: 1.5; }
+.slate-network__particle { fill: var(--network-green); opacity: 0; pointer-events: none; }
+.slate-network.is-live .slate-network__particle { opacity: 0.45; }
+.slate-network.is-live .slate-network__particle.is-related { opacity: 0.9; r: 2px; }
+.slate-network__footer {
+  position: absolute;
+  left: 1rem;
+  bottom: 1.7rem;
+  right: 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+.slate-network__footer > div {
+  min-width: 0;
+  max-width: 11rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--slate-border);
+  border-radius: 10px;
+  background: var(--slate-surface);
+  box-shadow: var(--slate-shadow);
+}
+.slate-network__hint {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  color: var(--slate-muted);
+  font-size: 0.55rem;
+  pointer-events: none;
+}
+.slate-network__footer strong { display: block; color: var(--md-default-fg-color); font-size: 0.7rem; }
+.slate-network__footer span { color: var(--slate-muted); font-size: 0.6rem; }
+.slate-network__reset {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.6rem;
+  pointer-events: auto;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--slate-border);
+  border-radius: 50%;
+  color: var(--md-typeset-a-color);
+  background: var(--slate-surface);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.slate-network__reset:hover { background: var(--slate-tint); }
+
+.slate-feature-tabs { margin: 0 0 3rem; }
+.md-typeset .slate-feature-tabs > h2 {
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.8rem;
+}
+.slate-feature-tabs > p { color: var(--slate-muted); }
+.md-typeset .slate-feature-tabs .tabbed-set {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.slate-feature-tabs .tabbed-labels {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-self: start;
+  width: auto;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+}
+.slate-feature-tabs .tabbed-labels::before { display: none; }
+.md-typeset .slate-feature-tabs .tabbed-labels > label {
+  width: 100%;
+  min-height: 3.3rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--slate-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  white-space: normal;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+.slate-feature-tabs .tabbed-labels .twemoji {
+  margin-right: 0.4rem;
+  font-size: 1.15rem;
+  vertical-align: middle;
+}
+.slate-feature-tabs .tabbed-labels small {
+  display: block;
+  margin-left: 1.8rem;
+  color: var(--slate-muted);
+  font-size: 0.58rem;
+  font-weight: 400;
+}
+.slate-feature-tabs .tabbed-labels label:hover { background: var(--slate-tint); }
+.slate-feature-tabs input:nth-of-type(1):checked ~ .tabbed-labels label:nth-child(1),
+.slate-feature-tabs input:nth-of-type(2):checked ~ .tabbed-labels label:nth-child(2),
+.slate-feature-tabs input:nth-of-type(3):checked ~ .tabbed-labels label:nth-child(3),
+.slate-feature-tabs input:nth-of-type(4):checked ~ .tabbed-labels label:nth-child(4),
+.slate-feature-tabs input:nth-of-type(5):checked ~ .tabbed-labels label:nth-child(5),
+.slate-feature-tabs input:nth-of-type(6):checked ~ .tabbed-labels label:nth-child(6) {
+  color: var(--md-typeset-a-color);
+  background: var(--slate-tint);
+  border-color: var(--slate-border);
+}
+.slate-feature-tabs .tabbed-content { grid-column: 2; grid-row: 1; min-width: 0; }
+.slate-feature-tabs .tabbed-block {
+  padding: 1.1rem;
+  border: 1px solid var(--slate-border);
+  border-radius: 14px;
+  background: var(--slate-surface);
+}
+.md-typeset .slate-feature-tabs h3 { margin-top: 0; font-size: 1.1rem; }
+.slate-feature-tabs .tabbed-block > p { font-size: 0.75rem; }
+.slate-feature-tabs .tabbed-block > p:first-of-type { color: var(--slate-muted); }
+.slate-feature-tabs .tabbed-block > p:last-child { margin-bottom: 0; font-weight: 600; }
+.slate-feature-tabs .slate-recording { animation: slate-enter 220ms ease-out; }
+
+@media (max-width: 900px) {
+  .slate-intro { grid-template-columns: 1fr; gap: 0; padding-bottom: 2rem; }
+  .slate-intro .slate-hero { width: 100%; max-width: 30rem; margin: auto; text-align: center; }
+  .slate-intro .slate-hero p { margin-left: auto; }
+  .slate-intro :is(.slate-eyebrow, .slate-traits) { justify-content: center; }
+  .slate-network { width: 100%; max-width: 30rem; margin: auto; }
+}
+@media (max-width: 760px) {
+  .md-typeset .slate-feature-tabs .tabbed-set { grid-template-columns: minmax(0, 1fr); }
+  .slate-feature-tabs .tabbed-labels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .slate-feature-tabs .tabbed-content { grid-column: 1; grid-row: 2; }
+  .slate-feature-tabs .tabbed-labels small { display: none; }
+  .md-typeset .slate-feature-tabs .tabbed-labels > label { min-height: 44px; font-size: 0.65rem; padding: 0.6rem; }
+  .slate-feature-tabs .tabbed-block { padding: 0.8rem; }
+}
+@media (max-width: 480px) {
+  .slate-feature-tabs .tabbed-labels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .slate-network__footer span { font-size: 0.55rem; }
+  .slate-network__hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slate-feature-tabs .slate-recording { animation: none; }
+  .slate-network__node .slate-network__dot,
+  .slate-feature-tabs .tabbed-labels > label { transition: none; }
+}

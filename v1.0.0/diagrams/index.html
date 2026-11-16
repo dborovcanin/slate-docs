@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/home.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1700,7 +1702,16 @@
 short block of text in the note, so it is searched, versioned, exported and
 synced like everything else, and the desktop app gives you a canvas to draw
 it with the mouse.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note" src="../media/diagram.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/diagram-canvas.png"><img alt="Drawing a diagram: three shapes, two connections, colours from the presets, then back in the note" src="../media/diagram-canvas.png" /></a></p>
+</div>
+</div>
+</div>
 <h2 id="drawing-on-the-canvas-desktop">Drawing on the canvas (desktop)<a class="headerlink" href="#drawing-on-the-canvas-desktop" title="Permanent link">&para;</a></h2>
 <p>Run <code>:diagram</code> to insert a new diagram and open its canvas, or click a
 diagram in a note to edit it.</p>
@@ -1934,6 +1945,8 @@ The terminal app shows the source; <code>:diagram</code> there inserts an empty 
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../javascripts/interactions.js"></script>
+      
+        <script src="../javascripts/home.js"></script>
       
     
   </body>

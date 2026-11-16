@@ -1,13 +1,13 @@
-/* Keep recordings usable at phone sizes, including after instant navigation. */
+/* Expand screenshots and recordings, including after instant navigation. */
 (() => {
   const viewer = document.createElement("dialog");
   viewer.className = "slate-viewer";
-  viewer.setAttribute("aria-label", "Recording viewer");
+  viewer.setAttribute("aria-label", "Media viewer");
   viewer.innerHTML = `
     <div class="slate-viewer__toolbar">
       <p class="slate-viewer__title"></p>
       <button type="button" class="slate-viewer__zoom" aria-pressed="false">Zoom in</button>
-      <button type="button" class="slate-viewer__close" autofocus aria-label="Close recording">Close <span aria-hidden="true">×</span></button>
+      <button type="button" class="slate-viewer__close" autofocus aria-label="Close viewer">Close <span aria-hidden="true">×</span></button>
     </div>
     <div class="slate-viewer__stage"><img alt=""></div>`;
   document.body.append(viewer);
@@ -60,15 +60,21 @@
 
   const enhance = () => {
     if (viewer.open) viewer.close();
-    document.querySelectorAll('.md-content img[src$=".gif"]').forEach(recording => {
-      if (recording.closest("a")) return;
-      const link = document.createElement("a");
-      link.className = "slate-recording";
-      link.href = recording.src;
+    document.querySelectorAll('.md-content img').forEach(recording => {
+      const source = new URL(recording.src);
+      if (!source.pathname.includes("/media/") || !/\.(gif|png|jpe?g|webp)$/i.test(source.pathname)) return;
+      let link = recording.closest("a");
+      // Keep images that link to another page behaving as normal links.
+      if (link && new URL(link.href).href !== source.href) return;
+      if (!link) {
+        link = document.createElement("a");
+        link.href = recording.src;
+        recording.replaceWith(link);
+        link.append(recording);
+      }
+      link.classList.add("slate-recording");
       link.setAttribute("aria-haspopup", "dialog");
-      link.setAttribute("aria-label", `Expand recording: ${recording.alt || "Slate"}`);
-      recording.replaceWith(link);
-      link.append(recording);
+      link.setAttribute("aria-label", `Expand image: ${recording.alt || "Slate"}`);
     });
     document.querySelectorAll('[data-md-component="palette"] label').forEach(label => {
       label.tabIndex = 0;

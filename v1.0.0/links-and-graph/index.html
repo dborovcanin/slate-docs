@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/home.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1678,6 +1680,7 @@
 <p>Type <code>[[</code> and a note picker opens. Type part of a title, then <code>Tab</code> or
 <code>Enter</code> to pick a note. Slate then offers that note's headings; pick one to
 link straight to it, or press <code>Esc</code> to link the whole note.</p>
+<p><img alt="Inserting a link with the note picker, following it to the research desk, and returning" src="../media/links.gif" /></p>
 <p>Away from the cursor a link shows the note's title, underlined. Underneath it
 stores the note's id (<code>[[01M7JWK8RMTRJ4X6RC7Y9CYH6E]]</code>), so renaming the
 other note never breaks the link.</p>
@@ -1721,10 +1724,19 @@ linked note (see <a href="../calculations/#variables-from-other-notes">Variables
 <p><code>:graph</code> (desktop: <strong>File › Note graph…</strong>) draws your notes as dots and their links
 as lines, starting from the open note and the notes within two links of it,
 in both directions.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="The graph around a hub note in a 25,000-note notebook: moving between notes, zooming, and finding notes by title" src="../media/graph.gif" /></p>
-<p><em>The recording: a hub note in the demo notebook, 25,000 notes and 130,000
-links. Large graphs are grouped into communities that lay out as their own
-clusters.</em></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/graph-overview.png"><img alt="The graph around a hub note in a 25,000-note notebook: moving between notes, zooming, and finding notes by title" src="../media/graph-overview.png" /></a></p>
+</div>
+</div>
+</div>
+<p><em>The recording follows 26 example notes inside the larger demo notebook.
+Writing, research, numbers, design and projects each have their own color
+group. Selecting a note highlights its connections.</em></p>
 <table>
 <thead>
 <tr>
@@ -1784,6 +1796,9 @@ neighbours while everything else fades. <code>f</code> or the gear button opens
 <li><strong>Display</strong> adds arrows, and scales dots, lines and labels.</li>
 </ul>
 <p>Filters, groups and display options are remembered.</p>
+<p><a href="../media/graph-groups.png"><img alt="The graph's Filters panel with five collection-based color groups and display controls" src="../media/graph-groups.png" /></a></p>
+<p><em>Color groups can use the same queries as search. Here, each collection gets
+its own region, making related notes easy to spot.</em></p>
 <p>In the terminal the graph is drawn with characters: <code>◆</code> is the centre note,
 <code>◉</code> the selection and <code>○</code> a link to a missing note. <code>]</code> and <code>[</code> zoom,
 <code>Shift+H</code>/<code>J</code>/<code>K</code>/<code>L</code> pan, and <code>0</code> shows the whole graph again.</p>
@@ -1913,6 +1928,8 @@ opens at once.</p>
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../javascripts/interactions.js"></script>
+      
+        <script src="../javascripts/home.js"></script>
       
     
   </body>

@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../stylesheets/home.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1795,7 +1797,16 @@ search box to the results with the best match picked, the second opens it
 fuzzily and in order: <code>photo 116</code> finds <em>Photometry project 11681</em>. The
 switcher shows each note's collections and tags, and the best match comes
 first.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Recording</label><label for="__tabbed_1_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><img alt="Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line" src="../media/search.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/search.png"><img alt="Searching 25,000 notes by tag, text and exclusion; the result opens at the matching line" src="../media/search.png" /></a></p>
+</div>
+</div>
+</div>
 <p>Add fields to narrow it down:</p>
 <table>
 <thead>
@@ -1991,6 +2002,8 @@ under <code>[web_search]</code> with an API key.</p>
       <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../javascripts/interactions.js"></script>
+      
+        <script src="../javascripts/home.js"></script>
       
     
   </body>
