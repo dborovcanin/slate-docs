@@ -198,7 +198,7 @@
 
 /* Recordings: framed, rounded, and never wider than the column. */
 .md-typeset img[src$=".gif"],
-.md-typeset img[src$=".png"]:not(.md-logo img) {
+.md-typeset img[src$=".png"]:not(.md-logo img, .slate-eyebrow__logo) {
   display: block;
   margin: 1.2em auto 0.4em;
   max-width: 100%;
@@ -351,6 +351,11 @@
   font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+.slate-eyebrow__logo {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
 }
 .md-typeset .md-button {
   border: 1px solid var(--slate-border);

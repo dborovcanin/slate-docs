@@ -7,9 +7,9 @@ hide:
 
 <div class="slate-hero" markdown>
 
-<p class="slate-eyebrow" markdown>:material-leaf:{ aria-hidden="true" } A little space to think</p>
+<p class="slate-eyebrow"><img class="slate-eyebrow__logo" src="assets/logo.png" alt="" aria-hidden="true"> A little space to think</p>
 
-# Your notes.<br>Your train of thought. {#slate}
+# Your notes.<br>Where your thoughts live. {#slate}
 
 Write, calculate, and connect ideas without leaving your notebook.
 Slate brings plain Markdown to your desktop and terminal, with everything
