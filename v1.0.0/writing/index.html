@@ -1934,10 +1934,12 @@ Beyond undo, Slate keeps older versions of every note; see
 <h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h2>
 <p><img alt="Pasting a screenshot from the clipboard into a note, where it renders inline" src="../media/images.gif" /></p>
 <p><code>![alt text](./assets/photo.png)</code> shows the image. On the desktop a line with
-only an image is drawn as the picture. In the terminal it shows as
-<code>[image: alt text]</code>; <code>gx</code> previews it in the terminal (sixel, kitty or iTerm2
-graphics, with a fallback), and <code>o</code> in the preview opens it in your image
-viewer.</p>
+only an image is drawn as the picture; <code>gx</code> on it or Ctrl+click on the picture
+shows it fitted to the window, and right-click → Copy image puts the full-size
+original on the clipboard. In the terminal it shows as <code>[image: alt text]</code>;
+<code>gx</code> previews it in the terminal (sixel, kitty or iTerm2 graphics, with a
+fallback). In both, <code>o</code> in the preview opens the image in your image viewer,
+and <code>gX</code> opens it there directly.</p>
 <p>To add one, paste an image file path, or paste a screenshot from the
 clipboard: <code>Ctrl+V</code> on the desktop, <code>p</code> or <code>:paste-image</code> in the terminal. The
 image is copied into the note's assets. Remote images are never fetched.</p>

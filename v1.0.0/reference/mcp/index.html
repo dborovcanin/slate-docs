@@ -2013,8 +2013,8 @@
 </tr>
 <tr>
 <td><code>search_notes</code></td>
-<td><code>query</code>, <code>collection?</code>, <code>limit?</code> (default 20)</td>
-<td>Structured query search: bare words match titles, <code>contains:</code> searches text; also supports <code>title:</code>, <code>tag:</code>, <code>collection:</code> and boolean operators. Returns snippets and line numbers. Encrypted notes are not searched</td>
+<td><code>query</code>, <code>collection?</code>, <code>limit?</code> (default 20, at most 100), <code>cursor?</code></td>
+<td>Structured query search: bare words match titles, <code>contains:</code> searches text; also supports <code>title:</code>, <code>tag:</code>, <code>collection:</code> and boolean operators. Returns snippets and line numbers. The first page also returns <code>total</code>, the number of matching notes; while more remain it returns <code>next_cursor</code>, passed back as <code>cursor</code> with the same query for the next page. Cursors are kept per server process for the 16 most recent pages. Encrypted notes are not searched</td>
 </tr>
 <tr>
 <td><code>read_note</code></td>
