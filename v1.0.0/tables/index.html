@@ -733,6 +733,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#filling-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filling cells
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1672,6 +1683,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#filling-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filling cells
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1759,11 +1781,13 @@ hold formulas like a small spreadsheet.</p>
 </tr>
 </tbody>
 </table>
-<p>On the desktop you can also click a cell to edit it, <code>Shift</code>+arrows select a
-rectangle of cells (copy gives tab-separated text, <code>Delete</code> clears them), and
-hovering a table's right or bottom edge shows a <code>+</code> strip that adds a column
-or a row. Wide tables scroll sideways instead of wrapping. In vim mode,
-<code>ci|</code>, <code>di|</code> and <code>yi|</code> change, delete and copy a cell.</p>
+<p><code>Shift</code>+arrows select a rectangle of whole cells in both apps: copying gives
+tab-separated text (<code>Ctrl+C</code>, or <code>y</code> in the terminal's Normal mode),
+<code>Delete</code> clears them, and <code>Ctrl+D</code> / <code>Ctrl+R</code> fill them (see
+<a href="#filling-cells">Filling cells</a>). On the desktop you can also click a cell to
+edit it, and hovering a table's right or bottom edge shows a <code>+</code> strip that
+adds a column or a row. Wide tables scroll sideways instead of wrapping. In
+vim mode, <code>ci|</code>, <code>di|</code> and <code>yi|</code> change, delete and copy a cell.</p>
 <h2 id="formulas">Formulas<a class="headerlink" href="#formulas" title="Permanent link">&para;</a></h2>
 <p>A cell that starts with <code>:=</code> is a formula. The table shows its value; the
 formula appears only while the cursor is in the cell.</p>
@@ -1780,6 +1804,18 @@ formula appears only while the cursor is in the cell.</p>
 <td>Data row 1, column 2 times data row 1, column 3</td>
 </tr>
 <tr>
+<td><code>:=(.,2) * (.,3)</code></td>
+<td>Columns 2 and 3 of the formula's own row</td>
+</tr>
+<tr>
+<td><code>:=(.-1,.) + (.,4)</code></td>
+<td>The cell above plus column 4 of this row: a running total</td>
+</tr>
+<tr>
+<td><code>:=(.,2) * ($1,$4)</code></td>
+<td><code>$</code> pins a number, so filling never moves it</td>
+</tr>
+<tr>
 <td><code>:=sum_col()</code>, <code>:=avg_col()</code></td>
 <td>Sum / average of the other numbers in this column</td>
 </tr>
@@ -1794,7 +1830,8 @@ formula appears only while the cursor is in the cell.</p>
 </tbody>
 </table>
 <p>References are <code>(row, column)</code>, counting data rows from 1 (the header is not
-a row). Typing <code>sum</code> or <code>avg_</code> in a formula cell offers the helpers. Errors
+a row). A <code>.</code> stands for the formula's own row or column, optionally with an
+offset such as <code>.-1</code>. Typing <code>sum</code> or <code>avg_</code> in a formula cell offers the helpers. Errors
 show in the cell: <code>!ERROR#out_of_bounds</code>, <code>!ERROR#non_numeric</code>,
 <code>!ERROR#self_reference</code> and <code>!ERROR#cycle</code>.</p>
 <p>Here is the table from the recording as it is stored:</p>
@@ -1806,6 +1843,64 @@ show in the cell: <code>!ERROR#out_of_bounds</code>, <code>!ERROR#non_numeric</c
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>| Sum       |     |       |   :=sum_col() |
 </code></pre></div>
 <p>To total some rows by hand, select them and run <code>:sum</code> or <code>:avg</code>.</p>
+<h2 id="filling-cells">Filling cells<a class="headerlink" href="#filling-cells" title="Permanent link">&para;</a></h2>
+<p>Write a formula or a date once and fill it into the cells next to it, as in
+a spreadsheet.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Recording</label><label for="__tabbed_2_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="A diff formula is dragged down its column by the fill handle, then a date is dragged down to fill in the next days" src="../media/table-fill.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/table-fill.png"><img alt="A table of daily amounts whose diff column and dates were filled from the first row" src="../media/table-fill.png" /></a></p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Drag the handle (desktop):</strong> the focused cell shows a dot where its
+  right and bottom borders meet. Drag it down or up the column, or along the
+  row, and release. Dragging past the top or bottom of the window scrolls the
+  note; the fill stops at the table's first and last rows, never the header.
+  <code>Esc</code> while dragging cancels.</li>
+<li><strong>Keys (both apps):</strong> select cells with <code>Shift</code>+arrows, starting at the cell
+  to copy, and press <code>Ctrl+D</code> to fill down or <code>Ctrl+R</code> to fill right.</li>
+</ul>
+<p>A fill is one undo step. What each copy gets:</p>
+<table>
+<thead>
+<tr>
+<th>In the source cell</th>
+<th>Each filled cell gets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:=(2,2)-(1,2)</code></td>
+<td>References moved by the copy's distance: one row down reads <code>:=(3,2)-(2,2)</code></td>
+</tr>
+<tr>
+<td><code>:=(.,2) * (.,3)</code></td>
+<td>The same text: <code>.</code> already means "this row"</td>
+</tr>
+<tr>
+<td><code>:=(.,2) * ($1,$4)</code></td>
+<td><code>$1,$4</code> kept, so every row reads the same rate cell</td>
+</tr>
+<tr>
+<td><code>03. November 2026.</code></td>
+<td>The next day, in the same format: <code>04. November 2026.</code></td>
+</tr>
+<tr>
+<td><code>455801</code>, <code>N/A</code></td>
+<td>A plain copy</td>
+</tr>
+</tbody>
+</table>
+<p>Dates are recognised as <code>2026-11-03</code>, <code>3.11.2026.</code>, <code>03. 11. 2026</code>,
+<code>03. November 2026.</code>, <code>3 Nov 2026</code> and <code>November 3, 2026</code>, and keep their
+dots, zero padding and month spelling. Slash dates such as <code>11/03/2026</code> are
+copied as they are, since the day and month order is ambiguous. A reference
+moved above the first row reads <code>!ERROR#out_of_bounds</code>.</p>
 
 
 

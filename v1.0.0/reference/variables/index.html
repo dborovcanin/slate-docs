@@ -1895,7 +1895,12 @@
 <li>assignment form: <code>name := expression</code></li>
 <li>no-space form also works: <code>name:=expression</code></li>
 <li>table formula form: cell-local <code>:=expression</code></li>
-<li>table cell reference in table formulas: <code>(row,col)</code> (1-based)</li>
+<li>table cell reference in table formulas: <code>(row,col)</code> (1-based data rows)</li>
+<li>a number is a fixed row or column: <code>(3,2)</code></li>
+<li><code>.</code> is the formula's own row or column, optionally offset: <code>(.,2)</code> is column 2 of the same row, <code>(.-1,.)</code> the cell above</li>
+<li>relative references keep their meaning when a formula is copied to another cell; one that falls outside the table, or a <code>.</code> row in the header, is <code>!ERROR#out_of_bounds</code></li>
+<li>filling a formula across cells (desktop <code>Ctrl+D</code> / <code>Ctrl+R</code> or the fill handle) moves each numbered coordinate by the copy's distance in data rows or columns, as spreadsheets do; one moved before the first row or column becomes <code>0</code> (out of bounds)</li>
+<li><code>$</code> pins a numbered coordinate so filling keeps it: <code>($1,4)</code> keeps row 1, <code>($1,$4)</code> the whole cell</li>
 </ul>
 <p>Variable names:</p>
 <ul>
