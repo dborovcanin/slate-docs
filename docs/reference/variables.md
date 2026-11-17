@@ -7,7 +7,12 @@ This document defines variable and table-formula behavior in Slate.
 - assignment form: `name := expression`
 - no-space form also works: `name:=expression`
 - table formula form: cell-local `:=expression`
-- table cell reference in table formulas: `(row,col)` (1-based)
+- table cell reference in table formulas: `(row,col)` (1-based data rows)
+  - a number is a fixed row or column: `(3,2)`
+  - `.` is the formula's own row or column, optionally offset: `(.,2)` is column 2 of the same row, `(.-1,.)` the cell above
+  - relative references keep their meaning when a formula is copied to another cell; one that falls outside the table, or a `.` row in the header, is `!ERROR#out_of_bounds`
+  - filling a formula across cells (desktop `Ctrl+D` / `Ctrl+R` or the fill handle) moves each numbered coordinate by the copy's distance in data rows or columns, as spreadsheets do; one moved before the first row or column becomes `0` (out of bounds)
+  - `$` pins a numbered coordinate so filling keeps it: `($1,4)` keeps row 1, `($1,$4)` the whole cell
 
 Variable names:
 

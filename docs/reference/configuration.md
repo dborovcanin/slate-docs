@@ -213,6 +213,7 @@ new notes can be created in them.
 - `unicode`: symbols from standard Unicode blocks, for any font.
 - `ascii`: plain ASCII markers.
 
+
 ### `[theme.colors]`
 
 Colours that replace the color scheme's, much like foot's `[colors]`. Each value is hex (`2e3440` or `#2e3440`), shown exactly as written, or `none` for the terminal's own colour; `background = "none"` lets the terminal background (and its transparency) show through the editor. Unset keys, and values slate cannot read, keep the scheme's colour. `accent` here wins over `[theme] accent`.
@@ -379,7 +380,7 @@ is a startup error. With no list (or an empty one), Slate selects a small
 installed set covering symbols, emoji, and CJK where available. With no primary
 font, Slate retains separate automatic monospace/editor and sans/UI choices.
 
-On Linux, Fontconfig's cached catalogue resolves the families before UI
+On Linux, Fontconfig's cached catalogue resolves the families before GPUI
 starts. A private font directory restricts discovery to the selected files;
 other installed families are not parsed. `fc-list` from the `fontconfig`
 package is required. Other desktop platforms use their native font systems;

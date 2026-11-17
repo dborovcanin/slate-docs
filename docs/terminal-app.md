@@ -41,7 +41,9 @@ numbers in it.
   your image viewer.
 - **The graph** is drawn with characters; `]`/`[` zoom and
   `Shift+H`/`J`/`K`/`L` pan.
-- **Tables** are edited as text, with cell-aware keys.
+- **Tables** are edited as text, with cell-aware keys. `Shift`+arrows
+  select whole cells, which `Ctrl+D` / `Ctrl+R` fill and `y` copies; there
+  is no fill handle to drag (see [Filling cells](tables.md#filling-cells)).
 - **Fonts** come from your terminal's settings. Icons use a
   [Nerd Font](https://www.nerdfonts.com/) by default; set
   `[theme] icons = "unicode"` or `"ascii"` otherwise.

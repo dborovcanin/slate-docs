@@ -639,6 +639,78 @@ def capture_shell(s):
     s.stop("capture")
 
 
+def fill_handle(s):
+    """Centre of the fill handle: the filled accent dot on the focused cell's
+    corner. Formula values share the accent colour, so only a round, mostly
+    filled blob counts."""
+    from PIL import ImageChops
+
+    image = s.grab()
+    accent = (0xA7, 0xC0, 0x80)  # everforest_dark
+    bands = [
+        band.point(lambda v, t=target: 255 if abs(v - t) < 24 else 0)
+        for band, target in zip(image.split(), accent)
+    ]
+    mask = ImageChops.multiply(ImageChops.multiply(bands[0], bands[1]), bands[2])
+    width = image.width
+    on = {(i % width, i // width) for i, v in enumerate(mask.getdata()) if v}
+    best = None
+    while on:
+        blob, stack = [], [on.pop()]
+        while stack:
+            x, y = stack.pop()
+            blob.append((x, y))
+            for near in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if near in on:
+                    on.remove(near)
+                    stack.append(near)
+        xs, ys = [p[0] for p in blob], [p[1] for p in blob]
+        w, h = max(xs) - min(xs) + 1, max(ys) - min(ys) + 1
+        if 5 <= w <= 18 and abs(w - h) <= 2 and len(blob) >= 0.6 * w * h:
+            if best is None or len(blob) > best[0]:
+                best = (len(blob), (min(xs) + max(xs)) // 2, (min(ys) + max(ys)) // 2)
+    if best is None:
+        raise SystemExit("fill handle not found on screen")
+    return best[1], best[2]
+
+
+def table_fill(s):
+    """A diff formula and a date, each written once and dragged down."""
+    s.gui(GUI)
+    s.wait(0.8)
+    new_note(s, "Daily balance")
+    s.paste(
+        "| Date | Amount | Diff |\n"
+        "| --- | ---: | ---: |\n"
+        "| 03. November 2026. | 455801 | N/A |\n"
+        "|  | 460250 |  |\n"
+        "|  | 462470 |  |\n"
+        "|  | 466966 |  |\n"
+        "|  | 471492 |  |\n"
+        "|  | 476034 |  |",
+        pause=1.5,
+    )
+    # The cursor is in the last Diff cell; the handle's step between two
+    # rows gives the row height.
+    _, last = fill_handle(s)
+    s.key("Up", pause=0.4)
+    _, above = fill_handle(s)
+    row = last - above
+    s.key("Up", "Up", "Up", pause=0.4)
+    s.record("table-fill")
+    s.wait(1.0)
+    # Row 2's change from row 1, then drag it down to the last row.
+    s.type(":=(2,2)-(1,2)", delay=70, pause=1.0)
+    x, y = fill_handle(s)
+    s.drag(x, y, x, y + int(3.5 * row), steps=30, pause=1.8)
+    # The first date, dragged down: the next days fill in.
+    s.key("Up", "Up", "Up", "Up", "Up", pause=0.3)
+    s.key("shift+Tab", "shift+Tab", pause=0.8)
+    x, y = fill_handle(s)
+    s.drag(x, y, x, y + int(4.5 * row), steps=30, pause=2.5)
+    s.stop("table-fill")
+
+
 SCENARIOS = {
     "tour": tour,
     "writing": writing,
@@ -647,6 +719,7 @@ SCENARIOS = {
     "variables": variables,
     "cross-note": cross_note,
     "tables": tables,
+    "table-fill": table_fill,
     "search": search,
     "browser": browser,
     "graph": graph,

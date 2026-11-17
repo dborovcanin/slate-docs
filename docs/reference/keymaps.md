@@ -95,6 +95,16 @@ After a prefix (`g`, `d`, `y`, `c`, `ci`, `q`...) the status line lists the keys
 | `Backspace` / `Delete`                                    | Cell-aware boundary edit                                 |
 | `Ctrl+Backspace` / `Ctrl+Delete` / `Ctrl+W`               | Structural edit (merge cells, delete column from header) |
 
+## Table cell selection (Normal and Insert)
+
+| Key                         | Action                                                              |
+| --------------------------- | ------------------------------------------------------------------- |
+| `Shift+Arrows`              | Select a rectangle of whole cells; outside a table, move as arrows  |
+| `Ctrl+D` / `Ctrl+R`         | Fill down / right from the cell the selection started at (one undo) |
+| `Delete` / `Backspace`      | Clear the selected cells                                            |
+| `y` (Normal) / `Ctrl+C`     | Copy the cells as tab-separated rows and drop the selection         |
+| `Esc`                       | Drop the selection; any other key drops it and acts as usual        |
+
 ## Popups (variables, wiki links)
 
 | Key                     | Action         |

@@ -527,7 +527,7 @@ Full rules: [Variables Specification](variables.md).
 
 Markdown tables align as you type, and the cursor moves by cell.
 
-- Formula cells start with `:=`: `:=sum_col()`, `:=avg_row() * 2`, `:=tax_rate * subtotal`, `:=(1,2) + (2,2)` (1-based data-row references).
+- Formula cells start with `:=`: `:=sum_col()`, `:=avg_row() * 2`, `:=tax_rate * subtotal`, `:=(1,2) + (2,2)` (1-based data-row references). `.` means the formula's own row or column, with an optional offset: `:=(.,2) * (.,3)` multiplies two cells of the same row, `:=(.-1,.) + (.,4)` keeps a running total. Such a formula reads the same in every row. To copy a formula, select cells with `Shift+Arrows` from it and press `Ctrl+D` (down) or `Ctrl+R` (right); in the desktop app you can also drag the dot on the focused cell's corner, as in a spreadsheet. Numbered references move with each copy: `:=(4,2)-(3,2)` filled one row down becomes `:=(5,2)-(4,2)`; `.` references are kept as written, and `$` pins a number so fills keep it: `:=(.,2) * ($1,$4)` always reads cell (1,4). A filled date continues as a series, a day per row or column, kept in its own format: `03. November 2026.`, `2026-11-03`, `3.11.2026.`, `3 Nov 2026` and `November 3, 2026` are recognised.
 - Helpers: `sum_row()`, `sum_col()`, `avg_row()`, `avg_col()`. Typing a helper name in a formula cell (`sum`, `avg_`) offers them in the autocomplete popup, with matching variables after.
 - Reference errors render as `!ERROR#out_of_bounds`, `!ERROR#non_numeric`, `!ERROR#self_reference`, `!ERROR#cycle`.
 - Multiline cells use continuation rows starting with `|>`.
