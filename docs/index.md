@@ -9,20 +9,17 @@ hide:
 
 <div class="slate-hero" markdown>
 
-<p class="slate-eyebrow"><img class="slate-eyebrow__logo" src="assets/logo.png" alt="" aria-hidden="true"> <span>A little space to think</span> <a class="slate-eyebrow__permalink" href="#slate" aria-label="Link to this introduction">¶</a></p>
+# Where your thoughts live. {#slate}
 
-# Your notes.<br>Where your thoughts live. {#slate}
-
-Write, calculate, and connect ideas without leaving your notebook.
-Slate brings plain Markdown to your desktop and terminal, with everything
-stored on your computer.
+Write notes, work out numbers, and connect your ideas.
+Use Slate on your desktop or in your terminal. Your notes stay on your computer.
 
 [Start with Slate :octicons-arrow-right-24:](getting-started.md){ .md-button .md-button--primary }
 [Explore the features](#see-slate-at-work){ .md-button }
 
 <div class="slate-traits" markdown="span">
 
-<span>:material-file-document-outline:{ aria-hidden="true" } Plain Markdown</span>
+<span>:material-file-document-outline:{ aria-hidden="true" } Easy to export</span>
 <span>:material-keyboard-outline:{ aria-hidden="true" } Keyboard first</span>
 <span>:material-harddisk:{ aria-hidden="true" } Local by default</span>
 
@@ -31,7 +28,7 @@ stored on your computer.
 </div>
 
 <div class="slate-network" data-slate-network>
-  <div class="slate-network__label">Your knowledge, connected</div>
+  <div class="slate-network__label">Your knowledge, connected <a class="slate-network__permalink" href="#slate" aria-label="Link to this introduction">¶</a></div>
   <a class="slate-network__fallback" href="links-and-graph/"><img src="media/graph-overview.png" alt="Connected notes, grouped by topic in Slate's graph"></a>
   <svg class="slate-network__canvas" viewBox="0 0 560 560" role="group" aria-label="Explore a sample notebook. Each note links to its guide." hidden></svg>
   <div class="slate-network__footer">

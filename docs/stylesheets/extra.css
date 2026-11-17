@@ -114,6 +114,10 @@
   border-radius: 2px;
   background: currentColor;
 }
+/* The logo leads home; guide navigation stays in Material's mobile drawer. */
+@media (min-width: 76.25em) {
+  .md-tabs { display: none; }
+}
 .md-search__form {
   color: var(--slate-muted);
   background: var(--slate-surface);
