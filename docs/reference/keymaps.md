@@ -59,6 +59,7 @@ Key tables by mode. The [Feature Guide](features.md) lists the same keys grouped
 | `d` `y` `c` + `f` `F` `t` `T` `{c}`                      | Operator + find (`df,`, `ct)`, `yT(`)                                   |
 | `iw` `aw` `i\|` `a\|`                                    | Word and table-cell text objects (`diw`, `yi\|`, ...)                   |
 | `i(` `i[` `i{` `i"` `` i` `` `i*` `i~` `i_` (and `a...`) | Delimiter text objects for `d` and `c`                                  |
+| `` di` `` `` ci` `` `` da` `` `` ca` `` in a fenced block          | Without a code span on the line: clear the body (`c` keeps an empty line) or the whole block |
 | `u` / `Ctrl+R`                                           | Undo / redo                                                             |
 | `v` / `V`                                                | Visual / visual-line                                                    |
 | `/`, `Ctrl+F`                                            | Search; `n` / `N` next / previous match                                 |
@@ -68,6 +69,7 @@ Key tables by mode. The [Feature Guide](features.md) lists the same keys grouped
 | `gd`                                                     | Follow wiki link, or go to the definition of the variable at the cursor |
 | `K`                                                      | Toggle linked-note preview                                              |
 | `gx`                                                     | Preview image at cursor                                                 |
+| `gX`                                                     | Open image at cursor in the default viewer                              |
 | `?`                                                      | Keyboard shortcuts (the help list, with how each key works)             |
 
 After a prefix (`g`, `d`, `y`, `c`, `ci`, `q`...) the status line lists the keys that may follow and what each does, as the desktop status bar does; `Esc` cancels.

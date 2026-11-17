@@ -91,3 +91,5 @@ edge e3 weather inside "No" route=orthogonal
 You can edit this text directly: in the desktop app, putting the cursor in
 the block shows the source with the picture under it, updating as you type.
 The terminal app shows the source; `:diagram` there inserts an empty block.
+In vim mode, ``di` `` with the cursor in the block clears its source and
+``ci` `` clears it to type a new one; ``da` `` removes the whole block.

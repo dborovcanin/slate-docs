@@ -115,7 +115,7 @@ Configure a stdio (or "local") server with the command `slate` and the argument 
 | --- | --- | --- |
 | `list_notes` | `collection?`, `limit?` (default 50, max 500) | Notes, pinned first then most recently updated: `id`, `title`, `revision`, `encrypted` |
 | `list_collections` | none | Collections with their note counts |
-| `search_notes` | `query`, `collection?`, `limit?` (default 20) | Structured query search: bare words match titles, `contains:` searches text; also supports `title:`, `tag:`, `collection:` and boolean operators. Returns snippets and line numbers. Encrypted notes are not searched |
+| `search_notes` | `query`, `collection?`, `limit?` (default 20, at most 100), `cursor?` | Structured query search: bare words match titles, `contains:` searches text; also supports `title:`, `tag:`, `collection:` and boolean operators. Returns snippets and line numbers. The first page also returns `total`, the number of matching notes; while more remain it returns `next_cursor`, passed back as `cursor` with the same query for the next page. Cursors are kept per server process for the 16 most recent pages. Encrypted notes are not searched |
 | `read_note` | `id` | The note's full markdown `text`, `title`, `revision` and `collections` |
 | `create_note` | `text`, `collection?` | Creates a note and returns its `id` and `revision`. The first line becomes the title |
 | `append_to_note` | `id`, `text` | Adds `text` to the end of the note on a new line. No revision needed |

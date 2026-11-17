@@ -46,6 +46,8 @@ cell.
 | `gd` | Follow a link, or jump to a variable's definition |
 | `K` | Preview the linked note |
 | `gx` | Preview the image at the cursor |
+| `gX` | Open the image at the cursor in your image viewer |
+| ``di` `` / ``ci` `` | In a fenced block such as a diagram: clear its body (``ci` `` leaves an empty line to type in); ``da` `` removes the whole block |
 | `za` | Fold or unfold |
 | `-` | Open the browser |
 | `/`, then `n` / `N` | Search the note |

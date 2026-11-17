@@ -74,10 +74,12 @@ Beyond undo, Slate keeps older versions of every note; see
 ![Pasting a screenshot from the clipboard into a note, where it renders inline](media/images.gif)
 
 `![alt text](./assets/photo.png)` shows the image. On the desktop a line with
-only an image is drawn as the picture. In the terminal it shows as
-`[image: alt text]`; `gx` previews it in the terminal (sixel, kitty or iTerm2
-graphics, with a fallback), and `o` in the preview opens it in your image
-viewer.
+only an image is drawn as the picture; `gx` on it or Ctrl+click on the picture
+shows it fitted to the window, and right-click → Copy image puts the full-size
+original on the clipboard. In the terminal it shows as `[image: alt text]`;
+`gx` previews it in the terminal (sixel, kitty or iTerm2 graphics, with a
+fallback). In both, `o` in the preview opens the image in your image viewer,
+and `gX` opens it there directly.
 
 To add one, paste an image file path, or paste a screenshot from the
 clipboard: `Ctrl+V` on the desktop, `p` or `:paste-image` in the terminal. The

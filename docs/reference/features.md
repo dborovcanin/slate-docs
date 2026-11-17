@@ -225,6 +225,7 @@ Slate is modal: `Esc` leaves Insert for Normal mode. `[editor] vim_mode = true` 
 | `diw` `daw` `yiw` `yaw` `ciw` `caw`                                       | Word text objects                                                                            |
 | `di\|` `da\|` `yi\|` `ya\|` `ci\|`                                        | Table cell text objects                                                                      |
 | `di(` `di[` `di{` `di"` ``di` `` `di*` `di~` `di_` (and `da`, `ci`, `ca`) | Delimiter text objects                                                                       |
+| ``di` `` ``ci` `` ``da` `` ``ca` `` in a fenced block (no code span on the line) | Clear the block's body (`c` keeps an empty line) or the whole block, like Vim's `i{` over lines |
 | `C`                                                                       | Change to line end                                                                           |
 | `p` / `P`                                                                 | Paste after / before                                                                         |
 | `u` / `Ctrl+R`                                                            | Undo / redo                                                                                  |
@@ -235,6 +236,7 @@ Slate is modal: `Esc` leaves Insert for Normal mode. `[editor] vim_mode = true` 
 | `gd`, `Ctrl+]`                                                            | Follow wiki link; `gd` on a variable goes to its definition                                  |
 | `K`                                                                       | Preview linked note                                                                          |
 | `gx`                                                                      | Preview image at cursor                                                                      |
+| `gX`                                                                      | Open image at cursor in the default viewer                                                   |
 | `?`                                                                       | Keyboard shortcuts (help)                                                                    |
 
 Yanks are copied to the system clipboard as well as the register.
@@ -322,6 +324,7 @@ Syntax: `![alt](./assets/image.png)`. In the editor an image shows as a compact 
 | Key                                            | Action                              |
 | ---------------------------------------------- | ----------------------------------- |
 | `gx` (Normal), `Ctrl+O` (Insert, vim mode off) | Preview the image at the cursor     |
+| `gX` (Normal)                                  | Open it in the default image viewer |
 | `o` in the preview                             | Open the image in the system viewer |
 | `Esc` in the preview                           | Close it                            |
 

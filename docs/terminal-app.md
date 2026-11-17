@@ -38,7 +38,7 @@ numbers in it.
 - **Images** show as `[image: …]`. `gx` previews one inside the terminal
   with sixel, kitty or iTerm2 graphics when your terminal supports them
   (`[terminal] images`), with a block-character fallback; `o` opens it in
-  your image viewer.
+  your image viewer, and `gX` skips the preview.
 - **The graph** is drawn with characters; `]`/`[` zoom and
   `Shift+H`/`J`/`K`/`L` pan.
 - **Tables** are edited as text, with cell-aware keys. `Shift`+arrows
