@@ -1548,6 +1548,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#read-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read mode
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1990,6 +2001,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#read-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read mode
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2035,6 +2057,10 @@
 <tr>
 <td><code>F4</code> / <code>:info</code></td>
 <td>Current note information (from the editor)</td>
+</tr>
+<tr>
+<td><code>F11</code> / <code>:read</code></td>
+<td>Read mode (from the editor)</td>
 </tr>
 <tr>
 <td><code>Ctrl+Q</code></td>
@@ -2858,6 +2884,8 @@ F1 remains available in both apps.</p>
 <p>Command syntax and aliases: <a href="../command-reference/">Command Reference</a>.</p>
 <h3 id="current-note-information">Current note information<a class="headerlink" href="#current-note-information" title="Permanent link">&para;</a></h3>
 <p><code>F4</code> or <code>:info</code> opens a read-only metadata dialog in both front ends. Scroll with Up/Down or Page Up/Down; Home/End jump to the beginning/end. Escape, Enter, or F4 closes it. Ctrl+I remains available for italic in standard desktop editing and for Vim behavior; it is not rebound to note info.</p>
+<h3 id="read-mode">Read mode<a class="headerlink" href="#read-mode" title="Permanent link">&para;</a></h3>
+<p><code>F11</code> or <code>:read</code> (<code>:preview</code>) shows the note read-only, with every line rendered as it rests: the cursor line no longer reveals its markdown source, and the terminal hides line numbers and the caret and wraps long lines. <code>j</code>/<code>k</code> or Up/Down scroll by a line, Space/Page Down and Page Up by a page, <code>g</code>/Home and <code>G</code>/End jump to the start or end. Escape, <code>q</code> or F11 leaves, keeping the view; Ctrl+Q quits. The desktop app also goes fullscreen. Some terminals take F11 for their own fullscreen; use <code>:read</code> there.</p>
 
 
 

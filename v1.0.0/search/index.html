@@ -1870,7 +1870,19 @@ and the preview scrolls to it with the words highlighted. See
 <li>Encrypted notes are found by title, tags and collection, never by their
   text.</li>
 <li>Operator words work in lowercase too (<code>and</code>, <code>or</code>, <code>not</code>).</li>
-<li>Quotes keep spaces in a value: <code>title:"weekend in lisbon"</code>.</li>
+<li>Quotes keep spaces in a value: <code>title:"weekend in lisbon"</code>. Typing <code>"</code>
+  after a field such as <code>contains:</code> adds the closing quote with the cursor
+  inside, typing <code>"</code> at the closing quote steps over it, and <code>Backspace</code> in
+  an empty <code>""</code> removes both. This happens only in search boxes; the desktop
+  keeps the quotes visible in the pill.</li>
+<li><code>\"</code> and <code>\\</code> stand for a quote and a backslash, inside quotes or not:
+  <code>contains:say\"hi\"</code>.</li>
+<li>Text search ignores punctuation, so <code>contains:```diagram</code> also finds a
+  plain <em>diagram</em>; notes with the exact text come first, pinned ones at the
+  top, and pinned notes without it no longer jump ahead. Punctuation alone,
+  such as <code>contains:\"</code>, finds nothing.</li>
+<li>While a word is still being typed, notes with the whole word come before
+  longer words: <code>contains:diagram</code> lists <em>diagram</em> above <em>diagrams</em>.</li>
 <li><code>[search] beautiful = false</code> shows queries as plain text, without pills
   and dimmed field names.</li>
 </ul>
