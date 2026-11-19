@@ -1885,6 +1885,9 @@ and the preview scrolls to it with the words highlighted. See
 <li>A better match beats a pin: exact text or whole words come first (pinned
   ones leading), then the other pinned matches, then the rest. When no match
   is better than another, pinned notes simply lead.</li>
+<li>That order comes before relevance: while a word is unfinished, a note that
+  mentions <em>diagram</em> once ranks above a note full of <em>diagrams</em>. Finish the
+  word with a space to drop matches that only start with it.</li>
 <li><code>[search] beautiful = false</code> shows queries as plain text, without pills
   and dimmed field names.</li>
 </ul>
