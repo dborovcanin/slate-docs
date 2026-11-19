@@ -92,6 +92,9 @@ and the preview scrolls to it with the words highlighted. See
 - A better match beats a pin: exact text or whole words come first (pinned
   ones leading), then the other pinned matches, then the rest. When no match
   is better than another, pinned notes simply lead.
+- That order comes before relevance: while a word is unfinished, a note that
+  mentions *diagram* once ranks above a note full of *diagrams*. Finish the
+  word with a space to drop matches that only start with it.
 - `[search] beautiful = false` shows queries as plain text, without pills
   and dimmed field names.
 
