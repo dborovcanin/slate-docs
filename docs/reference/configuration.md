@@ -24,12 +24,18 @@ and `"command_bar": "popup"` are preserved as popup off/on respectively.
 [gui]
 # Desktop effects; false skips all animations for immediate presentation.
 animations = true
+# Ctrl+P switcher lists pinned notes by edit time instead of first.
+switcher_ignore_pins = false
 
 [gui.dialog_animation]
 style = "fade-slide" # "none", "fade", "slide", "fade-slide", or "bounce"
 open_ms = 240
 close_ms = 160
 distance_px = 24
+
+[gui.dialog_backdrop]
+style = "dim" # or "none"
+opacity = 65  # percent
 
 [theme]
 color_scheme = "gruvbox-light"
@@ -122,6 +128,14 @@ Explicit TUI note-list refreshes and wiki-completion loads always prepare their
 catalogue on a worker, including when optional startup background tasks are
 disabled. This setting does not switch catalogue hydration onto the input thread.
 
+## Desktop switcher pins
+
+`[gui] switcher_ignore_pins` defaults to `false`: the desktop note switcher
+(`Ctrl+P`) lists pinned notes first, as the sidebar does. Set it to `true` so
+the empty switcher lists notes strictly by when they were last edited, pinned
+or not. Pinned notes still lead the sidebar, and a typed switcher search still
+ranks pinned matches first. The TUI ignores this option.
+
 ## Desktop animations
 
 `[gui] animations` defaults to `true`. Set it to `false` and restart the GUI
@@ -132,9 +146,12 @@ end of their movement; use `fade-slide` for a fading exit. Fade changes opacity;
 slide moves the dialog; fade-slide combines both; bounce adds a positional
 overshoot without resizing its contents. `open_ms` defaults to 240,
 `close_ms` to 160, and `distance_px` to 24 logical pixels. Distance applies
-only to slide, fade-slide and bounce. Only delete confirmations dim the window;
-their backdrop stays fixed and fades with transition progress in every style.
-Other dialogs leave the note visible behind a transparent click-catcher.
+only to slide, fade-slide and bounce. Dialogs dim the window behind them;
+the dim stays fixed and fades with transition progress in every style. Menus
+and the docked command bar leave the window undimmed.
+`[gui.dialog_backdrop]` sets the dim: `style` is `"dim"` (default) or `"none"`,
+and `opacity` is its strength in percent of the theme background (default 65,
+capped at 100).
 Zero duration skips that direction; durations are capped at 1000 ms
 and distance at 32 pixels. `style = "none"` leaves menu opening fades enabled.
 

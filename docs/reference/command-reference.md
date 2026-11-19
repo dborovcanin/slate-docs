@@ -30,6 +30,7 @@ Every command-bar command with its aliases. For what each feature does and its k
 | `today` | `daily` | Open today's daily note, creating it from the `[daily]` template |
 | `browse` | `explore`, `files` | Open the collection browser (`t` edits tags, `T` filters by tag) |
 | `info` | `note info` | Show the current note’s tags, collections, saved dates and encryption; also F4 |
+| `read` | `preview` | Read mode: every line rendered, read-only; also F11 |
 | `history` | `versions` | Browse and restore older versions of the open note |
 | `date` | | Insert a picked date |
 | `remind` | `alarm` | Set a reminder for the current line |

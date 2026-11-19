@@ -9,6 +9,7 @@ Key tables by mode. The [Feature Guide](features.md) lists the same keys grouped
 | Key      | Action                                       |
 | -------- | -------------------------------------------- |
 | `F4` / `:info` | Current note information (from the editor) |
+| `F11` / `:read` | Read mode (from the editor) |
 | `Ctrl+Q` | Quit                                         |
 | `Ctrl+P` | Note switcher                                |
 | `Ctrl+G` | Collection picker                            |
@@ -271,3 +272,7 @@ Command syntax and aliases: [Command Reference](command-reference.md).
 ### Current note information
 
 `F4` or `:info` opens a read-only metadata dialog in both front ends. Scroll with Up/Down or Page Up/Down; Home/End jump to the beginning/end. Escape, Enter, or F4 closes it. Ctrl+I remains available for italic in standard desktop editing and for Vim behavior; it is not rebound to note info.
+
+### Read mode
+
+`F11` or `:read` (`:preview`) shows the note read-only, with every line rendered as it rests: the cursor line no longer reveals its markdown source, and the terminal hides line numbers and the caret and wraps long lines. `j`/`k` or Up/Down scroll by a line, Space/Page Down and Page Up by a page, `g`/Home and `G`/End jump to the start or end. Escape, `q` or F11 leaves, keeping the view; Ctrl+Q quits. The desktop app also goes fullscreen. Some terminals take F11 for their own fullscreen; use `:read` there.

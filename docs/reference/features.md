@@ -104,7 +104,7 @@ While idle (unless `[editor] reload_outside_changes = false`), Slate checks abou
 
 ### Note info
 
-Press `F4` in the editor, or run `:info`, to inspect the current note in either front end. The desktop app also has **File → Note info**. The dialog shows its title, ID, source, tags, collections, creation and last saved update times, encryption, lock state, and unsaved edits. It fits short content and scrolls long metadata lists; long names wrap in both front ends. Opening it does not save or change the note. File-backed notes use filesystem timestamps; unavailable creation dates show “Unknown”.
+Press `F4` in the editor, or run `:info`, to inspect the current note in either front end. The desktop app also has **File → Note info**. The dialog shows its title, ID, source, tags, collections, creation and last saved update times, encryption, lock state, and unsaved edits. The terminal dialog also lists the notes this note links to (from its current text) and the notes linking to it (from their saved text, up to 500 listed), each with a count; in a large library the linking notes appear a moment after the dialog opens. The desktop app shows these in the note inspector. It fits short content and scrolls long metadata lists; long names wrap in both front ends. Opening it does not save or change the note. File-backed notes use filesystem timestamps; unavailable creation dates show “Unknown”.
 
 Use arrows or Page Up/Down to scroll long lists; Home/End jump to the beginning/end. Escape, Enter, or F4 closes the dialog and preserves the editing mode, cursor and selection. Ctrl+I keeps its existing behavior.
 
@@ -283,17 +283,17 @@ At the end of a note-search input, `Ctrl+Right` completes a field name or a matc
 
 | Syntax | Example | Matches |
 | --- | --- | --- |
-| `title:` | `title:"daily log"` | Title contains the phrase, ignoring case |
+| `title:` or `h:` | `title:"daily log"` | Title contains the phrase, ignoring case |
 | `tag:` or `#` | `#work` | Exact tag name, ignoring case |
 | `coll:` or `collection:` | `coll:"Work notes"` | Exact collection name, ignoring case |
-| `contains:` or `text:` | `contains:"release date"` | Literal phrase in indexed note text |
+| `contains:`, `text:` or `t:` | `contains:"release date"` | Literal phrase in indexed note text |
 | `AND`, `OR`, `NOT`, `-`, parentheses | `(tag:work OR #home) AND -title:draft` | Boolean combinations; AND binds tighter than OR |
 
-By default, the desktop shows field glyphs and the terminal dims typed field prefixes (`tag:`, `title:`, `contains:`, `coll:`). Set `[search] beautiful = false` in `config.toml` to show the literal query without these decorations in both apps. The query language and results stay the same.
+By default, the desktop shows field glyphs, keeping a quoted value's quotes, and the terminal dims typed field prefixes (`tag:`, `title:`, `contains:`, `coll:`). Set `[search] beautiful = false` in `config.toml` to show the literal query without these decorations in both apps. The query language and results stay the same.
 
-Operator words are case-insensitive, so `and`, `or` and `not` work like their uppercase forms. Spaces between terms mean AND, and redundant whitespace is ignored while evaluating the query. Double quotes keep spaces inside a value; `\"` and `\\` escape a quote and backslash. Multiple tags selected with the browser's `T` control become `tag:` terms joined with AND in the effective query. Collection scope still applies alongside the query.
+Operator words are case-insensitive, so `and`, `or` and `not` work like their uppercase forms. Spaces between terms mean AND, and redundant whitespace is ignored while evaluating the query. Double quotes keep spaces inside a value; `\"` and `\\` escape a quote and backslash, inside quotes or not, so `contains:say\"hi\"` ranks notes holding `say"hi"` first. The index keeps only words, so punctuation alone, such as `contains:\"`, matches nothing. In search fields of both apps, typing `"` after a field prefix such as `contains:` inserts a closed pair with the cursor inside, typing `"` at a closing quote steps over it, and Backspace inside an empty pair removes both; other text fields type quotes as they are. Multiple tags selected with the browser's `T` control become `tag:` terms joined with AND in the effective query. Collection scope still applies alongside the query.
 
-In note lists, bare title matches rank by fuzzy score, `contains:` matches by full-text relevance, and field-only queries show newer notes first. Graph match cycling follows link degree. `contains:` reads only unprotected notes; a protected note can still match by its title, tags or collections. Consequently, `-contains:secret` includes protected notes because their bodies are absent from the index. Parse errors show a position and leave the previous result list visible. Bare words match titles in every search view, including the terminal's `Ctrl+P` picker, the browser's `Ctrl+F` view, sidebar search, and MCP `search_notes`. An unfinished `contains:rel` matches indexed words beginning with `rel`; a space or a following query term finishes the word and requires an exact match. In `Ctrl+P` in both apps, Enter (or Tab without a suggestion) moves from the query to the results with the best match picked, and a second Enter opens it, even while a word is unfinished; Up from the first result, Tab or Esc return to the query, and typing edits it again. In the terminal browser's `Ctrl+F` view, Enter finishes the word. Quotes (`contains:"rel"`) also require an exact token. Quoted bare text such as `"cat dog"` matches that literal title phrase, while `cat dog` keeps ordered fuzzy matching. Snippet and matching-line views include only unprotected notes.
+In note lists, bare title matches rank by fuzzy score, `contains:` matches by full-text relevance, and field-only queries show newer notes first. The index ignores punctuation, so `` contains:```diagram `` also matches a bare `diagram`; notes holding the literal text rank first among the 512 most relevant matches, and pinned notes lead the list only with the literal text. Graph match cycling follows link degree. `contains:` reads only unprotected notes; a protected note can still match by its title, tags or collections. Consequently, `-contains:secret` includes protected notes because their bodies are absent from the index. Parse errors show a position and leave the previous result list visible. Bare words match titles in every search view, including the terminal's `Ctrl+P` picker, the browser's `Ctrl+F` view, sidebar search, and MCP `search_notes`. An unfinished `contains:rel` matches indexed words beginning with `rel`, and among the 512 most relevant, notes holding the whole word `rel` rank first in the pinned and unpinned groups; a space or a following query term finishes the word and requires an exact match. In `Ctrl+P` in both apps, Enter (or Tab without a suggestion) moves from the query to the results with the best match picked, and a second Enter opens it, even while a word is unfinished; Up from the first result, Tab or Esc return to the query, and typing edits it again. In the terminal browser's `Ctrl+F` view, Enter finishes the word. Quotes (`contains:"rel"`) also require an exact token. Quoted bare text such as `"cat dog"` matches that literal title phrase, while `cat dog` keeps ordered fuzzy matching. Snippet and matching-line views include only unprotected notes.
 
 ## Wiki links
 
@@ -347,6 +347,15 @@ edge e2 api q route=orthogonal points=100,120
 ````
 
 - `node <id> <shape> <x> <y> <w> <h> ["label"] [key=value | flag]...`
+- Lines indented by two spaces under a `node` line are its body: the label,
+  one paragraph per line, so longer text stays readable and editable in the
+  note. Blank lines stay in the body when more body lines follow; anything
+  not indented ends it. A quoted label and a body join, and a label with a
+  line break or over 1 KiB is always written as a body. Inside a body, write
+  code fences with the other fence character than the diagram's own (`~~~`
+  inside a ```` ``` ```` diagram), since a matching fence closes the diagram.
+  When Slate writes a label back and one of its lines would close the
+  diagram, it keeps the label quoted on the node line instead.
 - `edge <id> <from> <to> ["label"] [key=value | flag]...`; each end is a
   node identifier or a free point `@x,y` (`edge e1 api @300,40`)
 - Shapes: `rect`, `rounded`, `ellipse`, `rhombus`, `text`, `cylinder`, `callout`,
@@ -362,6 +371,21 @@ edge e2 api q route=orthogonal points=100,120
   Labels escape `\"`, `\\` and `\n`; `size=` (6 to 96, default 13),
   `align=left|center|right` and `valign=top|middle|bottom` set size and placement.
   `bold`, `italic` and `underline` format node and connector labels.
+  `text` nodes are text blocks: small notes whose label is markdown, best
+  written as body lines. Each line is a heading (`#` to `######`, larger and
+  bold), a bullet, numbered or checklist item (`- [ ]`, `- [x]`; indent two
+  spaces to nest), a quote (`>`), a rule (`---`), a code block line or plain
+  text; blank lines add space. Inside them, inline markdown works as in a
+  note: `**bold**`, `*italic*`, `~~strike~~`, `` `code` ``,
+  `[text](https://…)` and `[[note-id|text]]`. Without `|text` the desktop app
+  shows the linked note's title, as in the note text; exports show the id.
+  Code is set in the monospace font on a tint. Markers are hidden in the
+  picture, canvas and exports; image syntax stays as written. Web links are
+  clickable in SVG and PDF exports, and `Ctrl+click` follows a link in the
+  picture or on the canvas; on a checkbox it ticks or unticks it, as one undo
+  step that rewrites only that line. A text block follows the node's `align` and
+  `valign` and is cut with … when it does not fit. Labels of other shapes and of
+  connectors are plain text.
   `text_bg=#RRGGBB[AA]` gives labels a background; `text_bg=none` removes it,
   including the default on-screen connector label background.
   A node's label
@@ -373,8 +397,8 @@ Unreadable lines are kept exactly as written and are not drawn; the picture
 shows how many there are. An edge to a missing node is not drawn; a free end is drawn where it is, and moves with a group move or paste when its edge is selected. A repeated
 identifier keeps its first definition and makes the block read-only on the
 canvas until the source is fixed. Blocks over 256 KiB or 2,000 elements show
-their source with a "too large to draw" note; lines over 4 KiB and labels over
-1 KiB are unreadable.
+their source with a "too large to draw" note; lines over 4 KiB, quoted labels over
+1 KiB and bodies over 16 KiB are unreadable.
 
 In the desktop app a block away from the cursor is drawn as one picture.
 With the cursor or a selection in it, the block shows its source with the
@@ -402,7 +426,9 @@ existing block it reports that the canvas is desktop-only and changes nothing:
 | Lines panel: click, or drag onto the canvas | Add a free line (plain, arrow, double arrow, orthogonal, curved, dashed); new connections use the last one picked |
 | `g` or Grid | Show or hide the alignment grid |
 | Fullscreen icon or `F11` | Toggle fullscreen; Esc exits fullscreen before closing the canvas |
-| `Enter`, `F2` or double-click an element | Edit its label in place (Shift+Enter breaks the line; Enter or a click elsewhere keeps, Esc cancels) |
+| `Enter`, `F2` or double-click an element | Edit its label in place (Shift+Enter breaks the line; `Ctrl+B` / `Ctrl+I` mark the selection bold or italic; Enter or a click elsewhere keeps, Esc cancels) |
+| `Ctrl+click` a link in a text block | Open a web link in the browser, or close the canvas and open the linked note |
+| `Ctrl+click` a checkbox in a text block | Tick or untick it (also in the note's picture) |
 | Properties panel (right) | **Style**: preset fill/line pairs, fill and line colour (the colour picker used by graph groups, with an opacity track; None removes the colour, Theme default resets it), keyboard-editable line width (0.5–12, with half-point steps) beside solid, dashed and dotted previews, and for lines route (straight, elbow, curved) and arrows (none, end, both). **Text**: keyboard-editable size (6–96 pt; Enter applies, Esc cancels), bold/italic/underline, horizontal and vertical alignment, text and background colour. Choose Background → None to remove connector label boxes. **Arrange**: X, Y, width and height of one selected shape. Each change, pick or drag is one undo step |
 | `Ctrl+C` / `Ctrl+X` / `Ctrl+V` / `Ctrl+D` | Copy, cut, paste at the pointer, duplicate |
 | `Ctrl+S` | Save the note |
@@ -435,19 +461,22 @@ or show their panels, with arrows and hover labels indicating the action.
 The fullscreen icon beside the right sidebar toggle (or `F11`) fills the
 screen; closing the canvas restores the window. **Grid** and **Fit** control the view.
 
-Open **Export…** for background, PNG scale and output actions. **Export SVG**
+Open **Export…** for background and output actions. **Export SVG**
 and **Export PNG** save standalone images through the native save dialog.
 **Copy PNG** places an image on the clipboard, with progress and completion
-shown at the bottom of the canvas. Choose transparent or white background and
-**PNG scale: 1×**, **2×**, or **3×** (output resolution, not canvas zoom). Export uses the
+shown at the bottom of the canvas. Choose transparent or white background.
+PNGs are drawn at twice the diagram's size, sharp on HiDPI screens and in
+documents. Export uses the
 current diagram snapshot, preserving fixed ports, curves, styles and clipped
 labels; unreadable lines or missing endpoints must be fixed before exporting.
-The note itself is unchanged.
+The note itself is unchanged. A PNG is at most 16384 pixels per side and 16
+megapixels: a larger diagram is drawn smaller, and the status line names the
+scale used. SVG has no size limit.
 
 An exported SVG also carries a draw.io copy of the diagram, so draw.io opens
 it for editing (File > Open, or name it `*.drawio.svg`). The copy is one-way
 and lossy: positions, labels, colours, line styles, ports and waypoints carry
-over; `clipped`, `document`, `actor` and `callout` use their nearest draw.io
+over, and text blocks with markdown become draw.io HTML labels; `clipped`, `document`, `actor` and `callout` use their nearest draw.io
 shapes, `gear` becomes an ellipse, and draw.io redraws curves its own way.
 Edits made in draw.io do not come back to the note.
 

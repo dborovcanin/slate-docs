@@ -77,7 +77,19 @@ and the preview scrolls to it with the words highlighted. See
 - Encrypted notes are found by title, tags and collection, never by their
   text.
 - Operator words work in lowercase too (`and`, `or`, `not`).
-- Quotes keep spaces in a value: `title:"weekend in lisbon"`.
+- Quotes keep spaces in a value: `title:"weekend in lisbon"`. Typing `"`
+  after a field such as `contains:` adds the closing quote with the cursor
+  inside, typing `"` at the closing quote steps over it, and `Backspace` in
+  an empty `""` removes both. This happens only in search boxes; the desktop
+  keeps the quotes visible in the pill.
+- `\"` and `\\` stand for a quote and a backslash, inside quotes or not:
+  `contains:say\"hi\"`.
+- Text search ignores punctuation, so `` contains:```diagram `` also finds a
+  plain *diagram*; notes with the exact text come first, pinned ones at the
+  top, and pinned notes without it no longer jump ahead. Punctuation alone,
+  such as `contains:\"`, finds nothing.
+- While a word is still being typed, notes with the whole word come before
+  longer words: `contains:diagram` lists *diagram* above *diagrams*.
 - `[search] beautiful = false` shows queries as plain text, without pills
   and dimmed field names.
 
