@@ -134,7 +134,8 @@ disabled. This setting does not switch catalogue hydration onto the input thread
 (`Ctrl+P`) lists pinned notes first, as the sidebar does. Set it to `true` so
 the empty switcher lists notes strictly by when they were last edited, pinned
 or not. Pinned notes still lead the sidebar, and a typed switcher search still
-ranks pinned matches first. The TUI ignores this option.
+ranks pinned matches first among equally good matches. The TUI ignores this
+option.
 
 ## Desktop animations
 

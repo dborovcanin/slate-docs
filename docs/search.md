@@ -85,11 +85,13 @@ and the preview scrolls to it with the words highlighted. See
 - `\"` and `\\` stand for a quote and a backslash, inside quotes or not:
   `contains:say\"hi\"`.
 - Text search ignores punctuation, so `` contains:```diagram `` also finds a
-  plain *diagram*; notes with the exact text come first, pinned ones at the
-  top, and pinned notes without it no longer jump ahead. Punctuation alone,
+  plain *diagram*; notes with the exact text come first. Punctuation alone,
   such as `contains:\"`, finds nothing.
 - While a word is still being typed, notes with the whole word come before
   longer words: `contains:diagram` lists *diagram* above *diagrams*.
+- A better match beats a pin: exact text or whole words come first (pinned
+  ones leading), then the other pinned matches, then the rest. When no match
+  is better than another, pinned notes simply lead.
 - `[search] beautiful = false` shows queries as plain text, without pills
   and dimmed field names.
 
