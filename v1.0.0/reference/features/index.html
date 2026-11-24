@@ -1424,6 +1424,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Editing and markdown helpers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insert menu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2155,6 +2172,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Editing and markdown helpers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insert menu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2563,7 +2597,10 @@
 </li>
 <li><a href="#command-line-entry-points">Command line entry points</a></li>
 <li><a href="#daily-notes-capture-and-pipe-append">Daily notes, capture and pipe append</a></li>
-<li><a href="#editing-and-markdown-helpers">Editing and markdown helpers</a></li>
+<li><a href="#editing-and-markdown-helpers">Editing and markdown helpers</a><ul>
+<li><a href="#insert-menu">Insert menu</a></li>
+</ul>
+</li>
 <li><a href="#inline-formatting-and-list-commands">Inline formatting and list commands</a></li>
 <li><a href="#vim-mode">Vim mode</a></li>
 <li><a href="#macros">Macros</a></li>
@@ -2756,7 +2793,7 @@ open it with Slate 0.8.0, run <code>:backup export md &lt;directory&gt;</code>, 
 </code></pre></div>
 <h2 id="daily-notes-capture-and-pipe-append">Daily notes, capture and pipe append<a class="headerlink" href="#daily-notes-capture-and-pipe-append" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Daily notes</strong>: <code>slate today</code> or <code>:today</code> (alias <code>:daily</code>) opens today's note, creating it from the <code>[daily]</code> template (<code>note_prefix</code>, default <code>daily</code>; <code>template</code>, default <code>"# {date}\n\n"</code>). The cursor lands at the end, ready to type.</li>
+<li><strong>Daily notes</strong>: <code>slate today</code> or <code>:today</code> (alias <code>:daily</code>) opens today's note, creating it from the <code>[daily]</code> template (<code>series</code>, default <code>daily</code>; <code>template</code>, default <code>"# {date}\n\n"</code>). The cursor lands at the end, ready to type.</li>
 <li><strong>Quick capture</strong>: <code>slate capture buy milk</code> appends a <code>- HH:MM buy milk</code> line to today's daily note without opening the editor. With no text it reads piped stdin, so any command output can be captured:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>slate<span class="w"> </span>capture<span class="w"> </span>call<span class="w"> </span>the<span class="w"> </span>bank<span class="w"> </span>at<span class="w"> </span><span class="m">3</span>
@@ -2821,6 +2858,34 @@ open it with Slate 0.8.0, run <code>:backup export md &lt;directory&gt;</code>, 
 </tr>
 </tbody>
 </table>
+<h3 id="insert-menu">Insert menu<a class="headerlink" href="#insert-menu" title="Permanent link">&para;</a></h3>
+<p>Typing <code>/</code> at the start of a line, after a list marker or after a space opens
+the insert menu, in both apps. It stays closed where a slash usually means
+something else: inside code blocks and table rows, on <code>:=</code> calculation lines,
+and after a number or <code>)</code> (<code>12 / 4</code>).</p>
+<ul>
+<li>Type to filter: short names match first (<code>/h1</code>, <code>/todo</code>, <code>/num</code>, <code>/div</code>,
+  <code>/code</code>), then labels that begin with the text, then labels holding its
+  letters in order. Without a query the entries are grouped as Basic blocks,
+  Structure and Insert.</li>
+<li><code>ArrowUp</code> / <code>ArrowDown</code> move, <code>Enter</code> or <code>Tab</code> inserts, <code>Esc</code> closes the
+  menu and keeps the typed <code>/text</code>. Moving the cursor away, leaving Insert
+  mode or typing until nothing matches also closes it.</li>
+<li>Basic blocks: Text, Heading 1-3, Bulleted, Numbered and To-do lists,
+  Quote, Divider. On a line with text the line is converted (<code>Trip /h2</code>
+  becomes <code>## Trip</code>); on a blank line the Markdown is started.</li>
+<li>Structure: Table, Code block, Diagram (opens the canvas on desktop) and
+  Table of contents.</li>
+<li>Insert: Link to note (opens note completion), Date, Reminder and Image
+  (the <code>:date</code>, <code>:remind</code> and <code>:paste-image</code> commands).</li>
+<li>Removing the <code>/text</code> and inserting the block is one undo step.</li>
+<li>The typed <code>/text</code> sits in a soft rounded box, and a bare <code>/</code> shows a faint
+  "Type to search" (dim text in the terminal).</li>
+<li>On desktop each entry has a glyph and the Markdown it makes, and the
+  highlighted block shows a preview card; the terminal shows the
+  description under the list.</li>
+<li><code>[editor] slash_menu = false</code> turns it off.</li>
+</ul>
 <h2 id="inline-formatting-and-list-commands">Inline formatting and list commands<a class="headerlink" href="#inline-formatting-and-list-commands" title="Permanent link">&para;</a></h2>
 <p>Select text first (<code>v</code> / <code>V</code>, then <code>:</code>); the command applies to the selection.</p>
 <table>
@@ -3963,7 +4028,7 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 <h2 id="imap-email-sync">IMAP email sync<a class="headerlink" href="#imap-email-sync" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>slate imap-sync</code> pulls new messages once; <code>[imap] auto_sync_on_startup = true</code> polls in the background while Slate runs.</li>
-<li>Messages are appended to daily inbox notes (<code>inbox-email-YYYY-MM-DD</code> by default), newest first, with UID checkpoints so nothing is imported twice.</li>
+<li>Messages are appended to daily inbox notes (ULIDs, looked up by email series and local date), newest first, with UID checkpoints so nothing is imported twice.</li>
 <li>First sync only takes recent mail (<code>initial_sync_past_days</code>, default 1). New mail triggers a desktop notification.</li>
 <li>Any IMAP-over-TLS provider works; the password comes from <code>password_env</code>. Build without IMAP: <code>cargo build -p slate --no-default-features</code>.</li>
 </ul>

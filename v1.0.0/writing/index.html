@@ -587,6 +587,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-insert-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The insert menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#formatting-from-the-keyboard" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1706,6 +1717,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-insert-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The insert menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#formatting-from-the-keyboard" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1875,6 +1897,37 @@ and <code>Shift+Tab</code> indent and outdent an item.</p>
 <code>:checklist toggle</code> (desktop Standard mode: <code>Ctrl+Enter</code>). With
 <code>[editor] checklist_auto_reorder = true</code>, ticked items move below the open
 ones, as in the recording above.</p>
+<h2 id="the-insert-menu">The insert menu<a class="headerlink" href="#the-insert-menu" title="Permanent link">&para;</a></h2>
+<p>Type <code>/</code> at the start of a line, after a list marker or after a space, and an
+insert menu opens, in both apps. Keep typing to filter it: short names such
+as <code>/h2</code>, <code>/todo</code>, <code>/num</code>, <code>/quote</code>, <code>/code</code> or <code>/table</code> jump straight to
+their block. <code>↑</code>/<code>↓</code> move, <code>Enter</code> or <code>Tab</code> inserts, and <code>Esc</code> closes the
+menu and leaves what you typed as text.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Recording</label><label for="__tabbed_2_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="The insert menu: a preview of each block, filtering by typing, then a heading, a checklist and a table" src="../media/slash.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/slash.png"><img alt="The insert menu: a preview of each block, filtering by typing, then a heading, a checklist and a table" src="../media/slash.png" /></a></p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Basic blocks:</strong> text, headings 1–3, bulleted, numbered and to-do lists,
+  a quote and a divider. On a line with text the line is converted
+  (<code>Trip /h2</code> becomes a <code>## Trip</code> heading).</li>
+<li><strong>Structure:</strong> a table, a code block, a diagram and a table of contents.</li>
+<li><strong>Insert:</strong> a link to another note, a date, a reminder or the image on the
+  clipboard.</li>
+<li>Inserting is one undo step, and macros and <code>.</code> repeat it.</li>
+<li>The menu stays closed where a slash means something else: inside code
+  blocks and tables, on <code>:=</code> calculation lines and after a number (<code>12 / 4</code>).
+  <code>[editor] slash_menu = false</code> turns it off.</li>
+</ul>
+<p>On the desktop each entry shows its glyph and the Markdown it makes, with a
+preview of the highlighted block; the terminal shows a short description
+under the list.</p>
 <h2 id="formatting-from-the-keyboard">Formatting from the keyboard<a class="headerlink" href="#formatting-from-the-keyboard" title="Permanent link">&para;</a></h2>
 <p>Select text, then run a format command, or on the desktop use the small
 toolbar that appears over a selection.</p>
