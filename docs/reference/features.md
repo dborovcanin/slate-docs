@@ -20,6 +20,7 @@ Conventions:
   - [Command line entry points](#command-line-entry-points)
   - [Daily notes, capture and pipe append](#daily-notes-capture-and-pipe-append)
   - [Editing and markdown helpers](#editing-and-markdown-helpers)
+    - [Insert menu](#insert-menu)
   - [Inline formatting and list commands](#inline-formatting-and-list-commands)
   - [Vim mode](#vim-mode)
   - [Macros](#macros)
@@ -143,7 +144,7 @@ slate --help | -h
 
 ## Daily notes, capture and pipe append
 
-- **Daily notes**: `slate today` or `:today` (alias `:daily`) opens today's note, creating it from the `[daily]` template (`note_prefix`, default `daily`; `template`, default `"# {date}\n\n"`). The cursor lands at the end, ready to type.
+- **Daily notes**: `slate today` or `:today` (alias `:daily`) opens today's note, creating it from the `[daily]` template (`series`, default `daily`; `template`, default `"# {date}\n\n"`). The cursor lands at the end, ready to type.
 - **Quick capture**: `slate capture buy milk` appends a `- HH:MM buy milk` line to today's daily note without opening the editor. With no text it reads piped stdin, so any command output can be captured:
 
   ```sh
@@ -180,6 +181,35 @@ Markdown stays raw text; styling is drawn in place (no preview pane).
 | `Home` / `End`, `PageUp` / `PageDown` | Line start / end, page up / down                                                                                                |
 | `ArrowUp` / `ArrowDown`               | Move by screen row on wrapped lines; move popup selection when a popup is open                                                  |
 | `Esc`                                 | Close popup, else switch to Normal mode                                                                                         |
+
+### Insert menu
+
+Typing `/` at the start of a line, after a list marker or after a space opens
+the insert menu, in both apps. It stays closed where a slash usually means
+something else: inside code blocks and table rows, on `:=` calculation lines,
+and after a number or `)` (`12 / 4`).
+
+- Type to filter: short names match first (`/h1`, `/todo`, `/num`, `/div`,
+  `/code`), then labels that begin with the text, then labels holding its
+  letters in order. Without a query the entries are grouped as Basic blocks,
+  Structure and Insert.
+- `ArrowUp` / `ArrowDown` move, `Enter` or `Tab` inserts, `Esc` closes the
+  menu and keeps the typed `/text`. Moving the cursor away, leaving Insert
+  mode or typing until nothing matches also closes it.
+- Basic blocks: Text, Heading 1-3, Bulleted, Numbered and To-do lists,
+  Quote, Divider. On a line with text the line is converted (`Trip /h2`
+  becomes `## Trip`); on a blank line the Markdown is started.
+- Structure: Table, Code block, Diagram (opens the canvas on desktop) and
+  Table of contents.
+- Insert: Link to note (opens note completion), Date, Reminder and Image
+  (the `:date`, `:remind` and `:paste-image` commands).
+- Removing the `/text` and inserting the block is one undo step.
+- The typed `/text` sits in a soft rounded box, and a bare `/` shows a faint
+  "Type to search" (dim text in the terminal).
+- On desktop each entry has a glyph and the Markdown it makes, and the
+  highlighted block shows a preview card; the terminal shows the
+  description under the list.
+- `[editor] slash_menu = false` turns it off.
 
 ## Inline formatting and list commands
 
@@ -741,7 +771,7 @@ Details: [Export Reference](export.md).
 ## IMAP email sync
 
 - `slate imap-sync` pulls new messages once; `[imap] auto_sync_on_startup = true` polls in the background while Slate runs.
-- Messages are appended to daily inbox notes (`inbox-email-YYYY-MM-DD` by default), newest first, with UID checkpoints so nothing is imported twice.
+- Messages are appended to daily inbox notes (ULIDs, looked up by email series and local date), newest first, with UID checkpoints so nothing is imported twice.
 - First sync only takes recent mail (`initial_sync_past_days`, default 1). New mail triggers a desktop notification.
 - Any IMAP-over-TLS provider works; the password comes from `password_env`. Build without IMAP: `cargo build -p slate --no-default-features`.
 

@@ -31,6 +31,22 @@ shows hints for the main keys (`[editor] status_hints = false` hides them),
 and while text is selected it shows the sum, average and count of the
 numbers in it.
 
+## Writing
+
+The editor is the desktop app's: Markdown styled as you type, lists that
+continue themselves, and the `/` [insert menu](writing.md#the-insert-menu)
+for headings, lists, tables, code blocks and more. To-do items are drawn
+as boxes from your `[theme] icons` set (Nerd Font by default); a done item's
+check takes the accent colour and its text is dimmed and struck through.
+
+=== "Recording"
+
+    ![The terminal app: the insert menu, a checklist with a ticked item, and a quote](media/tui-slash.gif)
+
+=== "Screenshot"
+
+    [![The terminal app: the insert menu, a checklist with a ticked item, and a quote](media/tui-slash.png)](media/tui-slash.png)
+
 ## What differs from the desktop app
 
 - **Diagrams** show their source text. `:diagram` inserts an empty diagram

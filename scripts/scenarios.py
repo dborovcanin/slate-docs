@@ -87,6 +87,32 @@ def writing(s):
     s.stop("writing")
 
 
+def slash(s):
+    """The / insert menu: browse with previews, filter, insert blocks."""
+    s.gui(GUI)
+    s.record("slash")
+    s.wait(0.8)
+    s.key("ctrl+n", pause=1.0)
+    s.type("Garden day\n\n", delay=50)
+    # The whole menu, then a preview of each block on the way down.
+    s.type("/", delay=50, pause=1.8)
+    s.key("Down", pause=0.9)
+    s.key("Down", pause=1.2)
+    # The page's picture: the menu with a block's preview beside it.
+    s.still("slash")
+    # Typing filters; Enter turns the line into the block.
+    s.type("h2", delay=180, pause=1.0)
+    s.key("Return", pause=0.6)
+    s.type("Morning", delay=50)
+    s.key("Return", pause=0.3)
+    s.type("/to", delay=150, pause=1.0)
+    s.key("Return", pause=0.4)
+    s.type("Water the tomatoes\nPrune the roses\n\n", delay=45, pause=0.5)
+    s.type("/tab", delay=150, pause=1.4)
+    s.key("Return", pause=2.0)
+    s.stop("slash", still=False)
+
+
 def calc(s):
     """Every line is a calculator: arithmetic, percentages, units, times."""
     s.gui(GUI)
@@ -623,6 +649,30 @@ def tui_tour(s):
     s.stop("tui-tour")
 
 
+def tui_slash(s):
+    """The / insert menu and checklists in the terminal app."""
+    s.tui(["--new"])
+    s.record("tui-slash")
+    s.wait(0.8)
+    s.type("Garden day\n\n", delay=55, pause=0.4)
+    s.type("/", delay=55, pause=1.6)
+    s.key("Down", pause=0.6)
+    s.key("Down", pause=0.8)
+    s.type("to", delay=180, pause=1.0)
+    s.key("Return", pause=0.5)
+    s.type("Water the tomatoes\nPrune the roses\nBuy compost", delay=50, pause=0.6)
+    # A trailing " /x" ticks an item: an accent check and dimmed text.
+    s.key("Up", "Up", pause=0.3)
+    s.key("End", pause=0.2)
+    s.type(" /x", delay=180, pause=1.0)
+    s.key("Down", "Down", pause=0.2)
+    s.key("End", pause=0.2)
+    s.type("\n\n/quo", delay=120, pause=1.0)
+    s.key("Return", pause=0.3)
+    s.type("Plant after the last frost.", delay=45, pause=2.0)
+    s.stop("tui-slash")
+
+
 def capture_shell(s):
     """Capture from the shell into today's note, then open it."""
     s.env["PS1"] = "$ "
@@ -714,6 +764,7 @@ def table_fill(s):
 SCENARIOS = {
     "tour": tour,
     "writing": writing,
+    "slash": slash,
     "calc": calc,
     "currency": currency,
     "variables": variables,
@@ -733,6 +784,7 @@ SCENARIOS = {
     "help": help_and_palette,
     "themes": themes,
     "export": export_pdf,
+    "tui-slash": tui_slash,
     "tui-vim": tui_vim,
     "tui-tour": tui_tour,
     "capture": capture_shell,

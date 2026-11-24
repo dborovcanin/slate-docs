@@ -48,6 +48,7 @@ fallback = ["Symbols Nerd Font Mono", "Noto Color Emoji", "Noto Sans CJK JP"]
 
 [editor]
 markdown_autoformat = true
+slash_menu = true
 checklist_auto_reorder = true
 autosave = true
 reload_outside_changes = true
@@ -75,11 +76,11 @@ encrypt_notes = false
 password_env = "SLATE_NOTES_PASSWORD"
 
 [special_notes]
-email_note_prefix = "inbox-email"
+email_series = "inbox-email"
 email_rotation = "daily-local"
 
 [daily]
-note_prefix = "daily"
+series = "daily"
 template = "# {date}\n\n"
 
 [imap]
@@ -231,6 +232,11 @@ new notes can be created in them.
 - `unicode`: symbols from standard Unicode blocks, for any font.
 - `ascii`: plain ASCII markers.
 
+The terminal draws to-do items with the same set: Nerd Font square and
+check-square boxes, `☐` / `☑` for `unicode`, and the Markdown as written
+(`- [ ]`, `- [x]`) for `ascii`. A done item's check takes the accent colour
+and its text is dimmed and struck through.
+
 
 ### `[theme.colors]`
 
@@ -261,6 +267,7 @@ With `background = "none"`, slate treats the background as dark when picking tex
 `[editor]` keys:
 
 - `markdown_autoformat`
+- `slash_menu` (default `true`): typing `/` at a line start, after a list marker or after a space opens the insert menu; `Esc` keeps the typed text
 - `checklist_auto_reorder`
 - `autosave`
 - `reload_outside_changes`
@@ -313,7 +320,7 @@ Behavior notes:
 
 `[daily]` keys:
 
-- `note_prefix` (default `daily`): daily note ids are `<prefix>-YYYY-MM-DD`
+- `series` (default `daily`): identifies a daily-note series; each date maps to a stable ULID, independently of its title
 - `template` (default `"# {date}\n\n"`): body of a new daily note; `{date}` uses `[editor] date_format`
 
 Daily notes are opened with `:today` or `slate today`, and `slate capture <text>` (or piped stdin) appends a `- HH:MM text` entry without opening the editor.
@@ -322,7 +329,7 @@ Daily notes are opened with `:today` or `slate today`, and `slate capture <text>
 
 `[special_notes]` keys:
 
-- `email_note_prefix`
+- `email_series` (default `inbox-email`): identifies the daily email-capture series; note IDs are ULIDs
 - `email_rotation` (currently `daily-local`)
 
 ## IMAP

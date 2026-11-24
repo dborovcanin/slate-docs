@@ -35,6 +35,37 @@ and `Shift+Tab` indent and outdent an item.
 `[editor] checklist_auto_reorder = true`, ticked items move below the open
 ones, as in the recording above.
 
+## The insert menu
+
+Type `/` at the start of a line, after a list marker or after a space, and an
+insert menu opens, in both apps. Keep typing to filter it: short names such
+as `/h2`, `/todo`, `/num`, `/quote`, `/code` or `/table` jump straight to
+their block. `↑`/`↓` move, `Enter` or `Tab` inserts, and `Esc` closes the
+menu and leaves what you typed as text.
+
+=== "Recording"
+
+    ![The insert menu: a preview of each block, filtering by typing, then a heading, a checklist and a table](media/slash.gif)
+
+=== "Screenshot"
+
+    [![The insert menu: a preview of each block, filtering by typing, then a heading, a checklist and a table](media/slash.png)](media/slash.png)
+
+- **Basic blocks:** text, headings 1–3, bulleted, numbered and to-do lists,
+  a quote and a divider. On a line with text the line is converted
+  (`Trip /h2` becomes a `## Trip` heading).
+- **Structure:** a table, a code block, a diagram and a table of contents.
+- **Insert:** a link to another note, a date, a reminder or the image on the
+  clipboard.
+- Inserting is one undo step, and macros and `.` repeat it.
+- The menu stays closed where a slash means something else: inside code
+  blocks and tables, on `:=` calculation lines and after a number (`12 / 4`).
+  `[editor] slash_menu = false` turns it off.
+
+On the desktop each entry shows its glyph and the Markdown it makes, with a
+preview of the highlighted block; the terminal shows a short description
+under the list.
+
 ## Formatting from the keyboard
 
 Select text, then run a format command, or on the desktop use the small
