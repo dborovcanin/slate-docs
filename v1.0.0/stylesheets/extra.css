@@ -90,6 +90,10 @@
 .md-header__button.md-logo img {
   border-radius: 6px;
 }
+/* The PNG has square white corners; round them like the favicon in the drawer. */
+.md-nav__button.md-logo img {
+  border-radius: 20%;
+}
 .md-tabs {
   color: var(--slate-muted);
   background: var(--md-default-bg-color);
