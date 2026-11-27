@@ -8,7 +8,7 @@
       {% set icon = config.theme.icon.menu or "material/menu" %}
       {% include ".icons/" ~ icon ~ ".svg" %}
     </label>
-    <div class="md-header__title" data-md-component="header-title">
+    <div class="md-header__title">
       <a class="slate-brand" href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}">{{ config.site_name }}</a>
     </div>
     {% if config.extra.alternate %}
