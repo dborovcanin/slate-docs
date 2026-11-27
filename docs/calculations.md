@@ -233,11 +233,37 @@ note has it the line says so.
   budgets in EUR, USD and CHF add up in the currency of the first note that
   has one, and `120 kg` plus `30000 g` is `150 kg`.
 - Values of different kinds, such as kilograms and euros, or a number
-  without a unit next to one with, show `values have incompatible units`
-  instead of a partial total.
+  without a unit next to one with, show an error naming the first note at
+  fault, such as `values have incompatible units: Porto has 3 m`, instead of
+  a partial total.
 - `min` and `max` compare values after converting them, but show the winner
   as its note writes it, so the smallest of `1 kg` and `300 g` reads `300 g`.
 - Results are shown to 10 decimal places, like other calculations.
+
+### Which notes are behind a total
+
+Put the cursor on a statement and press `K` in vim mode, run `:inspect`, or
+choose **Calc → Inspect result**. Once the notes are read, a panel lists
+them:
+
+```text
+sum budget          = values have incompatible units: Trip Rome has 3 kg
+Trip Lisbon                                   120 EUR
+Trip Porto                                    300 USD
+unit does not fit (1)
+Trip Rome                                       3 kg
+without budget (1)
+Trip Faro
+4 notes
+```
+
+- The notes that count come first, largest first within each unit, then
+  the notes whose unit does not fit and the notes without the variable.
+  Up to 200 notes are listed of each kind (50 without the variable), then a
+  count of the rest.
+- On `count` or the `from` line the panel lists the matching notes.
+- `Enter` (or a click in the desktop app) opens the selected note at the
+  variable's definition. `Esc` gives up a list still being read.
 
 ### When answers update
 
@@ -282,7 +308,7 @@ A line that cannot be answered shows why, beside it:
 | `search: …` | The search cannot be read, with the reason |
 | `bare words match titles loosely; use title: or #` | The search has plain words |
 | `no matching note exports budget` | No note found has that variable |
-| `values have incompatible units` | The values cannot be added or compared |
+| `values have incompatible units: Porto has 3 m` | The values cannot be added or compared; the note named is the first whose unit does not fit |
 
 ## Turning features off per note
 

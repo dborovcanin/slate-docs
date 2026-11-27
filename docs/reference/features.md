@@ -607,9 +607,10 @@ count
 
 - `from` takes a search as in `Ctrl+P` and comes first. Bare words are refused there (they match titles loosely); use `title:` or `#`.
 - `sum`, `avg`, `min` and `max` take a variable name; `count` counts the matching notes, `count <name>` those that define the variable. Notes without it are skipped. `//` starts a comment line.
-- Units and currencies convert (`120 kg` and `30000 g` sum to `150 kg`); values that cannot be added, such as kilograms and euros, show an error instead of a total.
+- Units and currencies convert (`120 kg` and `30000 g` sum to `150 kg`); values that cannot be added, such as kilograms and euros, show an error naming the first note at fault (`values have incompatible units: Porto has 3 m`) instead of a total.
 - Answers are ghosts beside each line, never written into the note. The `from` line shows how many notes were read, such as `12 notes, 2 protected skipped`. The note holding the block, encrypted notes and file-backed notes are never read; with `contains:` the line says `protected notes not searched`. At most 5,000 notes are read, by ID, and the line then shows `first 5,000 of N notes`.
 - Blocks on screen are answered on a worker, 300 ms after you stop editing them, and again when another note changes. Both the `math` and `cross_note` modules must be on.
+- `K` (Normal) or `:inspect` on a statement lists the notes behind it, read on a worker: each with its value, largest first within each unit, then notes whose unit does not fit and notes without the variable (200 and 50 listed at most). On `count` or the `from` line it lists the matching notes. `Enter` (or a click, in the desktop app) opens the selected note at the variable's definition; `Escape` gives up a list still being read.
 
 ## Tables
 
