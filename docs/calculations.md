@@ -152,6 +152,14 @@ breaks it.
 A `query` block adds up a variable over every note a search finds. Give each
 trip note a `budget`, tag them `#trip`, and total them in one place:
 
+=== "Recording"
+
+    ![Totalling budgets, nights, distances and flight times over 167 trip notes](media/query.gif)
+
+=== "Screenshot"
+
+    [![Totalling budgets, nights, distances and flight times over 167 trip notes](media/query.png)](media/query.png)
+
 ````markdown
 ```query
 from #trip

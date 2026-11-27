@@ -210,6 +210,23 @@ def cross_note(s):
     s.stop("cross-note")
 
 
+def query(s):
+    """Total a variable over thousands of trip notes, currencies converted.
+
+    Reads the notes `slate/crates/app-core/examples/query_fixture.rs` adds.
+    """
+    s.gui(GUI)
+    s.record("query")
+    s.wait(0.8)
+    new_note(s, "Trip totals")
+    s.type("```query\n", delay=60, pause=0.4)
+    s.type("from #qf-trip AND #qf-10pct\n", delay=45, pause=0.6)
+    for line in ("sum budget", "avg nights", "max distance", "sum flight time", "count"):
+        s.type(line + "\n", delay=45, pause=0.9)
+    s.type("```", delay=60, pause=3.0)
+    s.stop("query")
+
+
 def links(s):
     """Insert a wiki link from completion, follow it, and return."""
     s.gui(GUI)
@@ -769,6 +786,7 @@ SCENARIOS = {
     "currency": currency,
     "variables": variables,
     "cross-note": cross_note,
+    "query": query,
     "tables": tables,
     "table-fill": table_fill,
     "search": search,
