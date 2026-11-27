@@ -1489,10 +1489,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conversion-assignments" class="md-nav__link">
+  <a href="#units-currencies-and-durations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conversion assignments
+        Units, currencies and durations
       
     </span>
   </a>
@@ -1781,10 +1781,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conversion-assignments" class="md-nav__link">
+  <a href="#units-currencies-and-durations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conversion assignments
+        Units, currencies and durations
       
     </span>
   </a>
@@ -1953,13 +1953,25 @@
 <li><code>!ERROR#self_reference</code></li>
 <li><code>!ERROR#cycle</code></li>
 </ul>
-<h2 id="conversion-assignments">Conversion assignments<a class="headerlink" href="#conversion-assignments" title="Permanent link">&para;</a></h2>
-<p>Conversion assignments are normalized to numeric values when stored.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>len := 3 m to km
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>len + 2
+<h2 id="units-currencies-and-durations">Units, currencies and durations<a class="headerlink" href="#units-currencies-and-durations" title="Permanent link">&para;</a></h2>
+<p>A variable keeps the unit, currency or duration of its value, and reads back
+as one quantity:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>budget := 120 kg
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>budget * 2            → 240 kg
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>len := 3 m to km      → 0.003 km
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>len + 1 km            → 1.003 km
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>d := 45min
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>d * 2                 → 90 mins
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>price := 20 EUR to USD
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>price * 2             → 50 USD
 </code></pre></div>
-<p><code>len</code> is stored as numeric <code>0.003</code> and reused numerically.</p>
+<p>Arithmetic follows the units: <code>budget + 5</code> mixes a mass with a bare number,
+so it has no result; write <code>budget + 5 kg</code>. Inexact values are reused at the
+10 decimal places calc shows (<code>1 kg / 3</code> reads back as <code>0.3333333333 kg</code>),
+as for plain numbers.</p>
+<p>Cross-note references (<code>[[ID]].name</code>) read the same value, unit included:
+<code>[[ID]].budget * 2</code> gives <code>240 kg</code>. Durations cross notes too; clock times
+(<code>start := 09:10</code>) stay within their note.</p>
 <h2 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
 <ul>
 <li>unresolved variable refs produce no ghost output</li>
@@ -1990,15 +2002,14 @@
   variables that truly depend on each other across notes stay unresolved.</li>
 <li>The in-memory index tracks source revisions, dependencies and in-flight
   loads; changed exports invalidate dependent values for subsequent evaluation.</li>
-<li>With background tasks on, a note opens without waiting for the notes it
-  reads: a worker loads them and its values appear when they finish. Edits
-  meanwhile wait at most briefly for those notes instead of loading them.
-  Without background tasks, references load before evaluation as before.</li>
+<li>A note opens without waiting for the notes it reads, and edits never load
+  or wait for them: a worker loads them and their values appear when it
+  finishes.</li>
 </ul>
 <h3 id="scoping-rules">Scoping rules<a class="headerlink" href="#scoping-rules" title="Permanent link">&para;</a></h3>
 <ul>
 <li>only variables assigned with <code>:=</code> are exported; expression results are not</li>
-<li>conversion assignments export their resolved numeric value</li>
+<li>conversion assignments export their converted value with its unit; clock times are not exported</li>
 <li>the consuming note needs <code>math</code>, <code>variables</code> and <code>cross_note</code>; the source must export the variable under its own module configuration</li>
 </ul>
 <h3 id="autocomplete">Autocomplete<a class="headerlink" href="#autocomplete" title="Permanent link">&para;</a></h3>

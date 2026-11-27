@@ -728,6 +728,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#totals-across-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Totals across notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#turning-features-off-per-note" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1728,6 +1739,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#totals-across-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Totals across notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#turning-features-off-per-note" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1859,8 +1881,9 @@ in the same JSON shape works; see <a href="../reference/scripting/#currency-rate
 <li>If a name is assigned twice, the last assignment wins.</li>
 <li>After three letters (<code>[editor] variable_autocomplete_min_chars</code>), Slate
   suggests matching names; <code>Tab</code> or <code>Enter</code> accepts.</li>
-<li>A conversion stores its number: <code>budget := 2000 RSD to EUR</code> keeps the
-  amount in euros.</li>
+<li>A variable keeps its unit or currency: <code>budget := 2000 RSD to EUR</code> holds
+  euros, so <code>budget * 2</code> is in euros too, and <code>weight := 120 kg</code> stays a mass.
+  Adding a bare number to it (<code>weight + 5</code>) has no answer; write <code>weight + 5 kg</code>.</li>
 <li>Variable names are highlighted; in vim mode <code>gd</code> on a name jumps to where
   it is defined.</li>
 <li>Variables can hold clock times and durations too:
@@ -1889,6 +1912,47 @@ use them pick up the new values. <code>Ctrl+]</code> follows the link to the sou
 and <code>Alt+Left</code> comes back. Away from the cursor the link reads
 <code>Lisbon budget.total</code>; because it stores the id, renaming the note never
 breaks it.</p>
+<h2 id="totals-across-notes">Totals across notes<a class="headerlink" href="#totals-across-notes" title="Permanent link">&para;</a></h2>
+<p>A <code>query</code> block adds up a variable over every note a search finds. Give each
+trip note a <code>budget</code>, tag them <code>#trip</code>, and total them in one place:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Recording</label><label for="__tabbed_5_2">Screenshot</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Totalling budgets, nights, distances and flight times over 167 trip notes" src="../media/query.gif" /></p>
+</div>
+<div class="tabbed-block">
+<p><a href="../media/query.png"><img alt="Totalling budgets, nights, distances and flight times over 167 trip notes" src="../media/query.png" /></a></p>
+</div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">```query</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">from #trip</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">sum budget</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">avg budget</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">max budget</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">count</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sb">```</span>
+</code></pre></div>
+<p>Answers appear beside each line, and the <code>from</code> line says how many notes were
+read (<code>4 notes</code>). Like other calculation results they are never written into
+the note.</p>
+<ul>
+<li><code>from</code> takes the same search as <code>Ctrl+P</code> (<code>#trip AND coll:"2026"</code>), but not
+  bare words; use <code>title:</code> or <code>#</code>.</li>
+<li><code>sum</code>, <code>avg</code>, <code>min</code> and <code>max</code> take a variable name; notes without that
+  variable are skipped. <code>count</code> counts the notes found, <code>count budget</code> those
+  with a budget.</li>
+<li>Units and currencies convert: budgets in EUR, USD and CHF add up in one
+  currency, and <code>120 kg</code> plus <code>30000 g</code> is <code>150 kg</code>. Values that cannot be
+  added, such as kilograms and euros, show an error instead of a total.</li>
+<li>Totals update shortly after you stop editing the block, and when a note
+  they read changes, including one changed by another app.</li>
+<li>The note holding the block is not counted, and encrypted notes are never
+  read; the <code>from</code> line reports them (<code>2 protected skipped</code>). A block reads at
+  most 5,000 notes.</li>
+<li>Blocks need the <code>math</code> and <code>cross_note</code> features on in the note holding
+  them.</li>
+</ul>
 <h2 id="turning-features-off-per-note">Turning features off per note<a class="headerlink" href="#turning-features-off-per-note" title="Permanent link">&para;</a></h2>
 <p>Each note can switch calculation features on and off: <code>:module status</code> shows
 them, and <code>:module math off</code> (or <code>table</code>, <code>variables</code>, <code>cross_note</code>, <code>style</code>)

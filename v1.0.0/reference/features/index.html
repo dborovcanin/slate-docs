@@ -1574,6 +1574,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Variables and cross-note variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#totals-across-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Totals across notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2322,6 +2339,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Variables and cross-note variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#totals-across-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Totals across notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2609,7 +2643,10 @@
 <li><a href="#images-and-image-preview">Images and image preview</a></li>
 <li><a href="#diagrams">Diagrams</a></li>
 <li><a href="#inline-calculations">Inline calculations</a></li>
-<li><a href="#variables-and-cross-note-variables">Variables and cross-note variables</a></li>
+<li><a href="#variables-and-cross-note-variables">Variables and cross-note variables</a><ul>
+<li><a href="#totals-across-notes">Totals across notes</a></li>
+</ul>
+</li>
 <li><a href="#tables">Tables</a></li>
 <li><a href="#folding">Folding</a></li>
 <li><a href="#dates-and-reminders">Dates and reminders</a></li>
@@ -3313,14 +3350,17 @@ like any other code block.</p>
 <li><code>edge &lt;id&gt; &lt;from&gt; &lt;to&gt; ["label"] [key=value | flag]...</code>; each end is a
   node identifier or a free point <code>@x,y</code> (<code>edge e1 api @300,40</code>)</li>
 <li>Shapes: <code>rect</code>, <code>rounded</code>, <code>ellipse</code>, <code>rhombus</code>, <code>text</code>, <code>cylinder</code>, <code>callout</code>,
-  <code>hexagon</code>, <code>clipped</code>, <code>triangle</code>, <code>actor</code>, <code>document</code>, <code>cloud</code>, <code>gear</code>, <code>arrow</code>. Other
+  <code>hexagon</code>, <code>clipped</code>, <code>triangle</code>, <code>actor</code>, <code>document</code>, <code>cloud</code>, <code>gear</code>, <code>arrow</code>,
+  <code>parallelogram</code>, <code>tape</code>, <code>or</code>, <code>xor</code>, <code>storage</code> (draw.io's data storage). Other
   names draw as <code>rect</code> and keep their name.</li>
 <li>Keys: <code>fill</code>, <code>stroke</code> and <code>text</code> take <code>#rgb</code>, <code>#rrggbb</code>, <code>#rrggbbaa</code>
   (with opacity) or <code>none</code> (no fill, no outline or no label); <code>dashed</code> and
   <code>dotted</code> select the outline pattern; <code>stroke_width=</code> sets connector and
   outline thickness from 0.5 to 12 (default 1.5).
   <code>route=straight|orthogonal|curved</code>; <code>arrow=none|end|both</code>; <code>points=x,y;x,y</code>
-  (waypoints). Unknown keys are kept and ignored.</li>
+  (waypoints). <code>rotate=</code> turns a node clockwise by that many degrees about
+  its centre (as draw.io's <code>rotation</code>); its label stays upright, and lines
+  still leave it up, right, down or left. Unknown keys are kept and ignored.</li>
 <li>Coordinates are whole numbers within ±1,000,000; sizes are positive.
   Labels escape <code>\"</code>, <code>\\</code> and <code>\n</code>; <code>size=</code> (6 to 96, default 13),
   <code>align=left|center|right</code> and <code>valign=top|middle|bottom</code> set size and placement.
@@ -3350,7 +3390,7 @@ like any other code block.</p>
 <p>Unreadable lines are kept exactly as written and are not drawn; the picture
 shows how many there are. An edge to a missing node is not drawn; a free end is drawn where it is, and moves with a group move or paste when its edge is selected. A repeated
 identifier keeps its first definition and makes the block read-only on the
-canvas until the source is fixed. Blocks over 256 KiB or 2,000 elements show
+canvas until the source is fixed. Blocks over 1 MiB or 5,000 elements show
 their source with a "too large to draw" note; lines over 4 KiB, quoted labels over
 1 KiB and bodies over 16 KiB are unreadable.</p>
 <p>In the desktop app a block away from the cursor is drawn as one picture.
@@ -3406,11 +3446,15 @@ existing block it reports that the canvas is desktop-only and changes nothing:</
 <td>Resize; a live width × height badge shows diagram units</td>
 </tr>
 <tr>
+<td>Drag the circling arrow beyond the selected node's top-right corner</td>
+<td>Rotate by whole degrees, snapping to multiples of 15° within 3° (Shift: no snapping); Arrange › Rotation steps 1° or takes a typed angle. A rotated node resizes along its own sides, its opposite corner staying put</td>
+</tr>
+<tr>
 <td>Select an edge, drag its handles</td>
 <td>Bend through waypoints; double-click a waypoint removes it</td>
 </tr>
 <tr>
-<td>Shapes panel (left; its header collapses it): click, or drag onto the canvas; <code>r</code> <code>o</code> <code>e</code> <code>d</code> <code>t</code> <code>c</code>; double-click empty space</td>
+<td>Shapes panel (left; its header collapses it): click, or drag onto the canvas (a dashed outline shows where it lands); <code>r</code> <code>o</code> <code>e</code> <code>d</code> <code>t</code> <code>c</code>; double-click empty space</td>
 <td>Add rect, rounded, ellipse, rhombus, text, cylinder</td>
 </tr>
 <tr>
@@ -3538,7 +3582,7 @@ longer a diagram) is refused and the canvas reloads.</p>
 </tr>
 </tbody>
 </table>
-<p><code>:sum</code> and <code>:avg</code> count each variable, formula and formula cell as its computed value, other table cells as their own expression (units kept), and other text as the numbers in it, skipping list markers. The result is inserted after the selection (at the cursor without one) and copied.</p>
+<p><code>:sum</code> and <code>:avg</code> count each variable, formula and formula cell as its computed value, other table cells as their own expression (units kept), and other text as the numbers in it, skipping list markers. The result is inserted after the selection (at the cursor without one) and copied. Without a selection, a note of 2,000 lines or more is calculated whole on a worker first (<code>sum(note): calculating…</code>); the result is then inserted at the cursor where you ran the command, or dropped with a message if you edited the note meanwhile.</p>
 <p>The terminal status bar shows sum, average and count only while text or table
 cells are selected. These live statistics extract numeric literals, skip list
 markers and digits belonging to names such as <code>usteda_13</code>, and do not replace
@@ -3567,7 +3611,7 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 <h2 id="variables-and-cross-note-variables">Variables and cross-note variables<a class="headerlink" href="#variables-and-cross-note-variables" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Assign with <code>name := expression</code>; reference by name anywhere in the note. Names are case-insensitive and may contain spaces.</li>
-<li>Dependents update as definitions change; conversions store numeric values (<code>len := 3 m to km</code>).</li>
+<li>Dependents update as definitions change; values keep their unit, currency or duration (<code>len := 3 m to km</code> holds <code>0.003 km</code>).</li>
 <li><code>gd</code> (Normal) on a variable jumps to its definition (the last assignment, the one in effect). On <code>[[id]].name</code> it opens the other note at that definition.</li>
 <li>Variable names are highlighted; an autocomplete popup appears after <code>[editor] variable_autocomplete_min_chars</code> (default 3) characters.</li>
 <li>Another note's variable: <code>[[ID]].name</code> (needs the <code>cross_note</code> module); typing <code>[[ID]].</code> suggests that note's variables.</li>
@@ -3595,6 +3639,23 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 </tbody>
 </table>
 <p>Full rules: <a href="../variables/">Variables Specification</a>.</p>
+<h3 id="totals-across-notes">Totals across notes<a class="headerlink" href="#totals-across-notes" title="Permanent link">&para;</a></h3>
+<p>A fenced <code>query</code> block totals a variable over the notes a search matches:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">```query</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">from #trip AND coll:"2026"</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">sum budget</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">avg nights</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">max budget</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">count</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sb">```</span>
+</code></pre></div>
+<ul>
+<li><code>from</code> takes a search as in <code>Ctrl+P</code> and comes first. Bare words are refused there (they match titles loosely); use <code>title:</code> or <code>#</code>.</li>
+<li><code>sum</code>, <code>avg</code>, <code>min</code> and <code>max</code> take a variable name; <code>count</code> counts the matching notes, <code>count &lt;name&gt;</code> those that define the variable. Notes without it are skipped. <code>//</code> starts a comment line.</li>
+<li>Units and currencies convert (<code>120 kg</code> and <code>30000 g</code> sum to <code>150 kg</code>); values that cannot be added, such as kilograms and euros, show an error instead of a total.</li>
+<li>Answers are ghosts beside each line, never written into the note. The <code>from</code> line shows how many notes were read, such as <code>12 notes, 2 protected skipped</code>. The note holding the block, encrypted notes and file-backed notes are never read; with <code>contains:</code> the line says <code>protected notes not searched</code>. At most 5,000 notes are read, by ID, and the line then shows <code>first 5,000 of N notes</code>.</li>
+<li>Blocks on screen are answered on a worker, 300 ms after you stop editing them, and again when another note changes. Both the <code>math</code> and <code>cross_note</code> modules must be on.</li>
+</ul>
 <h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h2>
 <p>Markdown tables align as you type, and the cursor moves by cell.</p>
 <ul>
@@ -3960,7 +4021,7 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 </tr>
 <tr>
 <td><code>cross_note</code></td>
-<td><code>[[ID]].name</code> references</td>
+<td><code>[[ID]].name</code> references and <code>query</code> blocks</td>
 </tr>
 </tbody>
 </table>
@@ -4077,13 +4138,13 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 <p>Type to filter headings with case-insensitive fuzzy matching. Use Up/Down or <code>Ctrl+N</code>/<code>Ctrl+P</code> to choose, Page Up/Down to move ten headings, and Enter to jump. Left/Right, Home/End, Backspace, and Delete edit the query. Escape closes without moving. The picker starts on the section containing the cursor and reveals enclosing folds when jumping. In the desktop app, click a heading to jump. Opening the picker again reads the current text; it never inserts or changes note content.</p>
 <h3 id="generated-toc-sections">Generated TOC sections<a class="headerlink" href="#generated-toc-sections" title="Permanent link">&para;</a></h3>
 <p><code>:toc insert</code> inserts a generated section above the cursor's line, keeping the cursor on the original text. Move outside code blocks, lists, and tables before inserting:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">```toc</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">**Table of contents**</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">- [Introduction](#introduction)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">  - [Setup](#setup)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">- [Usage](#usage)</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sb">```</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="sb">```toc</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s">**Table of contents**</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s">- [Introduction](#introduction)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s">  - [Setup](#setup)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s">- [Usage](#usage)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="sb">```</span>
 </code></pre></div>
 <p>The contents render as Markdown in both apps. Headings inside code fences are excluded; duplicate headings receive distinct link anchors. Use <code>gd</code> in Vim mode or <code>Ctrl+]</code> on an entry to jump to its heading, revealing enclosing folds.</p>
 <p><code>:toc refresh</code> regenerates every existing <code>toc</code> section in the current note, replacing only the text between its fences. Each insert or refresh is one undoable change. Heading edits do not update a TOC automatically; refresh when needed. An unchanged refresh does not add an undo entry. To remove a TOC, delete its fenced section.</p>
