@@ -728,6 +728,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#where-a-result-comes-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where a result comes from
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#totals-across-notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1800,6 +1811,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#where-a-result-comes-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where a result comes from
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#totals-across-notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2034,6 +2056,28 @@ use them pick up the new values. <code>Ctrl+]</code> follows the link to the sou
 and <code>Alt+Left</code> comes back. Away from the cursor the link reads
 <code>Lisbon budget.total</code>; because it stores the id, renaming the note never
 breaks it.</p>
+<h2 id="where-a-result-comes-from">Where a result comes from<a class="headerlink" href="#where-a-result-comes-from" title="Permanent link">&para;</a></h2>
+<p>Put the cursor on a line with a result and press <code>K</code> in vim mode, run
+<code>:inspect</code>, or choose <strong>Calc → Inspect result</strong> in the desktop app. A panel
+shows what the result was computed from:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>total := hours * rate + [[Lisbon trip]].travel     = 4298.7148860085 EUR
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>hours   48         line 4
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>rate    85 EUR     line 3
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>travel  240 USD    Lisbon trip
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>1 EUR = 1.0973 USD · rates of 2026-11-27
+</code></pre></div>
+<ul>
+<li>Each variable the line reads, with its value and where it is defined: a
+  line of this note, or another note. A plain value such as <code>x := 5</code>, which
+  shows no result of its own, shows its definition instead.</li>
+<li>When more than one currency is involved, the exchange rates used and the
+  date they were published.</li>
+<li><code>Enter</code> (or a click in the desktop app) jumps to the selected definition,
+  opening the other note when it is there; <code>Esc</code> closes.</li>
+<li>On a link, <code>K</code> previews the linked note instead.</li>
+<li>The panel shows one level: inspect an input's own line to see what that
+  line reads.</li>
+</ul>
 <h2 id="totals-across-notes">Totals across notes<a class="headerlink" href="#totals-across-notes" title="Permanent link">&para;</a></h2>
 <p>A <code>query</code> block adds up a variable over every note a search finds. Give each
 trip note a <code>budget</code>, tag them <code>#trip</code>, and total them in one place:</p>
@@ -2047,13 +2091,13 @@ trip note a <code>budget</code>, tag them <code>#trip</code>, and total them in 
 </div>
 </div>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">```query</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">from #trip</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">sum budget</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">avg budget</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">max budget</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">count</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sb">```</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="sb">```query</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s">from #trip</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s">sum budget</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s">avg budget</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s">max budget</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s">count</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="sb">```</span>
 </code></pre></div>
 <p>Answers appear beside each line, and the <code>from</code> line says how many notes were
 read (<code>4 notes</code>). Like other calculation results they are never written into
@@ -2132,7 +2176,10 @@ note has it the line says so.</p>
 <li>After you edit a block, its answers return once you stop typing for a
   moment. They follow other notes too: when a note it reads changes, in
   either app, through another program or a sync, and when exchange rates are
-  refreshed. The previous answer stays on screen until the new one is ready.</li>
+  refreshed. The previous answer stays on screen until the new one is ready.
+  When the change is known to touch values the block reads, such as new
+  exchange rates or an edit in another open note, its <code>from</code> line adds
+  <code>refreshing</code> meanwhile.</li>
 <li>Exports, PDFs and copied text show the block as written, without answers.</li>
 </ul>
 <h3 id="what-is-left-out">What is left out<a class="headerlink" href="#what-is-left-out" title="Permanent link">&para;</a></h3>

@@ -3122,7 +3122,7 @@ and after a number or <code>)</code> (<code>12 / 4</code>).</p>
 </tr>
 <tr>
 <td><code>K</code></td>
-<td>Preview linked note</td>
+<td>Preview linked note; elsewhere, inspect the line's result</td>
 </tr>
 <tr>
 <td><code>gx</code></td>
@@ -3605,7 +3605,7 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 <li>Clock time - clock time is a duration and clock time ± duration a clock time; adding, multiplying or dividing clock times gives no result.</li>
 <li>Results read as <code>2h 35min</code> and <code>11:10</code>, so <code>Tab</code> and variables keep them: <code>start := 09:10</code>, <code>lunch := 12:00-12:45</code>, then <code>17:30 - start - lunch</code>.</li>
 <li>A clock time on its own (<code>meeting at 10:30</code>) shows no result. Words after a calculation are a label (<code>11:45 - 09:10 work</code> → <code>2h 35min</code>), but a line with more times or arithmetic after its words shows nothing (<code>9:00-17:00 office, 12:00-12:30 lunch</code>): put each range on its own line. <code>to</code> / <code>in</code> converts a duration as usual: <code>(17:00 - 09:00) to min</code>; a clock time does not convert.</li>
-<li>A variable holding a clock time or duration is not offered to other notes yet. Durations written directly (<code>lunch := 45min</code>) keep only their number, like other units in variables.</li>
+<li>A variable holding a duration (<code>lunch := 45min</code>, <code>work := 09:10-17:30</code>) keeps it as a duration and is offered to other notes and query blocks; one holding a clock time (<code>start := 09:10</code>) is not offered to other notes yet.</li>
 <li><code>:sum</code> / <code>:avg</code> do not add up ranges yet.</li>
 </ul>
 <h2 id="variables-and-cross-note-variables">Variables and cross-note variables<a class="headerlink" href="#variables-and-cross-note-variables" title="Permanent link">&para;</a></h2>
@@ -3613,6 +3613,7 @@ the expression-aware <code>:sum</code> / <code>:avg</code> commands. An unindent
 <li>Assign with <code>name := expression</code>; reference by name anywhere in the note. Names are case-insensitive and may contain spaces.</li>
 <li>Dependents update as definitions change; values keep their unit, currency or duration (<code>len := 3 m to km</code> holds <code>0.003 km</code>).</li>
 <li><code>gd</code> (Normal) on a variable jumps to its definition (the last assignment, the one in effect). On <code>[[id]].name</code> it opens the other note at that definition.</li>
+<li><code>K</code> (Normal, off a link) or <code>:inspect</code> on a line with a result shows what it was computed from: each variable it reads with its value and where it is defined (a line of this note, or another note for <code>[[id]].name</code>), and the exchange rates used when more than one currency is involved. <code>Enter</code> (or a click, in the desktop app) jumps to the selected definition; <code>Esc</code> closes. The desktop app also has <strong>Calc → Inspect result</strong>.</li>
 <li>Variable names are highlighted; an autocomplete popup appears after <code>[editor] variable_autocomplete_min_chars</code> (default 3) characters.</li>
 <li>Another note's variable: <code>[[ID]].name</code> (needs the <code>cross_note</code> module); typing <code>[[ID]].</code> suggests that note's variables.</li>
 </ul>
