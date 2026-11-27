@@ -736,6 +736,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Where a result comes from">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-calculation-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding calculation problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -766,6 +783,17 @@
     <span class="md-ellipsis">
       
         Which values are read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-notes-are-behind-a-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which notes are behind a total
       
     </span>
   </a>
@@ -1819,6 +1847,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Where a result comes from">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-calculation-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding calculation problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1849,6 +1894,17 @@
     <span class="md-ellipsis">
       
         Which values are read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-notes-are-behind-a-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which notes are behind a total
       
     </span>
   </a>
@@ -2077,7 +2133,49 @@ shows what the result was computed from:</p>
 <li>On a link, <code>K</code> previews the linked note instead.</li>
 <li>The panel shows one level: inspect an input's own line to see what that
   line reads.</li>
+<li>On a line whose calculation failed, the panel says why instead.</li>
 </ul>
+<h3 id="finding-calculation-problems">Finding calculation problems<a class="headerlink" href="#finding-calculation-problems" title="Permanent link">&para;</a></h3>
+<p><code>]e</code> and <code>[e</code> in vim mode, <code>:problem next</code> and <code>:problem previous</code> (<code>:pn</code>,
+<code>:pp</code>), or <strong>Calc → Next / Previous calc problem</strong> go to the next or previous
+line whose calculation failed, and the status bar says why:</p>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x cannot be calculated</code></td>
+<td>The definition of <code>x</code> has no answer, for example because it uses a name never defined</td>
+</tr>
+<tr>
+<td><code>a depends on itself</code></td>
+<td><code>a</code> is defined through itself, directly or through other variables</td>
+</tr>
+<tr>
+<td><code>b has no value</code></td>
+<td><code>b</code> uses a variable that has no value</td>
+</tr>
+<tr>
+<td><code>price is not a number</code></td>
+<td><code>price</code> gives text or a date rather than a number</td>
+</tr>
+<tr>
+<td><code>linked note not found: [[id]]</code></td>
+<td>The linked note was deleted</td>
+</tr>
+<tr>
+<td><code>Costs does not define nope</code></td>
+<td>The linked note has no variable of that name</td>
+</tr>
+</tbody>
+</table>
+<p>The note is checked once when you first ask, then again only after it, the
+calculation settings or other notes' values change. A line that calc reads as
+plain text, such as <code>5 kg + 3 m</code>, is not counted as a problem.</p>
 <h2 id="totals-across-notes">Totals across notes<a class="headerlink" href="#totals-across-notes" title="Permanent link">&para;</a></h2>
 <p>A <code>query</code> block adds up a variable over every note a search finds. Give each
 trip note a <code>budget</code>, tag them <code>#trip</code>, and total them in one place:</p>
@@ -2162,11 +2260,34 @@ note has it the line says so.</p>
   budgets in EUR, USD and CHF add up in the currency of the first note that
   has one, and <code>120 kg</code> plus <code>30000 g</code> is <code>150 kg</code>.</li>
 <li>Values of different kinds, such as kilograms and euros, or a number
-  without a unit next to one with, show <code>values have incompatible units</code>
-  instead of a partial total.</li>
+  without a unit next to one with, show an error naming the first note at
+  fault, such as <code>values have incompatible units: Porto has 3 m</code>, instead of
+  a partial total.</li>
 <li><code>min</code> and <code>max</code> compare values after converting them, but show the winner
   as its note writes it, so the smallest of <code>1 kg</code> and <code>300 g</code> reads <code>300 g</code>.</li>
 <li>Results are shown to 10 decimal places, like other calculations.</li>
+</ul>
+<h3 id="which-notes-are-behind-a-total">Which notes are behind a total<a class="headerlink" href="#which-notes-are-behind-a-total" title="Permanent link">&para;</a></h3>
+<p>Put the cursor on a statement and press <code>K</code> in vim mode, run <code>:inspect</code>, or
+choose <strong>Calc → Inspect result</strong>. Once the notes are read, a panel lists
+them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sum budget          = values have incompatible units: Trip Rome has 3 kg
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Trip Lisbon                                   120 EUR
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Trip Porto                                    300 USD
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>unit does not fit (1)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Trip Rome                                       3 kg
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>without budget (1)
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Trip Faro
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>4 notes
+</code></pre></div>
+<ul>
+<li>The notes that count come first, largest first within each unit, then
+  the notes whose unit does not fit and the notes without the variable.
+  Up to 200 notes are listed of each kind (50 without the variable), then a
+  count of the rest.</li>
+<li>On <code>count</code> or the <code>from</code> line the panel lists the matching notes.</li>
+<li><code>Enter</code> (or a click in the desktop app) opens the selected note at the
+  variable's definition. <code>Esc</code> gives up a list still being read.</li>
 </ul>
 <h3 id="when-answers-update">When answers update<a class="headerlink" href="#when-answers-update" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2240,8 +2361,8 @@ note has it the line says so.</p>
 <td>No note found has that variable</td>
 </tr>
 <tr>
-<td><code>values have incompatible units</code></td>
-<td>The values cannot be added or compared</td>
+<td><code>values have incompatible units: Porto has 3 m</code></td>
+<td>The values cannot be added or compared; the note named is the first whose unit does not fit</td>
 </tr>
 </tbody>
 </table>
