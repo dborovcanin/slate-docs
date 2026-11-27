@@ -174,21 +174,87 @@ Answers appear beside each line, and the `from` line says how many notes were
 read (`4 notes`). Like other calculation results they are never written into
 the note.
 
-- `from` takes the same search as `Ctrl+P` (`#trip AND coll:"2026"`), but not
-  bare words; use `title:` or `#`.
-- `sum`, `avg`, `min` and `max` take a variable name; notes without that
-  variable are skipped. `count` counts the notes found, `count budget` those
-  with a budget.
-- Units and currencies convert: budgets in EUR, USD and CHF add up in one
-  currency, and `120 kg` plus `30000 g` is `150 kg`. Values that cannot be
-  added, such as kilograms and euros, show an error instead of a total.
-- Totals update shortly after you stop editing the block, and when a note
-  they read changes, including one changed by another app.
-- The note holding the block is not counted, and encrypted notes are never
-  read; the `from` line reports them (`2 protected skipped`). A block reads at
-  most 5,000 notes.
+### Writing a block
+
+A block is a fenced code block with the language `query`. A note can hold
+any number of them. Each line is one statement:
+
+| Line | Shows |
+| --- | --- |
+| `from <search>` | Which notes are read: `12 notes` |
+| `sum budget` | The total of `budget` over those notes |
+| `avg budget` | The average, over the notes that have a `budget` |
+| `min budget`, `max budget` | The smallest and largest value, as written in its note |
+| `count` | How many notes the search found |
+| `count budget` | How many of them have a `budget` |
+| `// a comment` | Nothing; blank lines are fine too |
+
+- `from` comes first, once per block. It takes the same search as the
+  [note switcher](search.md#the-note-switcher): tags, collections, `title:`,
+  `contains:`, `AND`, `OR`, `-` and parentheses, for example
+  `from (#trip OR #weekend) AND coll:"2026" -#cancelled`. Plain words are not
+  accepted, since they match titles loosely; write `title:lisbon` instead.
+- Variable names work as in the note: case does not matter and spaces are
+  allowed (`avg nights out`).
+
+### Which values are read
+
+Each note found contributes its variables as that note works them out,
+including values it reads from other notes; if a name is assigned twice, the
+last assignment counts. Notes without the variable are skipped, and when no
+note has it the line says so.
+
+- Units, currencies and durations are kept. Values of the same kind convert:
+  budgets in EUR, USD and CHF add up in the currency of the first note that
+  has one, and `120 kg` plus `30000 g` is `150 kg`.
+- Values of different kinds, such as kilograms and euros, or a number
+  without a unit next to one with, show `values have incompatible units`
+  instead of a partial total.
+- `min` and `max` compare values after converting them, but show the winner
+  as its note writes it, so the smallest of `1 kg` and `300 g` reads `300 g`.
+- Results are shown to 10 decimal places, like other calculations.
+
+### When answers update
+
+- Answers are worked out in the background, one block at a time, so typing
+  never waits for them. Only blocks on screen are worked out; scrolling to
+  another block works it out then.
+- After you edit a block, its answers return once you stop typing for a
+  moment. They follow other notes too: when a note it reads changes, in
+  either app, through another program or a sync, and when exchange rates are
+  refreshed. The previous answer stays on screen until the new one is ready.
+- Exports, PDFs and copied text show the block as written, without answers.
+
+### What is left out
+
+- The note holding the block is never counted, even if it matches.
+- Encrypted notes are never read, even while unlocked. When the search only
+  looks at tags, collections and titles, the `from` line counts the ones it
+  skipped (`12 notes, 2 protected skipped`); a `contains:` search cannot look
+  inside them, so it says `protected notes not searched`.
+- Markdown files opened by path (`slate notes.md`) are not searched; a block
+  inside one still totals the notes in Slate.
+- A block reads at most 5,000 notes, the oldest first; past that the `from`
+  line says `first 5,000 of 8,200 notes`.
+- Answers cannot be used in calculations, variables or other blocks.
 - Blocks need the `math` and `cross_note` features on in the note holding
-  them.
+  them (see below); otherwise the `from` line says so.
+
+### Problems
+
+A line that cannot be answered shows why, beside it:
+
+| Message | Meaning |
+| --- | --- |
+| `add a from line to choose notes` | The block has no `from` line (shown on the opening fence) |
+| `from must come first` | A statement comes before `from` |
+| `only one from line` | A second `from` in the same block |
+| `unknown statement 'total'; …` | The line is not one of the statements above |
+| `sum needs a variable name` | `sum`, `avg`, `min` or `max` without a name |
+| `search: …` | The search cannot be read, with the reason |
+| `bare words match titles loosely; use title: or #` | The search has plain words |
+| `no matching note exports budget` | No note found has that variable |
+| `values have incompatible units` | The values cannot be added or compared |
 
 ## Turning features off per note
 
