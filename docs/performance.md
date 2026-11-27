@@ -43,6 +43,3 @@ recordings.
 `:perf on` starts recording timings, `:perf dump` writes the slowest
 operations to a log, and `:perf where` shows where the log is. Attach that
 log to a bug report and it tells exactly what was slow.
-
-For the measurements and the benchmarks behind these claims, see the
-[performance reference](https://github.com/dborovcanin/slate/blob/main/docs/performance.md).

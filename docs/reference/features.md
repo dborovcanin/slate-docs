@@ -797,8 +797,6 @@ All keys: [Configuration](configuration.md).
 | `:perf where`                 | Show the log path                         |
 | `:perf cap <n>`               | Samples kept per bucket                   |
 
-Planned features: [`roadmap/features.md`](https://github.com/dborovcanin/slate/blob/main/roadmap/features.md).
-
 ## Table of contents
 
 `:toc` (or `:outline`) opens a heading picker for the current note in the terminal and desktop apps. Headings appear in document order, indented by level, with their line numbers. Duplicate titles remain separate; headings inside fenced code blocks are excluded.

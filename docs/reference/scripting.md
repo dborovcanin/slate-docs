@@ -6,7 +6,7 @@ optional currency rates script (see "Currency rates" below), which Slate runs
 once in the background at startup and on `:currency refresh`. Use trusted executables:
 they run with your user permissions, including filesystem and network access.
 
-[`scripts/examples`](https://github.com/dborovcanin/slate/blob/main/scripts/examples/README.md) has ready-to-copy examples
+[`scripts/examples`](https://github.com/dborovcanin/slate-docs/blob/main/examples/scripts/README.md) has ready-to-copy examples
 with setup steps, including an offline currency rates script.
 
 ```toml

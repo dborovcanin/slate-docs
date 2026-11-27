@@ -1,0 +1,306 @@
+# Slate configuration
+#
+# All settings are optional. Unknown keys are ignored.
+# Update only values you want to override.
+#
+# Color schemes:
+#   slate-light, slate-dark,
+#   catppuccin-mocha, catppuccin-latte, gruvbox-dark, gruvbox-light,
+#   dracula, dark, white, solarized-dark, solarized-light,
+#   nord, tokyo-night, one-dark
+#
+# Date format tokens:
+#   %Y, %y, %m, %d, %b, %B, %H, %M
+
+# Registered scripts and shortcuts (explicit invocation only; no hooks).
+# Uncomment a script and its bindings to enable it. argv is passed directly;
+# paths must be absolute or relative to the process working directory (no ~).
+# JSON protocol and examples: /absolute/path/to/slate/docs/scripting.md
+# [scripts.uppercase]
+# argv = ["python3", "/absolute/path/to/slate/scripts/examples/uppercase.py"]
+# input = "selection"
+# output = "replace-selection"
+# timeout_seconds = 30
+#
+# [scripts.meeting]
+# argv = ["python3", "/absolute/path/to/slate/scripts/examples/meeting.py"]
+# input = "none"
+# output = "insert"
+#
+# [keybindings.visual]
+# "<C-r>" = "run uppercase"
+#
+# [keybindings.normal]
+# "<Space>m" = "run meeting 'Project X'"
+#
+# [keybindings.editor]
+# "<C-r>" = "run meeting 'Project X'"
+#
+# Exchange rates for currency conversion in calculations, fetched in the
+# background once at startup, or explicitly with :currency refresh.
+# Copy scripts/examples/rates.py into your Slate config directory and set its
+# absolute path below; ~ is not expanded. EUR is the base currency. Cached
+# rates keep conversions working offline, for example 2000 RSD to EUR.
+# [currency]
+# argv = ["python3", "/absolute/path/to/slate/scripts/examples/rates.py", "EUR"]
+# timeout_seconds = 30
+
+[gui]
+# Desktop effects. False disables all animations for immediate presentation.
+animations = true
+# Ctrl+P switcher: true lists pinned notes by when they were edited instead
+# of first, so the empty list is always latest edited. Pins still lead the
+# sidebar and typed searches.
+switcher_ignore_pins = false
+
+[search]
+# Show semantic field glyphs in the desktop app and dim field prefixes in the terminal.
+# False keeps the literal query text in both apps.
+beautiful = true
+# Recent searches recalled with the arrow keys (0 keeps none, at most 1000).
+history = 50
+
+[gui.dialog_animation]
+# Dialogs only; menus keep their short fade.
+# "none": immediate; "fade": opacity only; "slide": movement only.
+# Slide/bounce panels stay opaque. The backdrop dim fades in every style and
+# stays fixed.
+# "fade-slide": fade with movement; "bounce": movement with a small overshoot.
+style = "fade-slide"
+# Milliseconds (0 skips that direction); values above 1000 are capped.
+open_ms = 240
+close_ms = 160
+# Travel distance for slide/fade-slide/bounce; ignored by none/fade.
+# Logical pixels; values above 32 are capped.
+distance_px = 24
+
+[gui.dialog_backdrop]
+# What dims the window behind dialogs; menus stay clear.
+# "dim": the theme background over the window; "none": no dim.
+style = "dim"
+# Dim strength in percent, 0 to 100.
+opacity = 65
+
+[theme]
+# Visual theme palette.
+color_scheme = "gruvbox-light"
+# Accent palette token or custom hex.
+#   auto, amber, sage, rose, plum, cobalt, slate
+#   custom hex also works, e.g. #4f7bd9
+accent = "auto"
+# Icon glyphs in lists, the browser and terminal to-do boxes.
+#   nerd (needs a Nerd Font), unicode, ascii
+icons = "nerd"
+# Desktop font family and size; the TUI uses its terminal emulator's font.
+# font = "JetBrains Mono"
+# font_size = 16
+# fallback = ["Symbols Nerd Font Mono", "Noto Color Emoji", "Noto Sans CJK JP"]
+
+[theme.colors]
+# Colours that replace the color scheme's, as hex (`2e3440` or `#2e3440`) or
+# `none` for the terminal's own colour. Unset keys keep the scheme's colour.
+# foreground = "eceff4"
+# background = "none"
+# accent = "88c0d0"
+# code-block-background = "3b4252"
+# selection-background = "434c5e"
+# keyword = "81a1c1"
+# string = "a3be8c"
+# number = "b48ead"
+# comment = "616e88"
+# function = "88c0d0"
+# type = "8fbcbb"
+# variable = "ebcb8b"
+# search-match = "5e81ac"
+# search-current = "bf616a"
+
+[editor]
+# Enable markdown helpers while typing (list continuation, table alignment).
+markdown_autoformat = true
+# Typing / at the start of a block opens the insert menu (Esc keeps the /).
+slash_menu = true
+# Move checked checklist items to bottom and unchecked to top.
+checklist_auto_reorder = true
+# Persist edits automatically (idle flush + save on exit/switch).
+autosave = true
+# Load changes made to the open note outside this window (slate mcp, slate
+# append, slate capture, IMAP sync, another Slate) while it has no unsaved
+# edits. Checks the stored note about once a second while idle.
+reload_outside_changes = true
+# Run :format before every save.
+format_on_save = false
+# Start the editor in Vim normal mode.
+vim_mode = false
+# GUI command popup (: / Ctrl+E). The TUI always uses the bottom bar alone.
+# False keeps the GUI bar alone; Tab still completes, and F1 still opens help.
+command_popup = true
+# Soft-wrap long lines. Tables and code blocks always scroll horizontally.
+wrap = true
+# Editor line numbers. Unset, they show in the TUI and stay off in the GUI.
+# line_numbers = true
+# Key hints in the terminal status bar (`:` commands, `?` keys, Ctrl+P notes,
+# F1 help). Status messages replace them while they show.
+status_hints = true
+# Date format for daily note titles and note ages.
+date_format = "%Y-%m-%d"
+# Date-picker input/output and reminders; omit the clock suffix for dates alone.
+date_time_format = "%Y-%m-%d %H:%M"
+# Minimum typed chars before variable autocomplete suggestions appear.
+# Range: 1..8
+variable_autocomplete_min_chars = 3
+
+[editor.modules]
+# Default per-note modules for newly created notes.
+# Runtime behavior uses the active note's modules.
+math = true
+table = true
+variables = true
+style = true
+cross_note = true
+
+[editor.security]
+# Encrypt newly created notes at rest by default.
+encrypt_notes = false
+# Environment variable with default note encryption password.
+password_env = "SLATE_NOTES_PASSWORD"
+
+[special_notes]
+# Series name for date-partitioned email inbox notes (IDs are ULIDs).
+email_series = "inbox-email"
+# Rotation strategy for email capture notes.
+email_rotation = "daily-local"
+
+[daily]
+# Series name for daily notes (`slate today`, `:today`, `slate capture`).
+series = "daily"
+# Body of a new daily note. {date} is replaced with the date formatted by
+# [editor] date_format.
+template = "# {date}\n\n"
+
+[imap]
+# IMAP server host.
+host = "imap.example.com"
+# IMAP TLS port.
+port = 993
+# IMAP account username/login.
+username = ""
+# Environment variable containing IMAP password/app password.
+password_env = "SLATE_IMAP_PASSWORD"
+# Mailbox folder to sync.
+folder = "INBOX"
+# Poll interval in seconds. Range: 10..86400
+poll_seconds = 60
+# Start background IMAP polling on app startup.
+auto_sync_on_startup = false
+# First sync window before UID checkpoint exists. Range: 1..100000
+initial_sync_max_messages = 200
+# Sync recency filter in days. 0 disables date filter. Range: 0..3650
+initial_sync_past_days = 1
+# Maximum accepted raw message payload size in bytes. Range: 1024..67108864
+max_message_bytes = 8388608
+# Maximum stored message body bytes. Must be <= max_message_bytes.
+# Range: 1024..67108864
+max_body_bytes = 524288
+
+[perf]
+# Enable runtime perf/startup logging and perf check runners.
+enabled = false
+# Optional explicit log path. Empty means OS temp dir:
+# Linux -> /tmp/slate-log.log
+log_path = ""
+
+[web_search]
+# Online search provider:
+#   "auto"       pick the best configured provider, then fall back (default)
+#   "brave"      Brave Search API, needs api_key
+#   "google"     legacy Google Custom Search, needs api_key + search_engine_id
+#   "duckduckgo" key-free only; no API key is used
+# "auto" uses Google when api_key and search_engine_id are both set, Brave when
+# only api_key is set, and DuckDuckGo otherwise. Every keyed provider falls
+# back to DuckDuckGo if its request fails, so search keeps working either way.
+# DuckDuckGo has no search API: results are scraped and it now answers many
+# requests with an anti-bot challenge, so set an api_key for reliable results.
+provider = "auto"
+# Brave Search API key, or Google Custom Search API key
+api_key = ""
+# Google is available only to existing Custom Search JSON API customers and
+# that API is scheduled to shut down on 2027-01-01.
+# Google Custom Search Engine ID / cx (only needed for Google)
+search_engine_id = ""
+# Maximum search results to return (1..10, default 10)
+max_results = 10
+
+[terminal]
+# Inline image rendering mode:
+#   "auto"       detect best graphics protocol (sixel, kitty, iterm2), fall back if unsupported (default)
+#   "sixel"      force Sixel graphics (e.g. foot)
+#   "kitty"      force Kitty graphics protocol (e.g. kitty, ghostty)
+#   "iterm2"     force iTerm2 graphics protocol (e.g. iTerm2, wezterm)
+#   "halfblocks" unicode halfblock characters fallback
+#   "off"        text placeholder [image: alt] only
+images = "auto"
+# Maximum terminal row height for an inline image. Range: 1..100
+image_max_rows = 15
+# How copies reach the system clipboard:
+#   "auto"   system tools (wl-copy, xclip, xsel, pbcopy, clip.exe, tmux), then OSC 52 (default)
+#   "osc52"  OSC 52 only: the terminal holds the copy, so it outlives slate and
+#            works over SSH. The terminal must support it (foot, kitty, ghostty,
+#            wezterm, alacritty, iTerm2); slate cannot tell when it does not.
+clipboard = "auto"
+
+[mcp]
+# Let `slate mcp` serve notes to MCP clients (AI assistants and bots) over
+# stdio. Clients can list, search, read, create, edit, rename and archive
+# notes and manage collections; they cannot open encrypted notes. Off by
+# default.
+enabled = false
+# Also let clients delete notes for good (with their history). Without it
+# they can only move notes to the Archive collection.
+allow_delete = false
+
+[agent]
+# Full setup, custom-agent contract and platform status: docs/agent.md.
+# Config locations:
+# Linux:   $XDG_CONFIG_HOME/slate/config.toml (default ~/.config/slate/config.toml)
+# macOS:   ~/Library/Application Support/io.github.slate/config.toml
+# Windows: %APPDATA%\github\slate\config\config.toml
+# Install and sign in to the selected agent CLI before enabling Ask. Slate
+# launches it through its inherited PATH; shell aliases/functions do not work.
+# Desktop launchers (including Finder) may have a different PATH from a terminal.
+# Install the slate terminal executable too if you want MCP note access.
+# Linux is tested; native macOS is unverified. Windows Ask is not fully qualified:
+# sibling discovery currently checks for slate rather than slate.exe, and
+# cancellation does not terminate the whole descendant process tree.
+# Off by default. Prompts, retained conversation history, selected note context,
+# and whatever the agent reads are sent to the selected agent's model provider.
+enabled = false
+# Choose exactly one preset: "claude" (Claude Code), "codex", or "custom".
+# Built-ins launch the executable named claude/codex on PATH. They generate
+# Slate-only MCP settings and restrict tools; Codex isolation is not yet verified
+# by a real provider run (see docs/agent.md). No Slate model/API-key setting exists.
+preset = "claude"
+# argv belongs ONLY to preset = "custom"; remove it for built-in presets.
+# Use an installed executable or absolute path; arguments are separate strings.
+# Custom commands receive the prompt on stdin and must print the answer to stdout.
+# They run without a shell in an empty temporary directory. They must use
+# SLATE_AGENT_MCP_CONFIG themselves if they need Slate's note tools.
+# argv = ["/absolute/path/to/my-agent", "run"]
+# Windows literal strings preserve backslashes (native Windows remains unverified):
+# argv = ['C:\Tools\my-agent.exe', 'run']
+# Fresh context for each turn: "selection" (only when selected), "note" or "none".
+# "none" does not erase earlier context: use /clear or Clear context to forget it.
+context = "selection"
+# MCP access: "write" (never delete), "read", or "none". Needs [mcp] enabled = true;
+# without it, Ask runs with no note tools. Encrypted notes stay inaccessible.
+notes = "write"
+# Whole-request deadline in seconds, inclusive range 1..3600.
+timeout_seconds = 300
+# Settings reload for every request. :ask reopens the conversation; closing it or
+# switching notes keeps history in memory until /clear, Clear context, or app exit.
+# Desktop: Enter sends, Shift+Enter adds a newline, Insert latest inserts a reply.
+# Terminal: Enter sends from the prompt, then inserts from the result view.
+
+[startup]
+# Working collection for note browsing and new notes (existing collection name).
+# Leave empty to browse all notes. A missing collection is ignored.
+default_collection = ""

@@ -43,7 +43,7 @@ sections rather than adding duplicate sections.
 | Windows | `%APPDATA%\github\slate\config\config.toml` |
 
 These are native Slate paths. Slate running inside WSL uses the Linux path.
-The complete defaults are in [config.example.toml](https://github.com/dborovcanin/slate/blob/main/config.example.toml).
+The complete defaults are in [config.example.toml](https://github.com/dborovcanin/slate-docs/blob/main/examples/config.example.toml).
 
 ### 3. Choose the agent and note access
 
@@ -202,7 +202,7 @@ The command runs as given, without a shell, with:
 - an empty temporary working directory;
 - `SLATE_AGENT_MCP_CONFIG`: the path of a JSON file (`{"mcpServers": {...}}`) naming Slate's server in the mode `notes` asks for, or no server for `"none"`.
 
-Slate gives no guarantee about a custom command's own tools: it is a trusted executable with your permissions. Note access still goes through Slate's server only if the command uses that file. [`scripts/fake_agent.py`](https://github.com/dborovcanin/slate/blob/main/scripts/fake_agent.py) is a small working example that reads the file and talks to the server.
+Slate gives no guarantee about a custom command's own tools: it is a trusted executable with your permissions. Note access still goes through Slate's server only if the command uses that file. [`scripts/fake_agent.py`](https://github.com/dborovcanin/slate-docs/blob/main/examples/fake_agent.py) is a small working example that reads the file and talks to the server.
 
 ## Troubleshooting
 

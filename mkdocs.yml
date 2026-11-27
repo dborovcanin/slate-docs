@@ -1,8 +1,8 @@
 site_name: Slate
 site_description: Fast, keyboard-first notes for the desktop and the terminal
 site_url: https://dborovcanin.github.io/slate-docs/
-repo_url: https://github.com/dborovcanin/slate
-repo_name: dborovcanin/slate
+repo_url: https://github.com/dborovcanin/slate-docs
+repo_name: dborovcanin/slate-docs
 edit_uri: https://github.com/dborovcanin/slate-docs/edit/main/docs/
 copyright: Slate, local-first notes
 
@@ -62,7 +62,7 @@ extra:
     alias: true
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/dborovcanin/slate
+      link: https://github.com/dborovcanin/slate-docs
 
 plugins:
   - search

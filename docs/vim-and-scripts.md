@@ -108,6 +108,6 @@ output = "replace-selection"   # "insert", "replace-selection" or "message"
 ```
 
 Run one with `:run uppercase` (arguments follow the name). Ready-made
-examples are in [`scripts/examples`](https://github.com/dborovcanin/slate/blob/main/scripts/examples/README.md); the
+examples are in [`scripts/examples`](https://github.com/dborovcanin/slate-docs/blob/main/examples/scripts/README.md); the
 full protocol is in [Scripts and shortcuts](reference/scripting.md). Scripts also run
 from the shell: `echo hello | slate run uppercase`.

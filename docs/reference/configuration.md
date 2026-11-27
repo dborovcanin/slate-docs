@@ -7,7 +7,7 @@ Slate reads config from:
 
 The file is auto-generated on first run.
 
-The complete template is [config.example.toml](https://github.com/dborovcanin/slate/blob/main/config.example.toml), which
+The complete template is [config.example.toml](https://github.com/dborovcanin/slate-docs/blob/main/examples/config.example.toml), which
 also supplies the generated file. It lists supported settings and commented
 script, keybinding and currency examples. Existing files are not automatically
 rewritten when Slate adds settings.
@@ -164,7 +164,7 @@ help and history views stay immediate. The TUI ignores these settings.
 
 ## Currency rates
 
-The repository includes [rates.py](https://github.com/dborovcanin/slate/blob/main/scripts/examples/rates.py). Register its
+The repository includes [rates.py](https://github.com/dborovcanin/slate-docs/blob/main/examples/scripts/rates.py). Register its
 absolute path under `[currency]` to enable currency calculations. The optional
 last argument chooses the base currency (EUR in the example); `timeout_seconds`
 defaults to 30 and accepts 1–3600.

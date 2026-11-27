@@ -1,6 +1,6 @@
 # Slate docs
 
-The user guide and reference for [Slate](https://github.com/dborovcanin/slate),
+The user guide and reference for Slate,
 published at **https://dborovcanin.github.io/slate-docs/**.
 
 Built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/)
