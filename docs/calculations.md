@@ -223,6 +223,9 @@ note has it the line says so.
   moment. They follow other notes too: when a note it reads changes, in
   either app, through another program or a sync, and when exchange rates are
   refreshed. The previous answer stays on screen until the new one is ready.
+  When the change is known to touch values the block reads, such as new
+  exchange rates or an edit in another open note, its `from` line adds
+  `refreshing` meanwhile.
 - Exports, PDFs and copied text show the block as written, without answers.
 
 ### What is left out
