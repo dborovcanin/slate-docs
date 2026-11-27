@@ -31,6 +31,8 @@ Every command-bar command with its aliases. For what each feature does and its k
 | `browse` | `explore`, `files` | Open the collection browser (`t` edits tags, `T` filters by tag) |
 | `info` | `note info` | Show the current note’s tags, collections, saved dates and encryption; also F4 |
 | `inspect` | | Show what the result on the cursor line was computed from; also `K` in Normal mode off a link |
+| `problem next` | `pn` | Go to the next line whose calculation failed and say why; also `]e` |
+| `problem previous` | `pp` | Go to the previous line whose calculation failed and say why; also `[e` |
 | `read` | `preview` | Read mode: every line rendered, read-only; also F11 |
 | `history` | `versions` | Browse and restore older versions of the open note |
 | `date` | | Insert a picked date |

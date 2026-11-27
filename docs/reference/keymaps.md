@@ -69,6 +69,7 @@ Key tables by mode. The [Feature Guide](features.md) lists the same keys grouped
 | `za`                                                     | Toggle fold                                                             |
 | `gd`                                                     | Follow wiki link, or go to the definition of the variable at the cursor |
 | `K`                                                      | Toggle linked-note preview; elsewhere, inspect the line's result        |
+| `]e` / `[e`                                              | Next / previous calc problem, with the reason                           |
 | `gx`                                                     | Preview image at cursor                                                 |
 | `gX`                                                     | Open image at cursor in the default viewer                              |
 | `?`                                                      | Keyboard shortcuts (the help list, with how each key works)             |

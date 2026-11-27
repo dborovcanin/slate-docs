@@ -171,6 +171,26 @@ travel  240 USD    Lisbon trip
 - On a link, `K` previews the linked note instead.
 - The panel shows one level: inspect an input's own line to see what that
   line reads.
+- On a line whose calculation failed, the panel says why instead.
+
+### Finding calculation problems
+
+`]e` and `[e` in vim mode, `:problem next` and `:problem previous` (`:pn`,
+`:pp`), or **Calc → Next / Previous calc problem** go to the next or previous
+line whose calculation failed, and the status bar says why:
+
+| Reason | Meaning |
+| --- | --- |
+| `x cannot be calculated` | The definition of `x` has no answer, for example because it uses a name never defined |
+| `a depends on itself` | `a` is defined through itself, directly or through other variables |
+| `b has no value` | `b` uses a variable that has no value |
+| `price is not a number` | `price` gives text or a date rather than a number |
+| `linked note not found: [[id]]` | The linked note was deleted |
+| `Costs does not define nope` | The linked note has no variable of that name |
+
+The note is checked once when you first ask, then again only after it, the
+calculation settings or other notes' values change. A line that calc reads as
+plain text, such as `5 kg + 3 m`, is not counted as a problem.
 
 ## Totals across notes
 
