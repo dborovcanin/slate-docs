@@ -30,6 +30,7 @@ Conventions:
   - [Diagrams](#diagrams)
   - [Inline calculations](#inline-calculations)
   - [Variables and cross-note variables](#variables-and-cross-note-variables)
+    - [Totals across notes](#totals-across-notes)
   - [Tables](#tables)
   - [Folding](#folding)
   - [Dates and reminders](#dates-and-reminders)
@@ -389,14 +390,17 @@ edge e2 api q route=orthogonal points=100,120
 - `edge <id> <from> <to> ["label"] [key=value | flag]...`; each end is a
   node identifier or a free point `@x,y` (`edge e1 api @300,40`)
 - Shapes: `rect`, `rounded`, `ellipse`, `rhombus`, `text`, `cylinder`, `callout`,
-  `hexagon`, `clipped`, `triangle`, `actor`, `document`, `cloud`, `gear`, `arrow`. Other
+  `hexagon`, `clipped`, `triangle`, `actor`, `document`, `cloud`, `gear`, `arrow`,
+  `parallelogram`, `tape`, `or`, `xor`, `storage` (draw.io's data storage). Other
   names draw as `rect` and keep their name.
 - Keys: `fill`, `stroke` and `text` take `#rgb`, `#rrggbb`, `#rrggbbaa`
   (with opacity) or `none` (no fill, no outline or no label); `dashed` and
   `dotted` select the outline pattern; `stroke_width=` sets connector and
   outline thickness from 0.5 to 12 (default 1.5).
   `route=straight|orthogonal|curved`; `arrow=none|end|both`; `points=x,y;x,y`
-  (waypoints). Unknown keys are kept and ignored.
+  (waypoints). `rotate=` turns a node clockwise by that many degrees about
+  its centre (as draw.io's `rotation`); its label stays upright, and lines
+  still leave it up, right, down or left. Unknown keys are kept and ignored.
 - Coordinates are whole numbers within ±1,000,000; sizes are positive.
   Labels escape `\"`, `\\` and `\n`; `size=` (6 to 96, default 13),
   `align=left|center|right` and `valign=top|middle|bottom` set size and placement.
@@ -426,7 +430,7 @@ edge e2 api q route=orthogonal points=100,120
 Unreadable lines are kept exactly as written and are not drawn; the picture
 shows how many there are. An edge to a missing node is not drawn; a free end is drawn where it is, and moves with a group move or paste when its edge is selected. A repeated
 identifier keeps its first definition and makes the block read-only on the
-canvas until the source is fixed. Blocks over 256 KiB or 2,000 elements show
+canvas until the source is fixed. Blocks over 1 MiB or 5,000 elements show
 their source with a "too large to draw" note; lines over 4 KiB, quoted labels over
 1 KiB and bodies over 16 KiB are unreadable.
 
@@ -451,8 +455,9 @@ existing block it reports that the canvas is desktop-only and changes nothing:
 | Drag a port (dots on a hovered node) to another node, or to empty space | Connect, or draw a line with a free end |
 | Drag an end of the selected edge | Attach it to the node it is dropped on, or leave it free |
 | Drag a corner of the selected node | Resize; a live width × height badge shows diagram units |
+| Drag the circling arrow beyond the selected node's top-right corner | Rotate by whole degrees, snapping to multiples of 15° within 3° (Shift: no snapping); Arrange › Rotation steps 1° or takes a typed angle. A rotated node resizes along its own sides, its opposite corner staying put |
 | Select an edge, drag its handles | Bend through waypoints; double-click a waypoint removes it |
-| Shapes panel (left; its header collapses it): click, or drag onto the canvas; `r` `o` `e` `d` `t` `c`; double-click empty space | Add rect, rounded, ellipse, rhombus, text, cylinder |
+| Shapes panel (left; its header collapses it): click, or drag onto the canvas (a dashed outline shows where it lands); `r` `o` `e` `d` `t` `c`; double-click empty space | Add rect, rounded, ellipse, rhombus, text, cylinder |
 | Lines panel: click, or drag onto the canvas | Add a free line (plain, arrow, double arrow, orthogonal, curved, dashed); new connections use the last one picked |
 | `g` or Grid | Show or hide the alignment grid |
 | Fullscreen icon or `F11` | Toggle fullscreen; Esc exits fullscreen before closing the canvas |
@@ -539,7 +544,7 @@ sqrt(144) + 3^2         → 21
 | `Tab` (Insert)                | Replace the expression with its result (after any open completion popup) |
 | `:sum` / `:avg`               | Sum / average the selection, or the whole note without one               |
 
-`:sum` and `:avg` count each variable, formula and formula cell as its computed value, other table cells as their own expression (units kept), and other text as the numbers in it, skipping list markers. The result is inserted after the selection (at the cursor without one) and copied.
+`:sum` and `:avg` count each variable, formula and formula cell as its computed value, other table cells as their own expression (units kept), and other text as the numbers in it, skipping list markers. The result is inserted after the selection (at the cursor without one) and copied. Without a selection, a note of 2,000 lines or more is calculated whole on a worker first (`sum(note): calculating…`); the result is then inserted at the cursor where you ran the command, or dropped with a message if you edited the note meanwhile.
 
 The terminal status bar shows sum, average and count only while text or table
 cells are selected. These live statistics extract numeric literals, skip list
@@ -572,7 +577,7 @@ the expression-aware `:sum` / `:avg` commands. An unindented decimal such as
 ## Variables and cross-note variables
 
 - Assign with `name := expression`; reference by name anywhere in the note. Names are case-insensitive and may contain spaces.
-- Dependents update as definitions change; conversions store numeric values (`len := 3 m to km`).
+- Dependents update as definitions change; values keep their unit, currency or duration (`len := 3 m to km` holds `0.003 km`).
 - `gd` (Normal) on a variable jumps to its definition (the last assignment, the one in effect). On `[[id]].name` it opens the other note at that definition.
 - Variable names are highlighted; an autocomplete popup appears after `[editor] variable_autocomplete_min_chars` (default 3) characters.
 - Another note's variable: `[[ID]].name` (needs the `cross_note` module); typing `[[ID]].` suggests that note's variables.
@@ -584,6 +589,26 @@ the expression-aware `:sum` / `:avg` commands. An unindented decimal such as
 | `Esc`                   | Close the popup            |
 
 Full rules: [Variables Specification](variables.md).
+
+### Totals across notes
+
+A fenced `query` block totals a variable over the notes a search matches:
+
+````markdown
+```query
+from #trip AND coll:"2026"
+sum budget
+avg nights
+max budget
+count
+```
+````
+
+- `from` takes a search as in `Ctrl+P` and comes first. Bare words are refused there (they match titles loosely); use `title:` or `#`.
+- `sum`, `avg`, `min` and `max` take a variable name; `count` counts the matching notes, `count <name>` those that define the variable. Notes without it are skipped. `//` starts a comment line.
+- Units and currencies convert (`120 kg` and `30000 g` sum to `150 kg`); values that cannot be added, such as kilograms and euros, show an error instead of a total.
+- Answers are ghosts beside each line, never written into the note. The `from` line shows how many notes were read, such as `12 notes, 2 protected skipped`. The note holding the block, encrypted notes and file-backed notes are never read; with `contains:` the line says `protected notes not searched`. At most 5,000 notes are read, by ID, and the line then shows `first 5,000 of N notes`.
+- Blocks on screen are answered on a worker, 300 ms after you stop editing them, and again when another note changes. Both the `math` and `cross_note` modules must be on.
 
 ## Tables
 
@@ -734,7 +759,7 @@ Each note stores its own module switches; `[editor.modules]` sets defaults for n
 | `table`      | Table formulas                                 |
 | `variables`  | Variable assignments, references, autocomplete |
 | `style`      | Markdown styling helpers                       |
-| `cross_note` | `[[ID]].name` references                  |
+| `cross_note` | `[[ID]].name` references and `query` blocks    |
 
 Commands: `:module status` (`:modules`), `:module <name> on|off|toggle` (also `:module on <name>`).
 

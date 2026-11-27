@@ -68,18 +68,30 @@ Inline table errors:
 - `!ERROR#self_reference`
 - `!ERROR#cycle`
 
-## Conversion assignments
+## Units, currencies and durations
 
-Conversion assignments are normalized to numeric values when stored.
-
-Example:
+A variable keeps the unit, currency or duration of its value, and reads back
+as one quantity:
 
 ```text
-len := 3 m to km
-len + 2
+budget := 120 kg
+budget * 2            → 240 kg
+len := 3 m to km      → 0.003 km
+len + 1 km            → 1.003 km
+d := 45min
+d * 2                 → 90 mins
+price := 20 EUR to USD
+price * 2             → 50 USD
 ```
 
-`len` is stored as numeric `0.003` and reused numerically.
+Arithmetic follows the units: `budget + 5` mixes a mass with a bare number,
+so it has no result; write `budget + 5 kg`. Inexact values are reused at the
+10 decimal places calc shows (`1 kg / 3` reads back as `0.3333333333 kg`),
+as for plain numbers.
+
+Cross-note references (`[[ID]].name`) read the same value, unit included:
+`[[ID]].budget * 2` gives `240 kg`. Durations cross notes too; clock times
+(`start := 09:10`) stay within their note.
 
 ## Error handling
 
@@ -119,15 +131,14 @@ monthly_income := 5000
   variables that truly depend on each other across notes stay unresolved.
 - The in-memory index tracks source revisions, dependencies and in-flight
   loads; changed exports invalidate dependent values for subsequent evaluation.
-- With background tasks on, a note opens without waiting for the notes it
-  reads: a worker loads them and its values appear when they finish. Edits
-  meanwhile wait at most briefly for those notes instead of loading them.
-  Without background tasks, references load before evaluation as before.
+- A note opens without waiting for the notes it reads, and edits never load
+  or wait for them: a worker loads them and their values appear when it
+  finishes.
 
 ### Scoping rules
 
 - only variables assigned with `:=` are exported; expression results are not
-- conversion assignments export their resolved numeric value
+- conversion assignments export their converted value with its unit; clock times are not exported
 - the consuming note needs `math`, `variables` and `cross_note`; the source must export the variable under its own module configuration
 
 ### Autocomplete

@@ -113,8 +113,9 @@ Change `nights` to `5` and every line that depends on it updates at once.
 - If a name is assigned twice, the last assignment wins.
 - After three letters (`[editor] variable_autocomplete_min_chars`), Slate
   suggests matching names; `Tab` or `Enter` accepts.
-- A conversion stores its number: `budget := 2000 RSD to EUR` keeps the
-  amount in euros.
+- A variable keeps its unit or currency: `budget := 2000 RSD to EUR` holds
+  euros, so `budget * 2` is in euros too, and `weight := 120 kg` stays a mass.
+  Adding a bare number to it (`weight + 5`) has no answer; write `weight + 5 kg`.
 - Variable names are highlighted; in vim mode `gd` on a name jumps to where
   it is defined.
 - Variables can hold clock times and durations too:
@@ -145,6 +146,41 @@ use them pick up the new values. `Ctrl+]` follows the link to the source note
 and `Alt+Left` comes back. Away from the cursor the link reads
 `Lisbon budget.total`; because it stores the id, renaming the note never
 breaks it.
+
+## Totals across notes
+
+A `query` block adds up a variable over every note a search finds. Give each
+trip note a `budget`, tag them `#trip`, and total them in one place:
+
+````markdown
+```query
+from #trip
+sum budget
+avg budget
+max budget
+count
+```
+````
+
+Answers appear beside each line, and the `from` line says how many notes were
+read (`4 notes`). Like other calculation results they are never written into
+the note.
+
+- `from` takes the same search as `Ctrl+P` (`#trip AND coll:"2026"`), but not
+  bare words; use `title:` or `#`.
+- `sum`, `avg`, `min` and `max` take a variable name; notes without that
+  variable are skipped. `count` counts the notes found, `count budget` those
+  with a budget.
+- Units and currencies convert: budgets in EUR, USD and CHF add up in one
+  currency, and `120 kg` plus `30000 g` is `150 kg`. Values that cannot be
+  added, such as kilograms and euros, show an error instead of a total.
+- Totals update shortly after you stop editing the block, and when a note
+  they read changes, including one changed by another app.
+- The note holding the block is not counted, and encrypted notes are never
+  read; the `from` line reports them (`2 protected skipped`). A block reads at
+  most 5,000 notes.
+- Blocks need the `math` and `cross_note` features on in the note holding
+  them.
 
 ## Turning features off per note
 

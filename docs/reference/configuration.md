@@ -117,7 +117,6 @@ allow_delete = false
 
 [startup]
 default_collection = ""
-background_tasks_enabled = true
 
 # Copy scripts/examples/rates.py to your config directory and set its absolute path.
 # [currency]
@@ -125,9 +124,10 @@ background_tasks_enabled = true
 # timeout_seconds = 30
 ```
 
-Explicit TUI note-list refreshes and wiki-completion loads always prepare their
-catalogue on a worker, including when optional startup background tasks are
-disabled. This setting does not switch catalogue hydration onto the input thread.
+Startup work runs on workers after the first frame in both apps: catalogue and
+search prewarm, the open note's reminders, notes its calculations read, the
+first exchange-rate fetch and, when enabled, IMAP sync. There is no setting to
+run it on the input thread.
 
 ## Desktop switcher pins
 
@@ -170,7 +170,7 @@ last argument chooses the base currency (EUR in the example); `timeout_seconds`
 defaults to 30 and accepts 1–3600.
 
 Slate loads cached rates immediately, fetches once in the background at
-startup when `background_tasks_enabled = true`, and refreshes on
+startup, and refreshes on
 `:currency refresh`. See [Currency rates](scripting.md#currency-rates) for the
 script protocol and offline example. Paths do not expand `~`.
 

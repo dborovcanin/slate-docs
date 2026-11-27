@@ -139,8 +139,7 @@ attempts one asynchronous fetch; when the rates differ, visible results
 update, and identical rates leave results untouched. There are no periodic
 refreshes. Use `:currency refresh` to fetch again; only one fetch runs at a
 time. A failed refresh keeps the cached rates and reports the error in the
-status line. With `[startup] background_tasks_enabled = false`, startup uses
-only cached rates; the explicit command still works. Conversions involving a
+status line. Conversions involving a
 currency without a rate show no result. The command reads the current
 `[currency]` configuration.
 
