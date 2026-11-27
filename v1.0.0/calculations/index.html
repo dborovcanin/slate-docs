@@ -736,6 +736,67 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Totals across notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-a-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing a block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-values-are-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which values are read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-answers-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When answers update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-left-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is left out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1747,6 +1808,67 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Totals across notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-a-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing a block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-values-are-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which values are read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-answers-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When answers update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-left-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is left out
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1936,23 +2058,146 @@ trip note a <code>budget</code>, tag them <code>#trip</code>, and total them in 
 <p>Answers appear beside each line, and the <code>from</code> line says how many notes were
 read (<code>4 notes</code>). Like other calculation results they are never written into
 the note.</p>
+<h3 id="writing-a-block">Writing a block<a class="headerlink" href="#writing-a-block" title="Permanent link">&para;</a></h3>
+<p>A block is a fenced code block with the language <code>query</code>. A note can hold
+any number of them. Each line is one statement:</p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>from &lt;search&gt;</code></td>
+<td>Which notes are read: <code>12 notes</code></td>
+</tr>
+<tr>
+<td><code>sum budget</code></td>
+<td>The total of <code>budget</code> over those notes</td>
+</tr>
+<tr>
+<td><code>avg budget</code></td>
+<td>The average, over the notes that have a <code>budget</code></td>
+</tr>
+<tr>
+<td><code>min budget</code>, <code>max budget</code></td>
+<td>The smallest and largest value, as written in its note</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>How many notes the search found</td>
+</tr>
+<tr>
+<td><code>count budget</code></td>
+<td>How many of them have a <code>budget</code></td>
+</tr>
+<tr>
+<td><code>// a comment</code></td>
+<td>Nothing; blank lines are fine too</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><code>from</code> takes the same search as <code>Ctrl+P</code> (<code>#trip AND coll:"2026"</code>), but not
-  bare words; use <code>title:</code> or <code>#</code>.</li>
-<li><code>sum</code>, <code>avg</code>, <code>min</code> and <code>max</code> take a variable name; notes without that
-  variable are skipped. <code>count</code> counts the notes found, <code>count budget</code> those
-  with a budget.</li>
-<li>Units and currencies convert: budgets in EUR, USD and CHF add up in one
-  currency, and <code>120 kg</code> plus <code>30000 g</code> is <code>150 kg</code>. Values that cannot be
-  added, such as kilograms and euros, show an error instead of a total.</li>
-<li>Totals update shortly after you stop editing the block, and when a note
-  they read changes, including one changed by another app.</li>
-<li>The note holding the block is not counted, and encrypted notes are never
-  read; the <code>from</code> line reports them (<code>2 protected skipped</code>). A block reads at
-  most 5,000 notes.</li>
-<li>Blocks need the <code>math</code> and <code>cross_note</code> features on in the note holding
-  them.</li>
+<li><code>from</code> comes first, once per block. It takes the same search as the
+  <a href="../search/#the-note-switcher">note switcher</a>: tags, collections, <code>title:</code>,
+  <code>contains:</code>, <code>AND</code>, <code>OR</code>, <code>-</code> and parentheses, for example
+  <code>from (#trip OR #weekend) AND coll:"2026" -#cancelled</code>. Plain words are not
+  accepted, since they match titles loosely; write <code>title:lisbon</code> instead.</li>
+<li>Variable names work as in the note: case does not matter and spaces are
+  allowed (<code>avg nights out</code>).</li>
 </ul>
+<h3 id="which-values-are-read">Which values are read<a class="headerlink" href="#which-values-are-read" title="Permanent link">&para;</a></h3>
+<p>Each note found contributes its variables as that note works them out,
+including values it reads from other notes; if a name is assigned twice, the
+last assignment counts. Notes without the variable are skipped, and when no
+note has it the line says so.</p>
+<ul>
+<li>Units, currencies and durations are kept. Values of the same kind convert:
+  budgets in EUR, USD and CHF add up in the currency of the first note that
+  has one, and <code>120 kg</code> plus <code>30000 g</code> is <code>150 kg</code>.</li>
+<li>Values of different kinds, such as kilograms and euros, or a number
+  without a unit next to one with, show <code>values have incompatible units</code>
+  instead of a partial total.</li>
+<li><code>min</code> and <code>max</code> compare values after converting them, but show the winner
+  as its note writes it, so the smallest of <code>1 kg</code> and <code>300 g</code> reads <code>300 g</code>.</li>
+<li>Results are shown to 10 decimal places, like other calculations.</li>
+</ul>
+<h3 id="when-answers-update">When answers update<a class="headerlink" href="#when-answers-update" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Answers are worked out in the background, one block at a time, so typing
+  never waits for them. Only blocks on screen are worked out; scrolling to
+  another block works it out then.</li>
+<li>After you edit a block, its answers return once you stop typing for a
+  moment. They follow other notes too: when a note it reads changes, in
+  either app, through another program or a sync, and when exchange rates are
+  refreshed. The previous answer stays on screen until the new one is ready.</li>
+<li>Exports, PDFs and copied text show the block as written, without answers.</li>
+</ul>
+<h3 id="what-is-left-out">What is left out<a class="headerlink" href="#what-is-left-out" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The note holding the block is never counted, even if it matches.</li>
+<li>Encrypted notes are never read, even while unlocked. When the search only
+  looks at tags, collections and titles, the <code>from</code> line counts the ones it
+  skipped (<code>12 notes, 2 protected skipped</code>); a <code>contains:</code> search cannot look
+  inside them, so it says <code>protected notes not searched</code>.</li>
+<li>Markdown files opened by path (<code>slate notes.md</code>) are not searched; a block
+  inside one still totals the notes in Slate.</li>
+<li>A block reads at most 5,000 notes, the oldest first; past that the <code>from</code>
+  line says <code>first 5,000 of 8,200 notes</code>.</li>
+<li>Answers cannot be used in calculations, variables or other blocks.</li>
+<li>Blocks need the <code>math</code> and <code>cross_note</code> features on in the note holding
+  them (see below); otherwise the <code>from</code> line says so.</li>
+</ul>
+<h3 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h3>
+<p>A line that cannot be answered shows why, beside it:</p>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>add a from line to choose notes</code></td>
+<td>The block has no <code>from</code> line (shown on the opening fence)</td>
+</tr>
+<tr>
+<td><code>from must come first</code></td>
+<td>A statement comes before <code>from</code></td>
+</tr>
+<tr>
+<td><code>only one from line</code></td>
+<td>A second <code>from</code> in the same block</td>
+</tr>
+<tr>
+<td><code>unknown statement 'total'; …</code></td>
+<td>The line is not one of the statements above</td>
+</tr>
+<tr>
+<td><code>sum needs a variable name</code></td>
+<td><code>sum</code>, <code>avg</code>, <code>min</code> or <code>max</code> without a name</td>
+</tr>
+<tr>
+<td><code>search: …</code></td>
+<td>The search cannot be read, with the reason</td>
+</tr>
+<tr>
+<td><code>bare words match titles loosely; use title: or #</code></td>
+<td>The search has plain words</td>
+</tr>
+<tr>
+<td><code>no matching note exports budget</code></td>
+<td>No note found has that variable</td>
+</tr>
+<tr>
+<td><code>values have incompatible units</code></td>
+<td>The values cannot be added or compared</td>
+</tr>
+</tbody>
+</table>
 <h2 id="turning-features-off-per-note">Turning features off per note<a class="headerlink" href="#turning-features-off-per-note" title="Permanent link">&para;</a></h2>
 <p>Each note can switch calculation features on and off: <code>:module status</code> shows
 them, and <code>:module math off</code> (or <code>table</code>, <code>variables</code>, <code>cross_note</code>, <code>style</code>)
