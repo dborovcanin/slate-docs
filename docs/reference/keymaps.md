@@ -68,7 +68,7 @@ Key tables by mode. The [Feature Guide](features.md) lists the same keys grouped
 | `q{r}` ... `q`, `@{r}`, `{n}@{r}`                        | Record, stop, replay macro                                              |
 | `za`                                                     | Toggle fold                                                             |
 | `gd`                                                     | Follow wiki link, or go to the definition of the variable at the cursor |
-| `K`                                                      | Toggle linked-note preview                                              |
+| `K`                                                      | Toggle linked-note preview; elsewhere, inspect the line's result        |
 | `gx`                                                     | Preview image at cursor                                                 |
 | `gX`                                                     | Open image at cursor in the default viewer                              |
 | `?`                                                      | Keyboard shortcuts (the help list, with how each key works)             |

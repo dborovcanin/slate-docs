@@ -147,6 +147,31 @@ and `Alt+Left` comes back. Away from the cursor the link reads
 `Lisbon budget.total`; because it stores the id, renaming the note never
 breaks it.
 
+## Where a result comes from
+
+Put the cursor on a line with a result and press `K` in vim mode, run
+`:inspect`, or choose **Calc → Inspect result** in the desktop app. A panel
+shows what the result was computed from:
+
+```text
+total := hours * rate + [[Lisbon trip]].travel     = 4298.7148860085 EUR
+hours   48         line 4
+rate    85 EUR     line 3
+travel  240 USD    Lisbon trip
+1 EUR = 1.0973 USD · rates of 2026-11-27
+```
+
+- Each variable the line reads, with its value and where it is defined: a
+  line of this note, or another note. A plain value such as `x := 5`, which
+  shows no result of its own, shows its definition instead.
+- When more than one currency is involved, the exchange rates used and the
+  date they were published.
+- `Enter` (or a click in the desktop app) jumps to the selected definition,
+  opening the other note when it is there; `Esc` closes.
+- On a link, `K` previews the linked note instead.
+- The panel shows one level: inspect an input's own line to see what that
+  line reads.
+
 ## Totals across notes
 
 A `query` block adds up a variable over every note a search finds. Give each

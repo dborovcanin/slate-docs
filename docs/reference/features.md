@@ -265,7 +265,7 @@ Slate is modal: `Esc` leaves Insert for Normal mode. `[editor] vim_mode = true` 
 | `:` / `Ctrl+E`                                                            | Command bar                                                                                  |
 | `za`                                                                      | Toggle fold                                                                                  |
 | `gd`, `Ctrl+]`                                                            | Follow wiki link; `gd` on a variable goes to its definition                                  |
-| `K`                                                                       | Preview linked note                                                                          |
+| `K`                                                                       | Preview linked note; elsewhere, inspect the line's result                                    |
 | `gx`                                                                      | Preview image at cursor                                                                      |
 | `gX`                                                                      | Open image at cursor in the default viewer                                                   |
 | `?`                                                                       | Keyboard shortcuts (help)                                                                    |
@@ -579,6 +579,7 @@ the expression-aware `:sum` / `:avg` commands. An unindented decimal such as
 - Assign with `name := expression`; reference by name anywhere in the note. Names are case-insensitive and may contain spaces.
 - Dependents update as definitions change; values keep their unit, currency or duration (`len := 3 m to km` holds `0.003 km`).
 - `gd` (Normal) on a variable jumps to its definition (the last assignment, the one in effect). On `[[id]].name` it opens the other note at that definition.
+- `K` (Normal, off a link) or `:inspect` on a line with a result shows what it was computed from: each variable it reads with its value and where it is defined (a line of this note, or another note for `[[id]].name`), and the exchange rates used when more than one currency is involved. `Enter` (or a click, in the desktop app) jumps to the selected definition; `Esc` closes. The desktop app also has **Calc → Inspect result**.
 - Variable names are highlighted; an autocomplete popup appears after `[editor] variable_autocomplete_min_chars` (default 3) characters.
 - Another note's variable: `[[ID]].name` (needs the `cross_note` module); typing `[[ID]].` suggests that note's variables.
 
